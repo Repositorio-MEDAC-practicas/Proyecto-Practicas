@@ -1,0 +1,64 @@
+body {
+    margin: 0;
+    background-color: #3a323c;
+    background-image: url(../img/Fondo.png);
+    background-size: contain;
+    background-attachment: fixed;
+    background-repeat: space;
+}
+
+
+h1 {
+    margin: 40px 0;
+    text-align: center;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: #c27f6f;
+    letter-spacing: 10px;
+    font-size: 40px;
+}
+
+ul {
+    margin: 0 100px;
+    padding: 0;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: #23232e;
+    background-color: #6b5258;
+    list-style-type: none;
+    padding: 40px;
+    border-radius: 10px;
+    border: 5px double #c27f6f;
+    margin-bottom: 20px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 30px;
+    letter-spacing: 5px;
+}
+
+img {
+    width: 200px;
+    border: 5px solid #a37370;
+}
+
+.text-container {
+    display: flex;
+    flex-direction: column;
+    background-color: #d7c1b4;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.name {
+    font-size: 30px;
+    letter-spacing: 5px;
+}
+
+.description {
+    font-size: 18px;
+    letter-spacing: 2px;
+    color: #a37370;
+    margin-top: 5px;
+}
