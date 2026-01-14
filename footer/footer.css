@@ -1,0 +1,142 @@
+/* ===== FOOTER FINAL ROBUSTO ===== */
+
+.footer {
+  background-color: #2b1e16;
+  color: #f4ede6;
+  font-family: Arial, sans-serif;
+}
+
+/* CONTENEDOR QUE AISLA TODO */
+.footer-middle,
+.footer-top,
+.footer-bottom {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---------- ZONA SUPERIOR ---------- */
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 60px;
+  padding: 50px 80px 40px;
+}
+
+.footer-top-text h3 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.footer-top-text p {
+  font-size: 16px;
+  opacity: 0.85;
+}
+
+.footer-top-map iframe {
+  width: 320px;
+  height: 200px;
+  border: none;
+  border-radius: 10px;
+}
+
+/* ---------- ZONA CENTRAL (CLAVE) ---------- */
+
+.footer-middle {
+  display: flex;
+  justify-content: flex-start;
+  gap: 120px;
+  padding: 40px 80px;
+  border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+/* COLUMNAS BLOQUEADAS */
+.footer-column {
+  width: 220px;
+}
+
+/* TITULOS */
+.footer-column h4 {
+  margin-bottom: 15px;
+  font-size: 15px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* 🔥 RESET TOTAL DE LISTAS DEL FOOTER */
+.footer-column ul {
+  list-style: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.footer-column li {
+  display: block;
+  margin: 0 0 10px 0 !important;
+  padding: 0 !important;
+  background: none !important;
+  border: none !important;
+  font-size: 14px !important;
+}
+
+/* LINKS */
+.footer-column a {
+  color: #f4ede6 !important;
+  text-decoration: none !important;
+}
+
+.footer-column a:hover {
+  color: #d6b89c !important;
+}
+
+/* ---------- ZONA INFERIOR ---------- */
+
+.footer-bottom {
+  padding: 20px 80px;
+  margin-top: 40px;
+  border-top: 1px solid rgba(255,255,255,0.15);
+  text-align: center;
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 900px) {
+  .footer-top,
+  .footer-middle {
+    flex-direction: column;
+    gap: 40px;
+    padding: 40px;
+    text-align: center;
+  }
+
+  .footer-column {
+    width: auto;
+  }
+
+.footer-top-map {
+  position: relative;
+  width: 320px;
+  height: 200px;
+}
+
+.footer-top-map iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 10px;
+}
+
+.footer-top-map .map-link {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: transparent;
+  cursor: pointer;
+}
+
+
+}
