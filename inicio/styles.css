@@ -1,80 +1,58 @@
 body {
-    background-color: #3a323c;
-    background-image: url(../img/Fondo.png);
+    background-image: url(../img/Affogato.JPG);
     background-size: contain;
-    background-attachment: fixed;
-    position: relative;
-    background-repeat: space;
-}
-
-.columna_de_contenido {
-    background-color: #6b5258;
-    margin: 0 300px;
-    padding: 0px 0 40px 0;
-    border: 10px, double, #23232e;
+    margin: 0;
 }
 
 h1 {
-    margin: 0;
+    color: white;
+    font-size: 100px;
     text-align: center;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    color: #23232e;
-    letter-spacing: 5px;
-    font-size: 40px;
-    background-color: #ded0c7;
-    padding: 40px 20px 20px 20px;
-    border: 10px, double, #23232e;
-    border-bottom: 0;
+    text-shadow: 10px 10px 10px black;
 }
 
-h2 {
-    margin: 0 ;
-    text-align: center;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    color: #3a323c;
-    letter-spacing: 5px;
-    font-size: 30px;
-    background-color: #ded0c7;
-    padding: 20px 0 40px 0;
-    border-radius: 0 0 20px 20px;
-    border: 10px, double, #23232e;
-    border-top: 0;
-}
-
-a {
-    text-decoration: none;
-}
-
-ul {
+p {
     margin: 0;
-    padding: 0;
+}
+
+ul{
+    text-align: center;
+    margin-top: 200px;
 }
 
 li {
-    list-style-type: none;
-    margin: 10px 200px 0 200px;
+    padding: 100px;
+    background-color: beige;
+    display: inline-block;
+    width: 100px;
     text-align: center;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    color: #3a323c;
-    letter-spacing: 5px;
+    border-radius: 10px;
+    color: green;
+    border: 10px solid white;
+}
+
+.Der{
+    border-radius: 20px 10px 10px 20px;
+}
+
+.Izq{
+    border-radius: 10px 20px 20px 10px;
+}
+
+h2{
+    margin: 0;
+    box-sizing: content-box;
+}
+
+.Descubre{
+    text-align: center;
+    padding: 20px 0px;
+    background-color: green;
     font-size: 30px;
-    background-color: #d7c1b4;
-    padding: 20px;
-    border: 10px, double, #23232e;
-    border-radius: 20px 20px 20px 20px;
+    border-top: 10px solid beige;
+    border-bottom: 10px solid beige;;
 }
 
-.contenedor_mancha {
-    overflow: hidden;
-    position: absolute;
-    bottom: 0;
-    right: 300px;
-}
-
-.mancha {
-    padding: 150px;
-    background-image: url(../img/Mancha.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    transform: translateY(100px);
+img{
+width: 1521px;
 }
