@@ -1,0 +1,21 @@
+{
+  "footer": {
+    "brand": "Free Soul Drinks",
+    "claim": "Elegir sin alcohol",
+    "explore": {
+      "title": "Explorar",
+      "catalog": "Catálogo",
+      "about": "Sobre la marca"
+    },
+    "company": {
+      "title": "Empresa",
+      "contact": "Contacto",
+      "b2b": "Área profesional"
+    },
+    "legal": {
+      "privacy": "Política de privacidad",
+      "cookies": "Política de cookies",
+      "terms": "Términos y condiciones"
+    }
+  }
+}

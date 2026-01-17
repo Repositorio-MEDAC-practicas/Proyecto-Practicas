@@ -1,142 +1,130 @@
-/* ===== FOOTER FINAL ROBUSTO ===== */
+.footer, .footer * {
+  all: unset;
+  box-sizing: border-box;
+}
+
+/* CONTENEDOR GENERAL */
 
 .footer {
-  background-color: #2b1e16;
-  color: #f4ede6;
-  font-family: Arial, sans-serif;
+  display: block;
+  background-color: #fdfbf8;
+  padding: 150px 0 0;
+  font-family: 'Montserrat', sans-serif;
+  color: #1c1c1c;
+  border-top: 1px solid #e5e5e5;
+  position: relative;
 }
 
-/* CONTENEDOR QUE AISLA TODO */
-.footer-middle,
-.footer-top,
-.footer-bottom {
+.footer-container {
   max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
+  padding: 0 40px 40px;
 }
 
-/* ---------- ZONA SUPERIOR ---------- */
+/* FILA SUPERIOR */
 
 .footer-top {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 60px;
-  padding: 50px 80px 40px;
+  margin-bottom: 50px;
+  padding: 0 20px;
 }
 
-.footer-top-text h3 {
-  font-size: 28px;
-  margin-bottom: 10px;
+.footer-logo img {
+  height: 55px;
 }
 
-.footer-top-text p {
-  font-size: 16px;
-  opacity: 0.85;
-}
-
-.footer-top-map iframe {
-  width: 320px;
-  height: 200px;
-  border: none;
-  border-radius: 10px;
-}
-
-/* ---------- ZONA CENTRAL (CLAVE) ---------- */
-
-.footer-middle {
+.footer-social {
   display: flex;
-  justify-content: flex-start;
-  gap: 120px;
-  padding: 40px 80px;
-  border-top: 1px solid rgba(255,255,255,0.2);
+  gap: 20px;
 }
 
-/* COLUMNAS BLOQUEADAS */
-.footer-column {
-  width: 220px;
+.footer-social img {
+  height: 32px;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
 }
 
-/* TITULOS */
-.footer-column h4 {
-  margin-bottom: 15px;
-  font-size: 15px;
+.footer-social img:hover {
+  opacity: 1;
+}
+
+/* ENLACES CENTRALES */
+
+.footer-center-links {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.footer-center-links a {
+  font-size: 12px;
   letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #222;
+  text-decoration: none;
+}
+
+.footer-center-links a:hover {
+  opacity: 0.6;
+}
+
+/* IDIOMAS (ESQUINA DERECHA) */
+
+.footer-lang {
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  display: flex;
+  gap: 12px;
+}
+
+.footer-lang button {
+  border: 1px solid #aaa;
+  background: none;
+  padding: 6px 14px;
+  font-size: 11px;
+  letter-spacing: 1px;
+  cursor: pointer;
   text-transform: uppercase;
 }
 
-/* 🔥 RESET TOTAL DE LISTAS DEL FOOTER */
-.footer-column ul {
-  list-style: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
+.footer-lang button:hover {
+  background-color: #1c1c1c;
+  color: white;
+  border-color: #1c1c1c;
 }
 
-.footer-column li {
-  display: block;
-  margin: 0 0 10px 0 !important;
-  padding: 0 !important;
-  background: none !important;
-  border: none !important;
-  font-size: 14px !important;
-}
-
-/* LINKS */
-.footer-column a {
-  color: #f4ede6 !important;
-  text-decoration: none !important;
-}
-
-.footer-column a:hover {
-  color: #d6b89c !important;
-}
-
-/* ---------- ZONA INFERIOR ---------- */
+/* FRANJA INFERIOR */
 
 .footer-bottom {
-  padding: 20px 80px;
-  margin-top: 40px;
-  border-top: 1px solid rgba(255,255,255,0.15);
+  border-top: 1px solid #ddd;
+  padding: 18px 40px;
   text-align: center;
-  font-size: 13px;
-  opacity: 0.8;
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: #666;
 }
 
-/* ---------- RESPONSIVE ---------- */
+/* RESPONSIVE */
 
 @media (max-width: 900px) {
-  .footer-top,
-  .footer-middle {
+  .footer-top {
     flex-direction: column;
-    gap: 40px;
-    padding: 40px;
-    text-align: center;
+    gap: 30px;
   }
 
-  .footer-column {
-    width: auto;
+  .footer-center-links {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
   }
 
-.footer-top-map {
-  position: relative;
-  width: 320px;
-  height: 200px;
-}
-
-.footer-top-map iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-  border-radius: 10px;
-}
-
-.footer-top-map .map-link {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  background: transparent;
-  cursor: pointer;
-}
-
-
+  .footer-lang {
+    position: static;
+    justify-content: center;
+    margin-bottom: 30px;
+  }
 }
