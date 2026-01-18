@@ -3,16 +3,19 @@
 }
 
 body {
-    background-image: url(../img/Affogato.JPG);
-    background-size: contain;
     margin: 0;
 }
 
 h1 {
     color: white;
-    font-size: 100px;
+    font-size: 90px;
     text-align: center;
     text-shadow: 10px 10px 10px black;
+    background-image: url(../img/Affogato.JPG);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    margin: 0;
+    padding: 80px 0 150px 0;
 }
 
 p {
@@ -22,6 +25,9 @@ p {
 ul{
     text-align: center;
     margin-top: 200px;
+    padding: 100px 0 100px 0;
+    margin: 0;
+    border-top: 5px solid green;
 }
 
 li {
@@ -32,31 +38,49 @@ li {
     text-align: center;
     border-radius: 10px;
     color: green;
-    border: 10px solid white;
-}
-
-.Der{
-    border-radius: 20px 10px 10px 20px;
-}
-
-.Izq{
-    border-radius: 10px 20px 20px 10px;
+    border: 5px solid green;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: relative;
+    background-position: center;
 }
 
 h2{
+    position: absolute;
+    top: -70px;
     margin: 0;
     box-sizing: content-box;
+}
+
+.Der{
+    border-radius: 20px 15px 15px 20px;
+    background-image: url(../img/beer-mug-938758.png);
+    background-size: 70%;
+}
+
+.Medio {
+    border-radius: 15px;
+    background-image: url(../img/a-bottle-of-wine-5038057.png);
+    background-size: 90%;
+}
+
+.Izq{
+    border-radius: 15px 20px 20px 15px;
+    background-image: url(../img/cocktail-6673319.png);
+    background-size: 80%;
 }
 
 .Descubre{
     text-align: center;
     padding: 20px 0px;
-    background-color: green;
+    background-color: beige;
     font-size: 30px;
-    border-top: 10px solid beige;
-    border-bottom: 10px solid beige;;
+    border-top: 5px solid green;
+    color: green;
+    font-weight: 700;
 }
 
-img{
-width: 1521px;
+.Mas {
+    background-image: url(../img/happy-holidays-2578446.jpg);
+    background-size: 1521px;
 }
