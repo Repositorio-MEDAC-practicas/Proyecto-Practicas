@@ -84,3 +84,36 @@ h2{
     background-image: url(../img/happy-holidays-2578446.jpg);
     background-size: 1521px;
 }
+
+.class1{
+    background-image: url(../img/cognac.png)
+}
+
+.class2 {
+    background-image: url(../img/gin.png);
+}
+
+.class3{
+    background-image: url(../img/ginver.png);
+    background-size: 21%;
+}
+
+.class4{
+    background-image: url(../img/mezcal.png);
+}
+
+.class5{
+    background-image: url(../img/rum.png);
+}
+
+.class6{
+    background-image: url(../img/tequila.png);
+}
+
+.class7{
+    background-image: url(../img/vodka.png);
+}
+
+.class8{
+    background-image: url(../img/whiskey.png);
+}
