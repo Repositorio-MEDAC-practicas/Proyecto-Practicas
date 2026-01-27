@@ -1,130 +1,120 @@
-.footer, .footer * {
-  all: unset;
-  box-sizing: border-box;
+/* ================= FOOTER – Free Soul Drinks ================= */
+
+.site-footer{
+  background:var(--beige);
+  padding:120px 8% 40px;
+  color:var(--dark);
 }
 
-/* CONTENEDOR GENERAL */
+/* GRID */
 
-.footer {
-  display: block;
-  background-color: #fdfbf8;
-  padding: 150px 0 0;
-  font-family: 'Montserrat', sans-serif;
-  color: #1c1c1c;
-  border-top: 1px solid #e5e5e5;
-  position: relative;
+.footer-inner{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr 1fr 2fr;
+  gap:70px;
+  max-width:1500px;
+  margin:auto;
 }
 
-.footer-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 40px 40px;
+/* BRAND */
+
+.footer-brand img{
+  height:80px;
 }
 
-/* FILA SUPERIOR */
-
-.footer-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 50px;
-  padding: 0 20px;
+.footer-brand p{
+  margin-top:18px;
+  max-width:280px;
 }
 
-.footer-logo img {
-  height: 55px;
+/* COLS */
+
+.footer-col h4,
+.footer-newsletter h4{
+  font-size:1.1rem;
+  margin-bottom:14px;
 }
 
-.footer-social {
-  display: flex;
-  gap: 20px;
+.footer-col a{
+  display:block;
+  text-decoration:none;
+  color:var(--dark);
+  margin-bottom:8px;
+  transition:.25s;
 }
 
-.footer-social img {
-  height: 32px;
-  opacity: 0.8;
-  transition: opacity 0.2s ease;
+.footer-col a:hover{
+  color:var(--green);
 }
 
-.footer-social img:hover {
-  opacity: 1;
+/* NEWSLETTER */
+
+.footer-newsletter p{
+  font-size:.9rem;
 }
 
-/* ENLACES CENTRALES */
-
-.footer-center-links {
-  display: flex;
-  justify-content: center;
-  gap: 30px;
-  margin-bottom: 40px;
+.footer-newsletter input{
+  width:100%;
+  padding:12px 14px;
+  border:1px solid #ddd;
+  border-radius:8px;
+  margin-top:12px;
 }
 
-.footer-center-links a {
-  font-size: 12px;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: #222;
-  text-decoration: none;
+.footer-newsletter button{
+  margin-top:10px;
+  background:var(--green);
+  color:white;
+  border:none;
+  padding:12px;
+  width:100%;
+  border-radius:30px;
+  cursor:pointer;
+  transition:.3s;
 }
 
-.footer-center-links a:hover {
-  opacity: 0.6;
+.footer-newsletter button:hover{
+  transform:scale(1.06);
 }
 
-/* IDIOMAS (ESQUINA DERECHA) */
+/* BOTTOM */
 
-.footer-lang {
-  position: absolute;
-  top: 40px;
-  right: 40px;
-  display: flex;
-  gap: 12px;
+.footer-bottom{
+  border-top:1px solid rgba(0,0,0,.1);
+  margin-top:70px;
+  padding-top:24px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
 
-.footer-lang button {
-  border: 1px solid #aaa;
-  background: none;
-  padding: 6px 14px;
-  font-size: 11px;
-  letter-spacing: 1px;
-  cursor: pointer;
-  text-transform: uppercase;
+.footer-social a{
+  margin-left:18px;
+  text-decoration:none;
+  color:var(--dark);
 }
 
-.footer-lang button:hover {
-  background-color: #1c1c1c;
-  color: white;
-  border-color: #1c1c1c;
-}
-
-/* FRANJA INFERIOR */
-
-.footer-bottom {
-  border-top: 1px solid #ddd;
-  padding: 18px 40px;
-  text-align: center;
-  font-size: 11px;
-  letter-spacing: 1px;
-  color: #666;
+.footer-social a:hover{
+  color:var(--green);
 }
 
 /* RESPONSIVE */
 
-@media (max-width: 900px) {
-  .footer-top {
-    flex-direction: column;
-    gap: 30px;
+@media(max-width:1100px){
+  .footer-inner{
+    grid-template-columns:1fr 1fr;
+  }
+}
+
+@media(max-width:600px){
+
+  .footer-inner{
+    grid-template-columns:1fr;
+    gap:40px;
   }
 
-  .footer-center-links {
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .footer-lang {
-    position: static;
-    justify-content: center;
-    margin-bottom: 30px;
+  .footer-bottom{
+    flex-direction:column;
+    gap:18px;
   }
 }
