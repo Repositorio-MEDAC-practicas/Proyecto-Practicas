@@ -1,7 +1,7 @@
 /* ================= FOOTER – Free Soul Drinks ================= */
 
 .site-footer{
-  background:var(--beige);
+  background:#e3e8de; /* mismo verde salvia del header */
   padding:120px 8% 40px;
   color:var(--dark);
 }
@@ -56,9 +56,10 @@
 .footer-newsletter input{
   width:100%;
   padding:12px 14px;
-  border:1px solid #ddd;
+  border:1px solid rgba(0,0,0,.12);
   border-radius:8px;
   margin-top:12px;
+  background:#f6f8f4;
 }
 
 .footer-newsletter button{
@@ -80,7 +81,7 @@
 /* BOTTOM */
 
 .footer-bottom{
-  border-top:1px solid rgba(0,0,0,.1);
+  border-top:1px solid rgba(95,122,103,.35); /* verde suave */
   margin-top:70px;
   padding-top:24px;
   display:flex;
@@ -92,6 +93,7 @@
   margin-left:18px;
   text-decoration:none;
   color:var(--dark);
+  font-weight:500;
 }
 
 .footer-social a:hover{

@@ -13,7 +13,6 @@
 <body>
 
 <link rel="stylesheet" href="../header/header.css">
-
 <div id="header-container"></div>
 
 <script>
@@ -28,114 +27,101 @@ fetch("../header/header.html")
   });
 </script>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-overlay"></div>
+<!-- ================= HERO SLIDER ================= -->
 
-  <div class="hero-content">
-    <h1>Celebra diferente.</h1>
-    <p>Bebidas sin alcohol para noches inolvidables.</p>
+<section class="hero-slider">
 
-    <div class="hero-ctas">
-      <a href="#categories" class="btn-main">Explorar bebidas</a>
-<a href="#catalog" class="btn-outline btn-cart">
-  <svg class="cart-icon" viewBox="0 0 24 24" fill="none">
-    <path d="M3 3h2l2.4 11.2a2 2 0 0 0 2 1.6h7.6a2 2 0 0 0 2-1.6L21 7H6"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"/>
-    <circle cx="10" cy="20" r="1.6"/>
-    <circle cx="17" cy="20" r="1.6"/>
-  </svg>
-  Comprar
-</a>
+  <!-- SLIDE 1 -->
+  <div class="slide active" style="background-image:url('../imagenes/hero1.png')">
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <h1>Celebra diferente.</h1>
+      <p>Bebidas sin alcohol para noches inolvidables.</p>
+
+      <div class="hero-ctas">
+
+        <a href="#catalog" class="btn-outline btn-cart">
+
+          <svg class="cart-icon" viewBox="0 0 24 24" fill="none">
+            <path d="M4 5h2l2.5 10h8l2-6H7"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round"/>
+            <circle cx="10" cy="20" r="1.3"/>
+            <circle cx="17" cy="20" r="1.3"/>
+          </svg>
+
+          Comprar
+        </a>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- SLIDE 2 -->
+  <div class="slide" style="background-image:url('../imagenes/hero2.jpg')">
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+
+      <h1 class="hero-split">
+        Eventos<br>
+        <span>y</span><br>
+        empresas.
+      </h1>
+
+      <p>Soluciones premium sin alcohol para hostelería.</p>
+
+      <div class="hero-ctas">
+        <a href="#b2b" class="btn-main">Contacto profesional</a>
+      </div>
 
     </div>
   </div>
+
+  <!-- DOTS -->
+  <div class="slider-dots">
+    <span class="dot active"></span>
+    <span class="dot"></span>
+  </div>
+
 </section>
 
-<!-- CATEGORIES -->
-<section id="categories" class="categories">
 
+<!-- ================= CATEGORIES ================= -->
+
+<section id="categories" class="categories">
   <h2>¿Qué te apetece hoy?</h2>
 
   <div class="cat-grid">
-
-<div class="cat-item">
-
-  <img src="../imagenes/cerveza.png" alt="Cervezas sin alcohol">
-  <h3>Cervezas 0.0</h3>
-</div>
-
-<div class="cat-item">
-  <img src="../imagenes/destilados.png" alt="Destilados sin alcohol">
-  <h3>Destilados</h3>
-</div>
-
-<div class="cat-item">
-  <img src="../imagenes/sidras.png" alt="Sidras sin alcohol">
-  <h3>Sidras</h3>
-</div>
-
-<div class="cat-item">
-  <img src="../imagenes/vino.png" alt="Vinos sin alcohol">
-  <h3>Vinos</h3>
-</div>
-
+    <div class="cat-item"><img src="../imagenes/cerveza.png"><h3>Cervezas 0.0</h3></div>
+    <div class="cat-item"><img src="../imagenes/destilados.png"><h3>Destilados</h3></div>
+    <div class="cat-item"><img src="../imagenes/sidras.png"><h3>Sidras</h3></div>
+    <div class="cat-item"><img src="../imagenes/vino.png"><h3>Vinos</h3></div>
   </div>
 </section>
-<link rel="stylesheet" href="../header/header.css">
 
-<div id="header-container"></div>
+<!-- ================= LIFESTYLE ================= -->
 
-<script>
-fetch("../header/header.html")
-  .then(res=>res.text())
-  .then(html=>{
-    document.getElementById("header-container").innerHTML = html;
-
-    const script = document.createElement("script");
-    script.src = "../header/header.js";
-    document.body.appendChild(script);
-  });
-</script>
-
-<!-- LIFESTYLE -->
 <section class="lifestyle">
-
 <h2>Celebrar con conciencia</h2>
-<p>
-Descubre nuevas formas de brindar, socializar y disfrutar
-sin alcohol, sin renunciar al sabor ni a la estética.
-</p>
+<p>Descubre nuevas formas de brindar y disfrutar sin alcohol.</p>
 
 <div class="life-grid">
-
-  <div>
-    <h3>🌿 Ingredientes naturales</h3>
-    <p>Botánicos, frutas y procesos artesanos.</p>
-  </div>
-
-  <div>
-    <h3>🥂 Para cualquier ocasión</h3>
-    <p>Fiestas, cenas, eventos y afterworks.</p>
-  </div>
-
-  <div>
-    <h3>🎉 Nueva cultura social</h3>
-    <p>Elegir también es celebrar.</p>
-  </div>
-
+  <div><h3>🌿 Ingredientes naturales</h3><p>Botánicos y frutas.</p></div>
+  <div><h3>🥂 Para cualquier ocasión</h3><p>Fiestas y eventos.</p></div>
+  <div><h3>🎉 Nueva cultura social</h3><p>Elegir también es celebrar.</p></div>
 </div>
 </section>
 
-<!-- PARTY STRIP -->
 <section class="party-strip">
-  <h2>Elegir también es celebrar</h2>
+<h2>Elegir también es celebrar</h2>
 </section>
 
-<!-- PRODUCTOS -->
+<!-- ================= CATALOG ================= -->
+
 <section id="catalog" class="catalog">
 
 <h2>Lo más buscado</h2>
@@ -143,94 +129,68 @@ sin alcohol, sin renunciar al sabor ni a la estética.
 <div class="product-grid">
 
 <article class="product">
-
   <div class="product-img">
-    <img src="../imagenes/vino-natureo.png" alt="Vino espumoso sin alcohol">
-
+    <img src="../imagenes/vino-natureo.png">
     <div class="product-overlay">
       <h4>Notas de cata</h4>
-      <p>Burbuja fina · cítricos · flor blanca · fresco y equilibrado</p>
+      <p>Burbuja fina · cítricos · flor blanca</p>
     </div>
   </div>
-
-  <h3>Vino Espumoso Natureo</h3>
+  <h3>Natureo</h3>
   <span>€12,90</span>
   <button class="btn-add">Añadir</button>
-
 </article>
 
-
 <article class="product">
-
   <div class="product-img">
-    <img src="../imagenes/cerveza-heineken.png" alt="Cerveza sin alcohol">
-
+    <img src="../imagenes/cerveza-heineken.png">
     <div class="product-overlay">
       <h4>Notas de cata</h4>
-      <p>Malta suave · herbal · refrescante · final seco</p>
+      <p>Malta · herbal · refrescante</p>
     </div>
   </div>
-
-  <h3>Cerveza Heineken 0.0</h3>
+  <h3>Heineken 0.0</h3>
   <span>€3,00</span>
   <button class="btn-add">Añadir</button>
-
 </article>
-
 
 <article class="product">
-
   <div class="product-img">
-    <img src="../imagenes/ginebra-tanqueray.png" alt="Ginebra sin alcohol">
-
+    <img src="../imagenes/ginebra-tanqueray.png">
     <div class="product-overlay">
       <h4>Notas de cata</h4>
-      <p>Enebro · lima · botánicos · limpio y aromático</p>
+      <p>Enebro · lima · botánicos</p>
     </div>
   </div>
-
-  <h3>Ginebra Tanqueray 0.0</h3>
+  <h3>Tanqueray 0.0</h3>
   <span>€14,90</span>
   <button class="btn-add">Añadir</button>
-
 </article>
 
-
 </div>
-
-
-
 </section>
 
-<!-- B2B -->
-<section class="b2b">
+<section id="b2b" class="b2b">
   <div class="b2b-box">
     <h2>Eventos sin alcohol que sí molan</h2>
-    <p>Fiestas privadas · Empresas · Hostelería · Catering</p>
+    <p>Empresas · Catering · Hostelería</p>
     <a class="btn-main">Contacto profesional</a>
   </div>
-</section>
-
-<!-- FINAL -->
-<section class="final">
-  <h2>Empieza la fiesta consciente.</h2>
-  <a href="#catalog" class="btn-main big">Entrar a la tienda</a>
 </section>
 
 <script src="script.js"></script>
 
 <link rel="stylesheet" href="../footer/footer.css">
-
 <div id="footer-container"></div>
 
 <script>
 fetch("../footer/footer.html")
-  .then(res => res.text())
-  .then(html => {
+  .then(res=>res.text())
+  .then(html=>{
     document.getElementById("footer-container").innerHTML = html;
 
-    const s = document.createElement("script");
-    s.src = "../footer/footer.js";
+    const s=document.createElement("script");
+    s.src="../footer/footer.js";
     document.body.appendChild(s);
   });
 </script>

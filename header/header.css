@@ -1,6 +1,6 @@
 /* ================= HEADER – Free Soul Drinks ================= */
 
-.martini-header{
+.freesoul-header{
   position:fixed;
   width:100%;
   top:0;
@@ -14,22 +14,26 @@
 .top-lang{
   display:flex;
   justify-content:flex-end;
-  gap:14px;
-  padding:10px 7%;
-  font-size:.85rem;
+  gap:16px;
+  padding:8px 7%;
+  font-size:.95rem;
   color:white;
 }
 
 .top-lang a{
   cursor:pointer;
-  opacity:.75;
-  padding:6px 14px;
+  opacity:1;
+  padding:6px 16px;
   border-radius:18px;
   transition:.25s;
+  background:rgba(95,122,103,.65);
+  color:white;
+  font-weight:600;
+  box-shadow:0 4px 12px rgba(0,0,0,.18);
 }
 
 .top-lang a:hover{
-  background:rgba(255,255,255,.18);
+  background:var(--green);
 }
 
 .top-lang a.active{
@@ -39,21 +43,23 @@
 
 /* ---------- AFTER SCROLL ---------- */
 
-.martini-header.scrolled{
-  background:var(--beige);
-  box-shadow:0 12px 34px rgba(0,0,0,.14);
+.freesoul-header.scrolled{
+  background:#e3e8de; /* verde salvia suave */
+  box-shadow:0 14px 34px rgba(0,0,0,.16);
+  transition:.4s ease;
 }
 
-.martini-header.scrolled .top-lang{
+.freesoul-header.scrolled .top-lang{
   color:var(--dark);
 }
 
-.martini-header.scrolled .top-lang a{
+.freesoul-header.scrolled .top-lang a{
   background:rgba(0,0,0,.06);
 }
 
-.martini-header.scrolled .top-lang a.active{
-  background:rgba(95,122,103,.22);
+.freesoul-header.scrolled .top-lang a.active{
+  background:var(--green);
+  color:white;
 }
 
 /* ---------- GRID ---------- */
@@ -61,7 +67,7 @@
 .header-inner{
   max-width:1500px;
   margin:auto;
-  padding:34px 7%;
+  padding:22px 7%;
   display:grid;
   grid-template-columns:1fr auto 1fr;
   align-items:center;
@@ -79,19 +85,20 @@
 
 .header-logo{
   text-align:center;
+  padding:0 60px;
 }
 
 .header-logo img{
-  height:150px;
-  max-height:170px;
+  height:190px;
+  max-height:230px;
   width:auto;
   transition:.35s ease;
 }
 
 /* shrink on scroll */
 
-.martini-header.scrolled .header-logo img{
-  height:110px;
+.freesoul-header.scrolled .header-logo img{
+  height:120px;
 }
 
 /* ---------- NAV ---------- */
@@ -99,29 +106,22 @@
 .nav-left,
 .nav-right{
   display:flex;
-  gap:78px;   /* ⬅️ más separación */
+  gap:70px;
 }
-
-/* LOGO – más aire lateral */
-
-.header-logo{
-  text-align:center;
-  padding:0 60px;   /* ⬅️ separación respecto a menús */
-}
-
 
 .nav-left a,
 .nav-right a{
   text-decoration:none;
-  font-weight:500;
+  font-weight:700;
+  font-size:1.28rem;
   color:white;
   position:relative;
   padding:4px 0;
   transition:.3s;
 }
 
-.martini-header.scrolled .nav-left a,
-.martini-header.scrolled .nav-right a{
+.freesoul-header.scrolled .nav-left a,
+.freesoul-header.scrolled .nav-right a{
   color:var(--dark);
 }
 
@@ -132,7 +132,7 @@
   content:"";
   position:absolute;
   left:0;
-  bottom:-8px;
+  bottom:-9px;
   width:0;
   height:3px;
   background:var(--green);
@@ -162,7 +162,7 @@
   transition:.3s;
 }
 
-.martini-header.scrolled .burger span{
+.freesoul-header.scrolled .burger span{
   background:var(--dark);
 }
 
@@ -181,10 +181,10 @@
   }
 
   .top-lang{
-    padding:8px 6%;
+    padding:6px 6%;
   }
 
   .header-logo img{
-    height:95px;
+    height:105px;
   }
 }

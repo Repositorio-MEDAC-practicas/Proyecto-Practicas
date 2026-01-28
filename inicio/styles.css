@@ -26,72 +26,6 @@ h1,h2,h3{
   letter-spacing:.3px;
 }
 
-/* ================= HERO ================= */
-
-.hero{
-  min-height:90vh;
-  background:
-    url("https://img.freepik.com/fotos-premium/amigos-brindando-bebidas-fiesta-atardecer_146482-19734.jpg")
-    center/cover no-repeat;
-  position:relative;
-  display:flex;
-  align-items:center;
-}
-
-.hero-overlay{
-  position:absolute;
-  inset:0;
-  background:linear-gradient(90deg,
-    rgba(0,0,0,.45),
-    rgba(0,0,0,.10));
-}
-
-.hero-content{
-  position:relative;
-  padding:9%;
-  max-width:540px;
-  color:white;
-}
-
-.hero h1{
-  font-size:3.9rem;
-  line-height:1.05;
-}
-
-.hero-content p{
-  font-size:1.15rem;
-  margin-top:14px;
-  max-width:420px;
-}
-
-.hero-ctas{
-  margin-top:34px;
-  display:flex;
-  gap:18px;
-}
-
-/* CART BUTTON */
-
-.btn-cart{
-  display:inline-flex;
-  align-items:center;
-  gap:10px;
-}
-
-.cart-icon{
-  width:20px;
-  height:20px;
-}
-
-/* hover effect */
-
-.btn-outline:hover{
-  background:rgba(255,255,255,.15);
-  backdrop-filter:blur(2px);
-  transform:scale(1.06);
-}
-
-
 /* ================= BUTTONS ================= */
 
 .btn-main{
@@ -121,6 +55,129 @@ h1,h2,h3{
 
 .btn-outline:hover{
   background:rgba(255,255,255,.12);
+}
+
+/* ================= HERO SLIDER ================= */
+
+.hero-slider{
+  position:relative;
+  height:90vh;
+  overflow:hidden;
+}
+
+.hero-slider .slide{
+  position:absolute;
+  inset:0;
+
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+
+  opacity:0;
+  transition:opacity 1s ease;
+}
+
+.hero-slider .slide.active{
+  opacity:1;
+  z-index:2;
+}
+
+.hero-slider .hero-overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(90deg,
+    rgba(0,0,0,.55),
+    rgba(0,0,0,.15));
+}
+
+.hero-content{
+  position:relative;
+  padding:9%;
+  max-width:540px;
+  color:white;
+  z-index:3;
+}
+
+.hero-slider h1{
+  font-size:3.9rem;
+  line-height:1.05;
+}
+
+.hero-content p{
+  font-size:1.15rem;
+  margin-top:14px;
+  max-width:420px;
+}
+
+.hero-ctas{
+  margin-top:34px;
+  display:flex;
+  gap:18px;
+}
+
+/* ===== HERO BUY BUTTON SOLID GREEN ===== */
+
+.hero-slider .btn-outline{
+  border:none;
+  background:var(--green);
+  color:white;
+  padding:16px 40px;
+  border-radius:10px;
+  font-weight:600;
+  display:inline-flex;
+  align-items:center;
+  gap:12px;
+}
+
+.hero-slider .btn-outline svg{
+  stroke:white;
+  width:18px;
+  height:18px;
+}
+
+/* hover */
+
+.hero-slider .btn-outline:hover{
+  background:#486e5d;
+  transform:scale(1.08);
+  box-shadow:0 14px 32px rgba(95,122,103,.45);
+}
+
+/* CART */
+
+.btn-cart{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+}
+
+.cart-icon{
+  width:20px;
+  height:20px;
+}
+
+/* DOTS */
+
+.slider-dots{
+  position:absolute;
+  bottom:28px;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  gap:12px;
+  z-index:5;
+}
+
+.slider-dots .dot{
+  width:12px;
+  height:12px;
+  border-radius:50%;
+  background:rgba(255,255,255,.4);
+  cursor:pointer;
+}
+
+.slider-dots .dot.active{
+  background:var(--green);
 }
 
 /* ================= CATEGORIES ================= */
@@ -160,7 +217,7 @@ h1,h2,h3{
   margin-top:18px;
 }
 
-/* ================= LIFESTYLE SECTION ================= */
+/* ================= LIFESTYLE ================= */
 
 .lifestyle{
   background:
@@ -184,15 +241,11 @@ h1,h2,h3{
   opacity:.85;
 }
 
-/* GRID */
-
 .life-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:46px;
 }
-
-/* CARD */
 
 .life-grid > div{
   background:white;
@@ -207,15 +260,11 @@ h1,h2,h3{
   transform:translateY(-12px) scale(1.02);
 }
 
-/* ICON */
-
 .life-grid h3{
   font-size:1.25rem;
   margin-bottom:10px;
   color:var(--green);
 }
-
-/* subtle glow */
 
 .life-grid > div::after{
   content:"";
@@ -234,7 +283,7 @@ h1,h2,h3{
   opacity:1;
 }
 
-/* ================= PARTY STRIP ================= */
+/* ================= PARTY ================= */
 
 .party-strip{
   background:
@@ -248,24 +297,9 @@ h1,h2,h3{
 
 .party-strip h2{
   font-size:2.6rem;
-  letter-spacing:.04em;
 }
 
-/* RESPONSIVE */
-
-@media(max-width:900px){
-
-  .life-grid{
-    grid-template-columns:1fr;
-  }
-
-  .party-strip h2{
-    font-size:2.2rem;
-  }
-}
-
-
-/* ================== CATALOG ================== */
+/* ================= CATALOG ================= */
 
 .catalog{
   background:var(--beige);
@@ -284,8 +318,6 @@ h1,h2,h3{
   gap:52px;
 }
 
-/* CARD */
-
 .product{
   background:white;
   padding:26px;
@@ -297,8 +329,6 @@ h1,h2,h3{
 .product:hover{
   transform:translateY(-12px);
 }
-
-/* IMAGE WRAP */
 
 .product-img{
   position:relative;
@@ -313,13 +343,9 @@ h1,h2,h3{
   transition:.6s ease;
 }
 
-/* ZOOM IMG */
-
 .product:hover img{
   transform:scale(1.12);
 }
-
-/* OVERLAY */
 
 .product-overlay{
   position:absolute;
@@ -340,29 +366,6 @@ h1,h2,h3{
   opacity:1;
 }
 
-.product-overlay h4{
-  font-size:1.3rem;
-  margin-bottom:12px;
-}
-
-.product-overlay p{
-  font-size:.95rem;
-}
-
-/* TEXT */
-
-.product h3{
-  margin:22px 0 6px;
-}
-
-.product span{
-  display:block;
-  margin-bottom:16px;
-  font-weight:600;
-}
-
-/* BUTTON */
-
 .btn-add{
   background:var(--green);
   color:white;
@@ -377,31 +380,14 @@ h1,h2,h3{
 .btn-add:hover{
   background:#486e5d;
   transform:scale(1.08);
-  box-shadow:0 10px 22px rgba(0,0,0,.15);
 }
-
-/* RESPONSIVE */
-
-@media(max-width:950px){
-
-  .product-grid{
-    grid-template-columns:1fr;
-  }
-
-  .product-img img{
-    height:260px;
-  }
-
-}
-
 
 /* ================= B2B ================= */
 
 .b2b{
   background:
   linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
-  url("https://images.unsplash.com/photo-1510626176961-4b57d4fbad03")
-  center/cover;
+  url("../imagenes/hero2.jpg") center/cover;
 
   padding:150px 10%;
   text-align:center;
@@ -411,20 +397,4 @@ h1,h2,h3{
 .b2b-box{
   max-width:600px;
   margin:auto;
-}
-
-.b2b-box h2{
-  font-size:2.6rem;
-}
-
-/* ================= FINAL ================= */
-
-.final{
-  background:var(--beige);
-  padding:130px 10%;
-  text-align:center;
-}
-
-.big{
-  font-size:1.45rem;
 }
