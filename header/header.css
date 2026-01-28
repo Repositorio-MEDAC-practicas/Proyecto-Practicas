@@ -1,0 +1,190 @@
+/* ================= HEADER – Free Soul Drinks ================= */
+
+.freesoul-header{
+  position:fixed;
+  width:100%;
+  top:0;
+  z-index:999;
+  transition:.4s ease;
+  background:transparent;
+}
+
+/* ---------- LANG BAR ---------- */
+
+.top-lang{
+  display:flex;
+  justify-content:flex-end;
+  gap:16px;
+  padding:8px 7%;
+  font-size:.95rem;
+  color:white;
+}
+
+.top-lang a{
+  cursor:pointer;
+  opacity:1;
+  padding:6px 16px;
+  border-radius:18px;
+  transition:.25s;
+  background:rgba(95,122,103,.65);
+  color:white;
+  font-weight:600;
+  box-shadow:0 4px 12px rgba(0,0,0,.18);
+}
+
+.top-lang a:hover{
+  background:var(--green);
+}
+
+.top-lang a.active{
+  opacity:1;
+  background:rgba(255,255,255,.30);
+}
+
+/* ---------- AFTER SCROLL ---------- */
+
+.freesoul-header.scrolled{
+  background:#e3e8de; /* verde salvia suave */
+  box-shadow:0 14px 34px rgba(0,0,0,.16);
+  transition:.4s ease;
+}
+
+.freesoul-header.scrolled .top-lang{
+  color:var(--dark);
+}
+
+.freesoul-header.scrolled .top-lang a{
+  background:rgba(0,0,0,.06);
+}
+
+.freesoul-header.scrolled .top-lang a.active{
+  background:var(--green);
+  color:white;
+}
+
+/* ---------- GRID ---------- */
+
+.header-inner{
+  max-width:1500px;
+  margin:auto;
+  padding:22px 7%;
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  align-items:center;
+}
+
+.nav-left{
+  justify-self:end;
+}
+
+.nav-right{
+  justify-self:start;
+}
+
+/* ---------- LOGO ---------- */
+
+.header-logo{
+  text-align:center;
+  padding:0 60px;
+}
+
+.header-logo img{
+  height:190px;
+  max-height:230px;
+  width:auto;
+  transition:.35s ease;
+}
+
+/* shrink on scroll */
+
+.freesoul-header.scrolled .header-logo img{
+  height:120px;
+}
+
+/* ---------- NAV ---------- */
+
+.nav-left,
+.nav-right{
+  display:flex;
+  gap:70px;
+}
+
+.nav-left a,
+.nav-right a{
+  text-decoration:none;
+  font-weight:700;
+  font-size:1.28rem;
+  color:white;
+  position:relative;
+  padding:4px 0;
+  transition:.3s;
+}
+
+.freesoul-header.scrolled .nav-left a,
+.freesoul-header.scrolled .nav-right a{
+  color:var(--dark);
+}
+
+/* underline green */
+
+.nav-left a::after,
+.nav-right a::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-9px;
+  width:0;
+  height:3px;
+  background:var(--green);
+  transition:.35s;
+}
+
+.nav-left a:hover::after,
+.nav-right a:hover::after{
+  width:100%;
+}
+
+/* ---------- BURGER ---------- */
+
+.burger{
+  display:none;
+  background:none;
+  border:none;
+  flex-direction:column;
+  gap:6px;
+  cursor:pointer;
+}
+
+.burger span{
+  width:26px;
+  height:3px;
+  background:white;
+  transition:.3s;
+}
+
+.freesoul-header.scrolled .burger span{
+  background:var(--dark);
+}
+
+/* ---------- MOBILE ---------- */
+
+@media(max-width:950px){
+
+  .nav-left,
+  .nav-right{
+    display:none;
+  }
+
+  .burger{
+    display:flex;
+    justify-self:end;
+  }
+
+  .top-lang{
+    padding:6px 6%;
+  }
+
+  .header-logo img{
+    height:105px;
+  }
+}
