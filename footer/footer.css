@@ -4,6 +4,11 @@
   background:#e3e8de; /* mismo verde salvia del header */
   padding:120px 8% 40px;
   color:var(--dark);
+  transition: background-color 0.4s ease;
+}
+
+.dark-mode .site-footer{
+  background-color: rgb(114,116,111)
 }
 
 /* GRID */
@@ -35,12 +40,29 @@
   margin-bottom:14px;
 }
 
+.footer-col h4,
+.footer-col a,
+.footer-newsletter,
+.footer-brand p,
+.footer-bottom,
+.footer-social a{
+  transition: color .4s ease;
+}
+
+.dark-mode .footer-col h4,
+.dark-mode .footer-col a,
+.dark-mode .footer-newsletter,
+.dark-mode .footer-brand p,
+.dark-mode .footer-bottom,
+.dark-mode .footer-social a{
+  color: white;
+}
+
 .footer-col a{
   display:block;
   text-decoration:none;
   color:var(--dark);
   margin-bottom:8px;
-  transition:.25s;
 }
 
 .footer-col a:hover{

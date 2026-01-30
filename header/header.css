@@ -5,8 +5,31 @@
   width:100%;
   top:0;
   z-index:999;
-  transition:.4s ease;
+  transition:
+    background-color .4s ease,
+    box-shadow .4s ease;
   background:transparent;
+}
+
+/* ---------- MODO OSCURO Y CLARO ---------- */
+
+.modo-oscuro-y-claro{
+  background-color: rgba(95,122,103,.65);;
+  border-radius:18px;
+  margin-right: 100px;
+  cursor: pointer;
+    transition:
+    background-color .25s ease,
+    color .25s ease;
+  border-color: transparent;
+  line-height: normal;
+  text-align: center;
+  box-sizing: content-box;
+  min-width: 180px;
+}
+
+.modo-oscuro-y-claro:hover{
+  background:var(--green);
 }
 
 /* ---------- LANG BAR ---------- */
@@ -44,9 +67,12 @@
 /* ---------- AFTER SCROLL ---------- */
 
 .freesoul-header.scrolled{
-  background:#e3e8de; /* verde salvia suave */
+  background:rgb(227, 232, 222); /* verde salvia suave */
   box-shadow:0 14px 34px rgba(0,0,0,.16);
-  transition:.4s ease;
+}
+
+.dark-mode .freesoul-header.scrolled{
+  background-color:rgb(113.5, 116, 111);
 }
 
 .freesoul-header.scrolled .top-lang{
@@ -92,7 +118,8 @@
   height:190px;
   max-height:230px;
   width:auto;
-  transition:.35s ease;
+    transition:
+    height .35s ease;
 }
 
 /* shrink on scroll */
@@ -117,12 +144,18 @@
   color:white;
   position:relative;
   padding:4px 0;
-  transition:.3s;
+  transition:
+    color .3s ease;
 }
 
 .freesoul-header.scrolled .nav-left a,
 .freesoul-header.scrolled .nav-right a{
   color:var(--dark);
+}
+
+.dark-mode .freesoul-header.scrolled .nav-left a,
+.dark-mode .freesoul-header.scrolled .nav-right a{
+  color: white;
 }
 
 /* underline green */
@@ -136,7 +169,8 @@
   width:0;
   height:3px;
   background:var(--green);
-  transition:.35s;
+  transition:
+    width .35s ease;
 }
 
 .nav-left a:hover::after,
@@ -159,7 +193,8 @@
   width:26px;
   height:3px;
   background:white;
-  transition:.3s;
+  transition:
+    background-color .3s ease;
 }
 
 .freesoul-header.scrolled .burger span{
