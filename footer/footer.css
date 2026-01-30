@@ -5,6 +5,7 @@
   padding:120px 8% 40px;
   color:var(--dark);
   transition: background-color 0.4s ease;
+  font-family: 'Poppins', sans-serif;
 }
 
 .dark-mode .site-footer{

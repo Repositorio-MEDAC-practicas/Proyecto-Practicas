@@ -9,6 +9,7 @@
     background-color .4s ease,
     box-shadow .4s ease;
   background:transparent;
+  font-family: 'Poppins', sans-serif;
 }
 
 /* ---------- MODO OSCURO Y CLARO ---------- */
@@ -26,6 +27,8 @@
   text-align: center;
   box-sizing: content-box;
   min-width: 180px;
+  font-family: 'Poppins', sans-serif;
+  padding: 0;
 }
 
 .modo-oscuro-y-claro:hover{
@@ -192,7 +195,7 @@
 .burger span{
   width:26px;
   height:3px;
-  background:white;
+  background:rgb(118, 59, 59);
   transition:
     background-color .3s ease;
 }
