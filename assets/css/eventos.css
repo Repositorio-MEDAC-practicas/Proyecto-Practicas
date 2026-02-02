@@ -1,0 +1,466 @@
+/* ===============================
+   EVENTOS PAGE
+================================ */
+
+.eventos-page {
+  background: #fff;
+}
+
+/* HERO */
+
+.eventos-hero {
+  position: relative;
+  min-height: 70vh;
+  background: url("../imagenes/eventos.jpg") center / cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.eventos-hero .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.45);
+}
+
+.eventos-hero .hero-content {
+  position: relative;
+  max-width: 720px;
+  padding: 2rem;
+}
+
+.hero-lower {
+  margin-top: 5vh;
+}
+
+.eventos-hero h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  margin-bottom: 1rem;
+  line-height: 1.05;
+}
+
+.eventos-hero p {
+  font-size: 1.2rem;
+  opacity: .9;
+  margin: 1.2rem auto 2rem;
+  max-width: 520px;
+}
+
+.eventos-hero .btn-main {
+  margin-top: .5rem;
+  display: inline-block;
+}
+
+/* INTRO */
+
+.eventos-intro-full {
+  padding: 7rem 10vw;
+  text-align: center;
+  background: #fafafa;
+}
+
+.intro-wrap {
+  max-width: 900px;
+  margin: auto;
+}
+
+/* HOW */
+
+.eventos-how {
+  padding: 4rem 8vw 6rem;
+  text-align: center;
+}
+
+.how-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+.how-step {
+  background: white;
+  padding: 2.8rem;
+  border-radius: 26px;
+  box-shadow: 0 12px 35px rgba(0,0,0,.08);
+}
+
+.step-number {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #3b6f5a;
+}
+
+/* METRICAS */
+
+.eventos-metricas {
+  padding: 6rem 10vw;
+  background: #3b6f5a;
+}
+
+.metricas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+  gap: 3rem;
+  text-align: center;
+}
+
+.metrica strong {
+  display: block;
+  font-size: 2.4rem;
+  color: white;
+}
+
+.metrica span {
+  text-transform: uppercase;
+  font-size: .8rem;
+  letter-spacing: .08em;
+  color: rgba(255,255,255,.85);
+}
+
+/* ===============================
+   PACKS
+================================ */
+
+.eventos-packs {
+  padding: 5rem 8vw;
+  background: #fafafa;
+}
+
+.eventos-packs h2 {
+  text-align: center;
+  font-size: clamp(1.9rem,4vw,2.4rem);
+}
+
+.packs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
+  gap: 2.2rem;
+  margin-top: 3rem;
+}
+
+/* PACK */
+
+.pack {
+  background: white;
+  padding: 2.1rem;
+  border-radius: 26px;
+  box-shadow: 0 10px 28px rgba(0,0,0,.07);
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  border: 1.5px solid #edf2ef;
+  transition: .25s ease;
+}
+
+.pack:hover {
+  transform: translateY(-6px);
+  border-color: #3b6f5a;
+  box-shadow: 0 18px 38px rgba(0,0,0,.14);
+}
+
+.pack.destacado {
+  border-color: #edf2ef;
+  transform: none;
+}
+
+/* TEXTO */
+
+.pack h3 {
+  font-size: 1.35rem;
+}
+
+.pack p {
+  font-size: .95rem;
+  opacity: .85;
+}
+
+.pack ul {
+  padding-left: 1.1rem;
+  font-size: .95rem;
+}
+
+.pack-price {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.eventos-intro-full h2 {
+  margin-bottom: 1.4rem;
+}
+
+.eventos-intro-full .intro-lead {
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+}
+
+.eventos-intro-full p {
+  line-height: 1.6;
+}
+
+/* BOTONES */
+
+.pack .btn-outline,
+.pack .btn-main {
+  margin-top: auto;
+  padding: .85rem;
+  border-radius: 12px;
+  font-size: .95rem;
+  background: #f1f3f2;
+  color: #333;
+  border: 1px solid #ddd;
+}
+
+.pack:hover .btn-outline,
+.pack:hover .btn-main {
+  background: #3b6f5a;
+  color: white;
+  border-color: #3b6f5a;
+}
+
+/* ===============================
+   FORM
+================================ */
+
+.eventos-form {
+  padding: 6rem 8vw;
+}
+
+.form-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.eventos-form h2 {
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  margin-bottom: 2rem;
+}
+
+.form-eventos {
+  background: white;
+  padding: 3rem;
+  border-radius: 30px;
+  box-shadow: 0 15px 40px rgba(0,0,0,.08);
+}
+
+/* GRID */
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 1.4rem;
+}
+
+.form-eventos input,
+.form-eventos select,
+.form-eventos textarea {
+  width: 100%;
+  padding: 1rem 1.2rem;
+  border-radius: 14px;
+  border: 1px solid #ddd;
+  font-size: 1.05rem;
+}
+
+.form-eventos textarea {
+  grid-column: 1 / -1;
+  min-height: 150px;
+  margin-top: 1rem;
+}
+
+.form-eventos button {
+  margin-top: 2.5rem;
+  font-size: 1.1rem;
+  padding: 1rem 2.8rem;
+}
+
+/* ===============================
+   FORM ANIMACION
+================================ */
+
+.form-eventos {
+  opacity: 0;
+  transform: translateX(220px);
+  transition:
+    opacity .9s ease,
+    transform 1s cubic-bezier(.19,1,.22,1);
+}
+
+.form-eventos.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+
+@media(max-width:900px){
+  .form-wrap{
+    grid-template-columns:1fr;
+  }
+}
+
+@media(max-width:768px){
+  .form-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+/* ===============================
+   EVENTOS — DARK MODE
+================================ */
+
+body.dark-mode .eventos-page {
+  background: #141816;
+}
+
+/* SECCIONES */
+
+body.dark-mode .eventos-packs,
+body.dark-mode .eventos-intro-full,
+body.dark-mode .eventos-how {
+  background: linear-gradient(180deg,#1b221f 0%,#232b27 100%);
+}
+
+/* PACKS */
+
+body.dark-mode .pack {
+  background:#202623;
+  border:1px solid rgba(95,122,103,.25);
+  box-shadow:0 14px 36px rgba(0,0,0,.6);
+  color:#f1f3f2;
+}
+
+body.dark-mode .pack h3 {
+  color:white;
+}
+
+body.dark-mode .pack p,
+body.dark-mode .pack li {
+  color:#d6ddd9;
+}
+
+body.dark-mode .pack-price {
+  color:rgb(190,244,206);
+}
+
+body.dark-mode .pack:hover {
+  transform:translateY(-10px);
+  border-color:rgba(95,122,103,.6);
+  box-shadow:
+    0 26px 60px rgba(0,0,0,.85),
+    0 0 0 1px rgba(95,122,103,.35);
+}
+
+body.dark-mode .pack.destacado {
+  background:#202623;
+  border-color:rgba(95,122,103,.35);
+}
+
+/* ===============================
+   FIX PACK CENTRAL HOVER
+================================ */
+
+.pack.destacado {
+  transform: none;
+}
+
+.pack.destacado:hover {
+  transform: translateY(-6px);
+  border-color: #3b6f5a;
+  box-shadow: 0 18px 38px rgba(0,0,0,.14);
+}
+
+/* Botones igual que los demás */
+
+.pack.destacado:hover .btn-outline,
+.pack.destacado:hover .btn-main {
+  background: #3b6f5a;
+  color: white;
+  border-color: #3b6f5a;
+}
+
+/* BOTONES */
+
+body.dark-mode .pack .btn-outline,
+body.dark-mode .pack .btn-main {
+  background:#1a211e;
+  border-color:rgba(95,122,103,.4);
+  color:white;
+}
+
+body.dark-mode .pack:hover .btn-outline,
+body.dark-mode .pack:hover .btn-main {
+  background:var(--green);
+  border-color:var(--green);
+}
+
+/* METRICAS */
+
+body.dark-mode .eventos-metricas {
+  background: linear-gradient(90deg,#2f4a3d,#20372c);
+}
+
+body.dark-mode .metrica strong {
+  color:white;
+}
+
+body.dark-mode .metrica span {
+  color:#d6ddd9;
+}
+
+/* FORM */
+
+body.dark-mode .eventos-form {
+  background:transparent;
+}
+
+body.dark-mode .form-eventos {
+  background:#202623;
+  border:1px solid rgba(95,122,103,.25);
+  box-shadow:0 30px 80px rgba(0,0,0,.85);
+}
+
+body.dark-mode .form-eventos input,
+body.dark-mode .form-eventos select,
+body.dark-mode .form-eventos textarea {
+  background:#141816;
+  border-color:rgba(95,122,103,.35);
+  color:white;
+}
+
+body.dark-mode .form-eventos input::placeholder,
+body.dark-mode .form-eventos textarea::placeholder {
+  color:#aebbb5;
+}
+
+body.dark-mode .form-eventos button {
+  background:var(--green);
+}
+
+body.dark-mode .form-eventos button:hover {
+  background:#486e5d;
+}
+
+/* ===============================
+   HOW — DARK MODE
+================================ */
+
+body.dark-mode .how-step {
+  background:#202623;
+  border:1px solid rgba(95,122,103,.25);
+  box-shadow:0 16px 40px rgba(0,0,0,.75);
+  color:#f1f3f2;
+}
+
+body.dark-mode .how-step p {
+  color:#d6ddd9;
+}
+
+body.dark-mode .step-number {
+  color:rgb(190,244,206);
+}
