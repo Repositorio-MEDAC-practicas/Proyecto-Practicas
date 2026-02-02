@@ -67,9 +67,16 @@
   <!-- RIGHT -->
   <nav class="nav-right">
 
-    <a href="<?php echo pll_home_url() . '#b2b'; ?>">
-      <?php echo pll__('Eventos'); ?>
-    </a>
+<?php
+$eventos = get_page_by_path('eventos');
+
+if ($eventos) {
+  $translated = pll_get_post($eventos->ID);
+  echo '<a href="' . get_permalink($translated) . '">';
+  echo pll__('Eventos');
+  echo '</a>';
+}
+?>
 
     <a href="<?php echo pll_home_url() . '#news'; ?>">
       <?php echo pll__('Noticias'); ?>
