@@ -1,0 +1,139 @@
+/* ===========================
+   COOKIES PAGE – FREE SOUL
+=========================== */
+
+.cookies-page{
+  color: var(--dark);
+  line-height: 1.7;
+  padding-top: 170px; /* espacio para header fijo */
+}
+
+/* ================= HEADER ================= */
+
+.cookies-header{
+  padding: 3.5rem 2rem 2rem;
+  border-bottom: 1px solid rgba(95,122,103,.18);
+}
+
+.cookies-header .lead{
+  max-width: 720px;
+  margin-top: 1rem;
+  opacity: .8;
+}
+
+/* ================= WRAPPER ================= */
+
+.cookies-wrap{
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ================= SECTIONS ================= */
+
+.cookies-section{
+  padding: 3rem 2rem;
+}
+
+.cookies-section.alt{
+  background: #f4f7f2;
+}
+
+/* ================= HEADINGS ================= */
+
+.cookies-page h1{
+  font-size: clamp(2rem, 4vw, 2.6rem);
+}
+
+.cookies-page h2{
+  font-size: 1.6rem;
+  margin-bottom: .75rem;
+}
+
+/* ================= LIST ================= */
+
+.cookies-list{
+  padding-left: 1.2rem;
+}
+
+.cookies-list li{
+  margin-bottom: .6rem;
+}
+
+/* ================= TABLE ================= */
+
+.cookies-table-wrap{
+  overflow-x: auto;
+}
+
+.cookies-table{
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.8rem;
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 28px rgba(0,0,0,.05);
+}
+
+.cookies-table th,
+.cookies-table td{
+  border-bottom: 1px solid rgba(95,122,103,.18);
+  padding: 1rem;
+  text-align: left;
+}
+
+.cookies-table th{
+  background: rgba(95,122,103,.12);
+  color: var(--dark);
+  font-weight: 600;
+}
+
+.cookies-table tr:last-child td{
+  border-bottom: none;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:768px){
+
+  .cookies-page{
+    padding-top: 140px;
+  }
+
+  .cookies-section{
+    padding: 2.2rem 1.5rem;
+  }
+
+}
+
+/* ================= DARK MODE ================= */
+
+.dark-mode .cookies-page{
+  color:#d6ddd9;
+}
+
+.dark-mode .cookies-header{
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.dark-mode .cookies-section.alt{
+  background:#151a18;
+}
+
+.dark-mode .cookies-table{
+  background:#101412;
+  box-shadow:none;
+}
+
+.dark-mode .cookies-table th{
+  background: rgba(190,230,207,.12);
+  color:white;
+}
+
+.dark-mode .cookies-table td{
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.dark-mode .cookies-header .lead{
+  opacity:.7;
+}
