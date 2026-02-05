@@ -7,9 +7,7 @@
   font-family:Poppins, sans-serif;
 }
 
-.freesoul-header div a{
-  color: black !important;
-}
+
 
 .dark-mode .freesoul-header div a{
   color: white !important;
@@ -29,6 +27,8 @@ background-color: rgb(47.5, 61, 51.5)
   text-align:center;
   transition: background-color .4s ease;
   background-color: beige;
+  background-image: url(../imagenes/floor-1256804.jpg);
+  background-size: cover;
 }
 
 .buscador{
@@ -61,20 +61,26 @@ button.buscador{
 }
 
 .cat-grid{
+  justify-content: center;
   margin-top:70px;
-  display:grid;
+  display:flex;
   grid-template-columns:repeat(4,1fr);
-  gap:54px;
+  gap:260px;
   border-radius: 10px;
     background:
     linear-gradient(90deg,
-      rgba(95,122,103,.475),
-      rgba(95,122,103,.375));
+      rgba(95,122,103,.875),
+      rgba(95,122,103,.775));
       padding: 20px
 }
 
 .cat-item{
   cursor:pointer;
+}
+
+.cat-item a{
+  text-decoration: none;
+  color: black;
 }
 
 .cat-item img{

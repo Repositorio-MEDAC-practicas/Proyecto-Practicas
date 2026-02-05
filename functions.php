@@ -53,6 +53,29 @@ function freesoul_assets() {
 
   }
 
+  // ================= PAGE: SUBCATEGORÍAS =================
+
+  $bebidas_pages = [
+    'cervezas',
+    'cocteles',
+    'destilados',
+    'espumosos',
+    'sidras',
+    'vermut',
+    'vinos'
+  ];
+
+  if ( is_page( $bebidas_pages ) ) {
+
+    wp_enqueue_style(
+      'freesoul-bebidas-sub',
+      get_template_directory_uri() . '/assets/css/page-bebidas.css',
+      [],
+      time()
+    );
+
+  }
+
   // ================= PAGE: EVENTOS =================
 
   if (
@@ -222,5 +245,89 @@ if ( function_exists( 'pll_register_string' ) ) {
     'Seleccionamos bebidas sin alcohol que destacan por su sabor y su presencia, diseñando propuestas pensadas para sorprender y encajar con la atmósfera de tu celebración. Bodas, cumpleaños o eventos corporativos: tú celebras, nosotros nos ocupamos del resto.',
     'Eventos'
   );
+
+  /* ---------- EVENTOS — HOW ---------- */
+
+  pll_register_string( 'eventos_how_title', 'Cómo lo hacemos posible', 'Eventos' );
+
+  pll_register_string( 'eventos_how_1_title', 'Elegimos sabores premium', 'Eventos' );
+  pll_register_string(
+    'eventos_how_1_text',
+    'Seleccionamos bebidas sin alcohol que destacan por su complejidad, aromas y presencia en copa.',
+    'Eventos'
+  );
+
+  pll_register_string( 'eventos_how_2_title', 'Personalizamos tu pack', 'Eventos' );
+  pll_register_string(
+    'eventos_how_2_text',
+    'Calculamos la cantidad ideal y combinaciones según tu evento y número de invitados.',
+    'Eventos'
+  );
+
+  pll_register_string( 'eventos_how_3_title', 'Coordinamos la entrega', 'Eventos' );
+  pll_register_string(
+    'eventos_how_3_text',
+    'Nos encargamos de la logística y coordinamos para que llegue todo a tiempo y sin complicaciones.',
+    'Eventos'
+  );
+
+  /* ---------- EVENTOS — METRICAS ---------- */
+
+  pll_register_string( 'eventos_metricas_1', 'eventos organizados', 'Eventos' );
+  pll_register_string( 'eventos_metricas_2', 'invitados atendidos', 'Eventos' );
+  pll_register_string( 'eventos_metricas_3', 'en toda España', 'Eventos' );
+  pll_register_string( 'eventos_metricas_4', 'premium seleccionadas', 'Eventos' );
+
+  /* ---------- EVENTOS — PACKS ---------- */
+
+  pll_register_string( 'eventos_packs_title', 'Nuestros packs para eventos', 'Eventos' );
+
+  pll_register_string( 'eventos_pack_1_title', 'Pack Fiesta 50', 'Eventos' );
+  pll_register_string( 'eventos_pack_1_desc', '50 bebidas variadas', 'Eventos' );
+
+  pll_register_string( 'eventos_pack_2_title', 'Pack Evento 150', 'Eventos' );
+  pll_register_string( 'eventos_pack_2_desc', 'Ideal para celebraciones grandes', 'Eventos' );
+
+  pll_register_string( 'eventos_pack_3_title', 'Pack Boda 300', 'Eventos' );
+  pll_register_string( 'eventos_pack_3_desc', 'Eventos premium', 'Eventos' );
+
+  pll_register_string( 'eventos_pack_btn', 'Elegir pack', 'Eventos' );
+
+  pll_register_string( 'eventos_pack_wines', 'Vinos sin alcohol', 'Eventos' );
+  pll_register_string( 'eventos_pack_spirits', 'Destilados premium', 'Eventos' );
+
+  pll_register_string( 'eventos_pack_full', 'Selección completa', 'Eventos' );
+  pll_register_string( 'eventos_pack_bestprice', 'Mejor precio por unidad', 'Eventos' );
+  pll_register_string( 'eventos_pack_advice', 'Asesoramiento incluido', 'Eventos' );
+
+  pll_register_string( 'eventos_pack_highend', 'Gama alta', 'Eventos' );
+  pll_register_string( 'eventos_pack_custom', 'Personalizado', 'Eventos' );
+  pll_register_string( 'eventos_pack_logistics', 'Logística incluida', 'Eventos' );
+
+  /* ---------- EVENTOS — FORM ---------- */
+
+  pll_register_string( 'eventos_form_title', 'Solicita tu presupuesto', 'Eventos' );
+
+  pll_register_string(
+    'eventos_form_text',
+    'Cuéntanos cómo es tu evento y te enviaremos una propuesta personalizada sin compromiso.',
+    'Eventos'
+  );
+
+  pll_register_string( 'eventos_form_name', 'Nombre completo', 'Eventos' );
+  pll_register_string( 'eventos_form_email', 'Email', 'Eventos' );
+  pll_register_string( 'eventos_form_phone', 'Teléfono', 'Eventos' );
+
+  pll_register_string( 'eventos_form_type', 'Tipo de evento', 'Eventos' );
+  pll_register_string( 'eventos_form_wedding', 'Boda', 'Eventos' );
+  pll_register_string( 'eventos_form_birthday', 'Cumpleaños', 'Eventos' );
+  pll_register_string( 'eventos_form_company', 'Empresa', 'Eventos' );
+  pll_register_string( 'eventos_form_private', 'Fiesta privada', 'Eventos' );
+
+  pll_register_string( 'eventos_form_guests', 'Número de asistentes', 'Eventos' );
+
+  pll_register_string( 'eventos_form_message', 'Cuéntanos qué necesitas...', 'Eventos' );
+
+  pll_register_string( 'eventos_form_submit', 'Enviar solicitud', 'Eventos' );
 
 }
