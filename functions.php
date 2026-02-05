@@ -43,104 +43,6 @@ function freesoul_assets() {
 
   }
 
-  // CSS SOLO para la página Cervezas
-  if (
-    is_page('cervezas')
-  ) {
-
-    wp_enqueue_style(
-      'freesoul-cervezas',
-      get_template_directory_uri() . '/assets/css/page-bebidas.css',
-      [],
-      time()
-    );
-
-  }
-
-    // CSS SOLO para la página Cócteles
-  if (
-    is_page('cocteles')
-  ) {
-
-    wp_enqueue_style(
-      'freesoul-cocteles',
-      get_template_directory_uri() . '/assets/css/page-bebidas.css',
-      [],
-      time()
-    );
-
-  }
-
-    // CSS SOLO para la página Destilados
-  if (
-    is_page('destilados')
-  ) {
-
-    wp_enqueue_style(
-      'freesoul-destilados',
-      get_template_directory_uri() . '/assets/css/page-bebidas.css',
-      [],
-      time()
-    );
-
-  }
-
-      // CSS SOLO para la página Espumosos
-  if (
-    is_page('espumosos')
-  ) {
-
-    wp_enqueue_style(
-      'freesoul-espumosos',
-      get_template_directory_uri() . '/assets/css/page-bebidas.css',
-      [],
-      time()
-    );
-
-  }
-
-      // CSS SOLO para la página Sidras
-  if (
-    is_page('sidras')
-  ) {
-
-    wp_enqueue_style(
-      'freesoul-sidras',
-      get_template_directory_uri() . '/assets/css/page-bebidas.css',
-      [],
-      time()
-    );
-
-  }
-
-        // CSS SOLO para la página Vermut
-  if (
-    is_page('vermut')
-  ) {
-
-    wp_enqueue_style(
-      'freesoul-vermut',
-      get_template_directory_uri() . '/assets/css/page-bebidas.css',
-      [],
-      time()
-    );
-
-  }
-
-        // CSS SOLO para la página Vinos
-  if (
-    is_page('vinos')
-  ) {
-
-    wp_enqueue_style(
-      'freesoul-vinos',
-      get_template_directory_uri() . '/assets/css/page-bebidas.css',
-      [],
-      time()
-    );
-
-  }
-
   // CSS SOLO para la página Eventos (todas las traducciones)
   if (
     is_page('eventos') ||
@@ -191,6 +93,7 @@ function freesoul_assets() {
     );
 
   }
+
 }
 
 add_action('wp_enqueue_scripts', 'freesoul_assets');
