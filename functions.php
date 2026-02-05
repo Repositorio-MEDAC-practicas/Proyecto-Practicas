@@ -27,7 +27,17 @@ function freesoul_assets() {
     time()
   );
 
-  // CSS SOLO para la página Bebidas
+  // ================= LOADER CSS =================
+
+  wp_enqueue_style(
+    'freesoul-loader',
+    get_template_directory_uri() . '/assets/css/loader.css',
+    [],
+    filemtime( get_template_directory() . '/assets/css/loader.css' )
+  );
+
+  // ================= PAGE: BEBIDAS =================
+
   if (
     is_page('bebidas') ||
     is_page('drinks') ||
@@ -43,13 +53,22 @@ function freesoul_assets() {
 
   }
 
-  // CSS SOLO para la página Cervezas
-  if (
-    is_page('cervezas')
-  ) {
+  // ================= PAGE: SUBCATEGORÍAS =================
+
+  $bebidas_pages = [
+    'cervezas',
+    'cocteles',
+    'destilados',
+    'espumosos',
+    'sidras',
+    'vermut',
+    'vinos'
+  ];
+
+  if ( is_page( $bebidas_pages ) ) {
 
     wp_enqueue_style(
-      'freesoul-cervezas',
+      'freesoul-bebidas-sub',
       get_template_directory_uri() . '/assets/css/page-bebidas.css',
       [],
       time()
@@ -57,91 +76,8 @@ function freesoul_assets() {
 
   }
 
-    // CSS SOLO para la página Cócteles
-  if (
-    is_page('cocteles')
-  ) {
+  // ================= PAGE: EVENTOS =================
 
-    wp_enqueue_style(
-      'freesoul-cocteles',
-      get_template_directory_uri() . '/assets/css/page-bebidas.css',
-      [],
-      time()
-    );
-
-  }
-
-    // CSS SOLO para la página Destilados
-  if (
-    is_page('destilados')
-  ) {
-
-    wp_enqueue_style(
-      'freesoul-destilados',
-      get_template_directory_uri() . '/assets/css/page-bebidas.css',
-      [],
-      time()
-    );
-
-  }
-
-      // CSS SOLO para la página Espumosos
-  if (
-    is_page('espumosos')
-  ) {
-
-    wp_enqueue_style(
-      'freesoul-espumosos',
-      get_template_directory_uri() . '/assets/css/page-bebidas.css',
-      [],
-      time()
-    );
-
-  }
-
-      // CSS SOLO para la página Sidras
-  if (
-    is_page('sidras')
-  ) {
-
-    wp_enqueue_style(
-      'freesoul-sidras',
-      get_template_directory_uri() . '/assets/css/page-bebidas.css',
-      [],
-      time()
-    );
-
-  }
-
-        // CSS SOLO para la página Vermut
-  if (
-    is_page('vermut')
-  ) {
-
-    wp_enqueue_style(
-      'freesoul-vermut',
-      get_template_directory_uri() . '/assets/css/page-bebidas.css',
-      [],
-      time()
-    );
-
-  }
-
-        // CSS SOLO para la página Vinos
-  if (
-    is_page('vinos')
-  ) {
-
-    wp_enqueue_style(
-      'freesoul-vinos',
-      get_template_directory_uri() . '/assets/css/page-bebidas.css',
-      [],
-      time()
-    );
-
-  }
-
-  // CSS SOLO para la página Eventos (todas las traducciones)
   if (
     is_page('eventos') ||
     is_page('events') ||
@@ -175,7 +111,18 @@ function freesoul_assets() {
     true
   );
 
-  // JS SOLO para la página Eventos
+  // ================= LOADER JS =================
+
+  wp_enqueue_script(
+    'freesoul-loader',
+    get_template_directory_uri() . '/assets/js/loader.js',
+    [],
+    filemtime( get_template_directory() . '/assets/js/loader.js' ),
+    true
+  );
+
+  // ================= PAGE: EVENTOS JS =================
+
   if (
     is_page('eventos') ||
     is_page('events') ||
@@ -191,9 +138,41 @@ function freesoul_assets() {
     );
 
   }
+
 }
 
 add_action('wp_enqueue_scripts', 'freesoul_assets');
+
+
+
+/* ================= LEGAL PAGES CSS ================= */
+
+function freesoul_enqueue_legal_styles() {
+
+  if (
+    is_page([
+      'privacidad',
+      'privacy',
+      'confidentialite',
+      'cookies',
+      'cookies-en',
+      'cookies-fr'
+    ])
+  ) {
+
+    wp_enqueue_style(
+      'freesoul-legal',
+      get_template_directory_uri() . '/assets/css/legal.css',
+      ['freesoul-main'],
+      filemtime( get_template_directory() . '/assets/css/legal.css' )
+    );
+
+  }
+
+}
+
+add_action('wp_enqueue_scripts', 'freesoul_enqueue_legal_styles');
+
 
 
 /* ================= POLYLANG STRINGS ================= */
@@ -209,7 +188,6 @@ if ( function_exists( 'pll_register_string' ) ) {
 
   pll_register_string( 'toggle_dark', 'Modo oscuro', 'Header' );
   pll_register_string( 'toggle_light', 'Modo claro', 'Header' );
-
 
   /* ---------- FOOTER ---------- */
 
@@ -233,7 +211,6 @@ if ( function_exists( 'pll_register_string' ) ) {
   pll_register_string( 'footer_email', 'Tu email', 'Footer' );
   pll_register_string( 'footer_subscribe', 'Suscribirme', 'Footer' );
 
-
   /* ---------- HOME ---------- */
 
   pll_register_string( 'hero_title_1', 'Celebra diferente.', 'Home' );
@@ -246,7 +223,6 @@ if ( function_exists( 'pll_register_string' ) ) {
   pll_register_string( 'hero_sub_2', 'Soluciones premium sin alcohol para hostelería.', 'Home' );
   pll_register_string( 'hero_contact', 'Contacto profesional', 'Home' );
 
-
   /* ---------- CATEGORIES ---------- */
 
   pll_register_string( 'cat_title', '¿Qué te apetece hoy?', 'Home' );
@@ -255,15 +231,12 @@ if ( function_exists( 'pll_register_string' ) ) {
   pll_register_string( 'cat_cider', 'Sidras', 'Home' );
   pll_register_string( 'cat_wine', 'Vinos', 'Home' );
 
-
   /* ---------- EVENTOS PAGE ---------- */
 
-  // HERO
   pll_register_string( 'eventos_hero_title', 'Eventos sin alcohol que sí molan', 'Eventos' );
   pll_register_string( 'eventos_hero_subtitle', 'Packs premium para bodas, fiestas privadas y empresas.', 'Eventos' );
   pll_register_string( 'eventos_hero_cta', 'Solicitar presupuesto', 'Eventos' );
 
-  // INTRO
   pll_register_string( 'eventos_intro_title', 'Celebraciones pensadas para disfrutar', 'Eventos' );
   pll_register_string( 'eventos_intro_lead', 'Cada evento es único, y en Free Soul lo tratamos como tal.', 'Eventos' );
 
@@ -273,7 +246,8 @@ if ( function_exists( 'pll_register_string' ) ) {
     'Eventos'
   );
 
-  // HOW
+  /* ---------- EVENTOS — HOW ---------- */
+
   pll_register_string( 'eventos_how_title', 'Cómo lo hacemos posible', 'Eventos' );
 
   pll_register_string( 'eventos_how_1_title', 'Elegimos sabores premium', 'Eventos' );
@@ -297,13 +271,15 @@ if ( function_exists( 'pll_register_string' ) ) {
     'Eventos'
   );
 
-  // METRICAS
+  /* ---------- EVENTOS — METRICAS ---------- */
+
   pll_register_string( 'eventos_metricas_1', 'eventos organizados', 'Eventos' );
   pll_register_string( 'eventos_metricas_2', 'invitados atendidos', 'Eventos' );
   pll_register_string( 'eventos_metricas_3', 'en toda España', 'Eventos' );
   pll_register_string( 'eventos_metricas_4', 'premium seleccionadas', 'Eventos' );
 
-  // PACKS
+  /* ---------- EVENTOS — PACKS ---------- */
+
   pll_register_string( 'eventos_packs_title', 'Nuestros packs para eventos', 'Eventos' );
 
   pll_register_string( 'eventos_pack_1_title', 'Pack Fiesta 50', 'Eventos' );
@@ -317,7 +293,19 @@ if ( function_exists( 'pll_register_string' ) ) {
 
   pll_register_string( 'eventos_pack_btn', 'Elegir pack', 'Eventos' );
 
-  // FORM
+  pll_register_string( 'eventos_pack_wines', 'Vinos sin alcohol', 'Eventos' );
+  pll_register_string( 'eventos_pack_spirits', 'Destilados premium', 'Eventos' );
+
+  pll_register_string( 'eventos_pack_full', 'Selección completa', 'Eventos' );
+  pll_register_string( 'eventos_pack_bestprice', 'Mejor precio por unidad', 'Eventos' );
+  pll_register_string( 'eventos_pack_advice', 'Asesoramiento incluido', 'Eventos' );
+
+  pll_register_string( 'eventos_pack_highend', 'Gama alta', 'Eventos' );
+  pll_register_string( 'eventos_pack_custom', 'Personalizado', 'Eventos' );
+  pll_register_string( 'eventos_pack_logistics', 'Logística incluida', 'Eventos' );
+
+  /* ---------- EVENTOS — FORM ---------- */
+
   pll_register_string( 'eventos_form_title', 'Solicita tu presupuesto', 'Eventos' );
 
   pll_register_string(
@@ -326,44 +314,20 @@ if ( function_exists( 'pll_register_string' ) ) {
     'Eventos'
   );
 
+  pll_register_string( 'eventos_form_name', 'Nombre completo', 'Eventos' );
+  pll_register_string( 'eventos_form_email', 'Email', 'Eventos' );
+  pll_register_string( 'eventos_form_phone', 'Teléfono', 'Eventos' );
+
+  pll_register_string( 'eventos_form_type', 'Tipo de evento', 'Eventos' );
+  pll_register_string( 'eventos_form_wedding', 'Boda', 'Eventos' );
+  pll_register_string( 'eventos_form_birthday', 'Cumpleaños', 'Eventos' );
+  pll_register_string( 'eventos_form_company', 'Empresa', 'Eventos' );
+  pll_register_string( 'eventos_form_private', 'Fiesta privada', 'Eventos' );
+
+  pll_register_string( 'eventos_form_guests', 'Número de asistentes', 'Eventos' );
+
+  pll_register_string( 'eventos_form_message', 'Cuéntanos qué necesitas...', 'Eventos' );
+
   pll_register_string( 'eventos_form_submit', 'Enviar solicitud', 'Eventos' );
 
-/* ===== EVENTOS — EXTRAS PACKS ===== */
-
-pll_register_string( 'eventos_pack_wines', 'Vinos sin alcohol', 'Eventos' );
-pll_register_string( 'eventos_pack_spirits', 'Destilados premium', 'Eventos' );
-
-pll_register_string( 'eventos_pack_full', 'Selección completa', 'Eventos' );
-pll_register_string( 'eventos_pack_bestprice', 'Mejor precio por unidad', 'Eventos' );
-pll_register_string( 'eventos_pack_advice', 'Asesoramiento incluido', 'Eventos' );
-
-pll_register_string( 'eventos_pack_highend', 'Gama alta', 'Eventos' );
-pll_register_string( 'eventos_pack_custom', 'Personalizado', 'Eventos' );
-pll_register_string( 'eventos_pack_logistics', 'Logística incluida', 'Eventos' );
-
-/* ===== EVENTOS — FORM ===== */
-
-pll_register_string( 'eventos_form_title', 'Solicita tu presupuesto', 'Eventos' );
-
-pll_register_string(
-  'eventos_form_text',
-  'Cuéntanos cómo es tu evento y te enviaremos una propuesta personalizada sin compromiso.',
-  'Eventos'
-);
-
-pll_register_string( 'eventos_form_name', 'Nombre completo', 'Eventos' );
-pll_register_string( 'eventos_form_email', 'Email', 'Eventos' );
-pll_register_string( 'eventos_form_phone', 'Teléfono', 'Eventos' );
-
-pll_register_string( 'eventos_form_type', 'Tipo de evento', 'Eventos' );
-pll_register_string( 'eventos_form_wedding', 'Boda', 'Eventos' );
-pll_register_string( 'eventos_form_birthday', 'Cumpleaños', 'Eventos' );
-pll_register_string( 'eventos_form_company', 'Empresa', 'Eventos' );
-pll_register_string( 'eventos_form_private', 'Fiesta privada', 'Eventos' );
-
-pll_register_string( 'eventos_form_guests', 'Número de asistentes', 'Eventos' );
-
-pll_register_string( 'eventos_form_message', 'Cuéntanos qué necesitas...', 'Eventos' );
-
-pll_register_string( 'eventos_form_submit', 'Enviar solicitud', 'Eventos' );
 }

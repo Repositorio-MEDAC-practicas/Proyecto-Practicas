@@ -26,12 +26,17 @@
       <a href="#"><?php echo pll__('Contacto'); ?></a>
     </div>
 
-    <!-- IDIOMAS (solo texto, no selector real) -->
-    <div class="footer-col">
-      <h4><?php echo pll__('Idiomas'); ?></h4>
-      <a><?php echo pll__('Español'); ?></a>
-      <a><?php echo pll__('English'); ?></a>
-      <a><?php echo pll__('Français'); ?></a>
+    <!-- LEGAL (sustituye Idiomas) -->
+    <div class="footer-col footer-legal">
+      <h4><?php echo pll__('Legal'); ?></h4>
+
+      <a href="<?php echo get_permalink( get_page_by_path('cookies') ); ?>">
+        <?php echo pll__('Política de Cookies'); ?>
+      </a>
+
+      <a href="<?php echo get_permalink( get_page_by_path('privacidad') ); ?>">
+        <?php echo pll__('Política de Privacidad'); ?>
+      </a>
     </div>
 
     <!-- NEWSLETTER -->

@@ -1,7 +1,7 @@
 /* ================= FOOTER – Free Soul Drinks ================= */
 
 .site-footer{
-  background:#e3e8de; /* mismo verde salvia del header */
+  background:#e3e8de;
   padding:120px 8% 40px;
   color:var(--dark);
   transition: background-color .4s ease, color .4s ease;
@@ -45,7 +45,7 @@
   transition: color .4s ease;
 }
 
-/* LIGHT */
+/* LINKS */
 
 .footer-col a{
   display:block;
@@ -168,4 +168,21 @@
 
 .dark-mode .footer-bottom{
   border-top:1px solid rgba(255,255,255,.08);
+}
+
+/* ================= LEGAL ================= */
+
+.footer-legal{
+  display:flex;
+  flex-direction:column;
+}
+
+.footer-legal a{
+  margin-bottom:8px;
+  opacity:.85;
+}
+
+.footer-legal a:hover{
+  opacity:1;
+  text-decoration:underline;
 }

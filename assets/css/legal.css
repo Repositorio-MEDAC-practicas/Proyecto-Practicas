@@ -1,0 +1,228 @@
+/* ======================================================
+   LEGAL PAGES – FREE SOUL DRINKS
+====================================================== */
+
+/* ================= GLOBAL ================= */
+
+/* SOLO el wrapper principal tiene offset del header */
+.legal-page {
+  padding-top: 170px;
+  color: var(--dark);
+  line-height: 1.7;
+  font-size: 16px;
+}
+
+@media(max-width:768px){
+  .legal-page{
+    padding-top:140px;
+  }
+}
+
+/* Dark mode global */
+
+.dark-mode .legal-page{
+  color:#d6ddd9;
+}
+
+/* ======================================================
+   PRIVACY PAGE
+====================================================== */
+
+/* HEADER */
+
+.privacy-header{
+  padding: 3.5rem 2rem 2rem;
+  border-bottom: 1px solid rgba(95,122,103,.18);
+}
+
+.privacy-header .lead{
+  max-width: 720px;
+  margin-top: 1rem;
+  opacity: .8;
+}
+
+/* WRAPPER */
+
+.privacy-wrap{
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* SECTIONS */
+
+.privacy-section{
+  padding: 3rem 2rem;
+}
+
+.privacy-section.alt{
+  background: #f4f7f2;
+}
+
+/* HEADINGS */
+
+.privacy-page h1{
+  font-size: clamp(2rem, 4vw, 2.6rem);
+}
+
+.privacy-page h2{
+  font-size: 1.6rem;
+  margin-bottom: .75rem;
+}
+
+/* LIST */
+
+.privacy-list{
+  padding-left: 1.2rem;
+}
+
+.privacy-list li{
+  margin-bottom: .6rem;
+}
+
+/* DARK MODE */
+
+.dark-mode .privacy-header{
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.dark-mode .privacy-section.alt{
+  background:#151a18;
+}
+
+.dark-mode .privacy-header .lead{
+  opacity:.7;
+}
+
+/* ======================================================
+   COOKIES PAGE
+====================================================== */
+
+/* HEADER */
+
+.cookies-header{
+  padding: 3.5rem 2rem 2rem;
+  border-bottom: 1px solid rgba(95,122,103,.18);
+}
+
+.cookies-header .lead{
+  max-width: 720px;
+  margin-top: 1rem;
+  opacity: .8;
+}
+
+/* WRAPPER */
+
+.cookies-wrap{
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* SECTIONS */
+
+.cookies-section{
+  padding: 3rem 2rem;
+}
+
+.cookies-section.alt{
+  background: #f4f7f2;
+}
+
+/* HEADINGS */
+
+.cookies-page h1{
+  font-size: clamp(2rem, 4vw, 2.6rem);
+}
+
+.cookies-page h2{
+  font-size: 1.6rem;
+  margin-bottom: .75rem;
+}
+
+/* LIST */
+
+.cookies-list{
+  padding-left: 1.2rem;
+}
+
+.cookies-list li{
+  margin-bottom: .6rem;
+}
+
+/* TABLE */
+
+.cookies-table-wrap{
+  overflow-x: auto;
+}
+
+.cookies-table{
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.8rem;
+  background: #fff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 28px rgba(0,0,0,.05);
+}
+
+.cookies-table th,
+.cookies-table td{
+  border-bottom: 1px solid rgba(95,122,103,.18);
+  padding: 1rem;
+  text-align: left;
+}
+
+.cookies-table th{
+  background: rgba(95,122,103,.12);
+  color: var(--dark);
+  font-weight: 600;
+}
+
+.cookies-table tr:last-child td{
+  border-bottom: none;
+}
+
+/* DARK MODE */
+
+.dark-mode .cookies-header{
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.dark-mode .cookies-section.alt{
+  background:#151a18;
+}
+
+.dark-mode .cookies-table{
+  background:#101412;
+  box-shadow:none;
+}
+
+.dark-mode .cookies-table th{
+  background: rgba(190,230,207,.12);
+  color:white;
+}
+
+.dark-mode .cookies-table td{
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.dark-mode .cookies-header .lead{
+  opacity:.7;
+}
+
+/* ======================================================
+   FORCE SAME LOOK ACROSS LANGUAGES
+====================================================== */
+
+.legal-page p,
+.legal-page li{
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.legal-page h1{
+  font-size: clamp(2rem, 4vw, 2.6rem);
+}
+
+.legal-page h2{
+  font-size: 1.6rem;
+}
