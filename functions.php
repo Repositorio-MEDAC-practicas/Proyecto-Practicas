@@ -27,7 +27,17 @@ function freesoul_assets() {
     time()
   );
 
-  // CSS SOLO para la página Bebidas
+  // ================= LOADER CSS =================
+
+  wp_enqueue_style(
+    'freesoul-loader',
+    get_template_directory_uri() . '/assets/css/loader.css',
+    [],
+    filemtime( get_template_directory() . '/assets/css/loader.css' )
+  );
+
+  // ================= PAGE: BEBIDAS =================
+
   if (
     is_page('bebidas') ||
     is_page('drinks') ||
@@ -43,7 +53,8 @@ function freesoul_assets() {
 
   }
 
-  // CSS SOLO para la página Eventos
+  // ================= PAGE: EVENTOS =================
+
   if (
     is_page('eventos') ||
     is_page('events') ||
@@ -77,7 +88,18 @@ function freesoul_assets() {
     true
   );
 
-  // JS SOLO para la página Eventos
+  // ================= LOADER JS =================
+
+  wp_enqueue_script(
+    'freesoul-loader',
+    get_template_directory_uri() . '/assets/js/loader.js',
+    [],
+    filemtime( get_template_directory() . '/assets/js/loader.js' ),
+    true
+  );
+
+  // ================= PAGE: EVENTOS JS =================
+
   if (
     is_page('eventos') ||
     is_page('events') ||
@@ -99,12 +121,20 @@ function freesoul_assets() {
 add_action('wp_enqueue_scripts', 'freesoul_assets');
 
 
-//* ================= LEGAL PAGES CSS ================= */
+
+/* ================= LEGAL PAGES CSS ================= */
 
 function freesoul_enqueue_legal_styles() {
 
   if (
-    is_page(['privacidad','privacy','confidentialite','cookies','cookies-en','cookies-fr'])
+    is_page([
+      'privacidad',
+      'privacy',
+      'confidentialite',
+      'cookies',
+      'cookies-en',
+      'cookies-fr'
+    ])
   ) {
 
     wp_enqueue_style(
@@ -121,6 +151,7 @@ function freesoul_enqueue_legal_styles() {
 add_action('wp_enqueue_scripts', 'freesoul_enqueue_legal_styles');
 
 
+
 /* ================= POLYLANG STRINGS ================= */
 
 if ( function_exists( 'pll_register_string' ) ) {
@@ -134,7 +165,6 @@ if ( function_exists( 'pll_register_string' ) ) {
 
   pll_register_string( 'toggle_dark', 'Modo oscuro', 'Header' );
   pll_register_string( 'toggle_light', 'Modo claro', 'Header' );
-
 
   /* ---------- FOOTER ---------- */
 
@@ -158,7 +188,6 @@ if ( function_exists( 'pll_register_string' ) ) {
   pll_register_string( 'footer_email', 'Tu email', 'Footer' );
   pll_register_string( 'footer_subscribe', 'Suscribirme', 'Footer' );
 
-
   /* ---------- HOME ---------- */
 
   pll_register_string( 'hero_title_1', 'Celebra diferente.', 'Home' );
@@ -171,7 +200,6 @@ if ( function_exists( 'pll_register_string' ) ) {
   pll_register_string( 'hero_sub_2', 'Soluciones premium sin alcohol para hostelería.', 'Home' );
   pll_register_string( 'hero_contact', 'Contacto profesional', 'Home' );
 
-
   /* ---------- CATEGORIES ---------- */
 
   pll_register_string( 'cat_title', '¿Qué te apetece hoy?', 'Home' );
@@ -179,7 +207,6 @@ if ( function_exists( 'pll_register_string' ) ) {
   pll_register_string( 'cat_spirits', 'Destilados', 'Home' );
   pll_register_string( 'cat_cider', 'Sidras', 'Home' );
   pll_register_string( 'cat_wine', 'Vinos', 'Home' );
-
 
   /* ---------- EVENTOS PAGE ---------- */
 

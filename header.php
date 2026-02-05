@@ -11,6 +11,25 @@
 
 <body <?php body_class(); ?>>
 
+<!-- ================================
+     FREE SOUL — PAGE LOADER
+================================ -->
+<div id="freesoul-loader">
+  <div class="loader-inner">
+
+    <img 
+      src="<?php echo get_template_directory_uri(); ?>/assets/imagenes/loader.png"
+      alt="Free Soul loading"
+      class="loader-icon"
+    />
+
+    <div class="loader-bar">
+      <span></span>
+    </div>
+
+  </div>
+</div>
+
 <header class="freesoul-header">
 
 <div class="top-bar">
