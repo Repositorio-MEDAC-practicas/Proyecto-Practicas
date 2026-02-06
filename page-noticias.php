@@ -1,0 +1,36 @@
+<?php
+/*
+Template Name: Noticias
+*/
+get_header();
+?>
+
+<main class="eventos-page">
+
+    <section class="top">
+        <h1>15% DE DESCUENTO EN CERVEZAS</h1>
+    </section>
+    <section class="inbox">
+        <h2 class="fecha">1 de Enero</h2><h2>🎉 Nuevo descuento disponible<br><br>
+¡Buenas noticias! Durante esta semana tienes un 15% de descuento en nuestra selección de cervezas.<br> Aprovecha la oferta antes del domingo.</h2>
+    </section>
+    <section class="inbox">
+        <h2 class="fecha">25 de Enero</h2><h2>🆕 Nuevas bebidas añadidas al catálogo<br><br>
+Hemos incorporado nuevas opciones a nuestra carta, incluyendo whisky sin alcohol y gin 0.0 premium.<br> ¡Échales un vistazo y descubre tu favorita!</h2>
+    </section>
+    <section class="inbox">
+        <h2 class="fecha">12 de Febrero</h2><h2>⚠️ Incidencia técnica temporal<br><br>
+Estamos experimentando algunos problemas técnicos en la página de pagos.<br> Nuestro equipo ya está trabajando para solucionarlo lo antes posible.<br> Disculpa las molestias.</h2>
+    </section>
+    <section class="inbox">
+        <h2 class="fecha">17 de Febrero</h2><h2>🍾 Vuelta de un producto muy solicitado<br><br>
+¡Está de vuelta! La bebida sin alcohol más pedida por nuestros clientes ya vuelve a estar disponible en stock.<br> No te quedes sin ella.</h2>
+    </section>
+    <section class="inbox">
+        <h2 class="fecha">29 de Febrero</h2><h2>ℹ️ Cambios en el horario de atención<br><br>
+Con motivo de mantenimiento, nuestro servicio de atención al cliente no estará disponible el jueves de 22:00 a 00:00.<br> La web seguirá funcionando con normalidad.</h2>
+    </section>
+
+</main>
+
+<?php get_footer(); ?>

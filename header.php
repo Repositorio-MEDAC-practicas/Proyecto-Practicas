@@ -95,12 +95,17 @@ if ($eventos) {
   echo pll__('Eventos');
   echo '</a>';
 }
+
+$noticias = get_page_by_path('noticias'); // slug de la página Noticias en español
+
+if ($noticias) {
+  $translated = pll_get_post($noticias->ID);
+  echo '<a href="' . get_permalink($translated) . '">';
+  echo pll__('Noticias');
+  echo '</a>';
+}
+
 ?>
-
-    <a href="<?php echo pll_home_url() . '#news'; ?>">
-      <?php echo pll__('Noticias'); ?>
-    </a>
-
   </nav>
 
   <!-- MOBILE -->

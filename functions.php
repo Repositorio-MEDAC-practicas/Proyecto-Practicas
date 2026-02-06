@@ -36,22 +36,64 @@ function freesoul_assets() {
     filemtime( get_template_directory() . '/assets/css/loader.css' )
   );
 
-  // ================= PAGE: BEBIDAS =================
-
-  if (
+// ================= PAGE: BEBIDAS =================
+if (
     is_page('bebidas') ||
     is_page('drinks') ||
     is_page('boissons')
-  ) {
-
+) {
     wp_enqueue_style(
       'freesoul-bebidas',
       get_template_directory_uri() . '/assets/css/page-bebidas.css',
       [],
       time()
     );
+}
+
+// ================= PAGE: NOTICIAS =================
+if (
+    is_page('noticias') ||
+    is_page('news') ||
+    is_page('nouvelles')
+) {
+    wp_enqueue_style(
+      'freesoul-noticias',
+      get_template_directory_uri() . '/assets/css/noticias.css',
+      ['freesoul-main'],
+      time()
+    );
 
   }
+
+  // ================= PAGE: CERVEZAS =================
+
+if (
+    is_page('cervezas') ||
+    is_page('Beers') ||
+    is_page('Bières')
+) {
+    wp_enqueue_style(
+      'freesoul-cervezas',
+      get_template_directory_uri() . '/assets/css/page-bebidas.css',
+      [],
+      time()
+    );
+}
+
+  // ================= PAGE: DESTILADOS =================
+
+if (
+    is_page('destilados') ||
+    is_page('Spirits') ||
+    is_page('Spiritueux')
+) {
+    wp_enqueue_style(
+      'freesoul-cervezas',
+      get_template_directory_uri() . '/assets/css/page-bebidas.css',
+      [],
+      time()
+    );
+}
 
   // ================= PAGE: SUBCATEGORÍAS =================
 
@@ -230,6 +272,27 @@ if ( function_exists( 'pll_register_string' ) ) {
   pll_register_string( 'cat_spirits', 'Destilados', 'Home' );
   pll_register_string( 'cat_cider', 'Sidras', 'Home' );
   pll_register_string( 'cat_wine', 'Vinos', 'Home' );
+
+  /* ---------- BEBIDAS PAGE ---------- */
+
+  pll_register_string('bebidas_cervezas', 'Cervezas', 'Bebidas');
+  pll_register_string('bebidas_destilados', 'Destilados', 'Bebidas');
+  pll_register_string('bebidas_sidras', 'Sidras', 'Bebidas');
+  pll_register_string('bebidas_vinos', 'Vinos', 'Bebidas');
+  pll_register_string('bebidas_espumosos', 'Espumosos', 'Bebidas');
+  pll_register_string('bebidas_vermut', 'Vermut', 'Bebidas');
+  pll_register_string('bebidas_cocteles', 'Cócteles', 'Bebidas');
+
+  /* ---------- CERVEZAS PAGE ---------- */
+
+    pll_register_string('cervezas_lager', 'Lager', 'Cervezas');
+    pll_register_string('cervezas_pilsner', 'Pilsner', 'Cervezas');
+    pll_register_string('cervezas_rubia', 'Rubia', 'Cervezas');
+    pll_register_string('cervezas_tostada', 'Tostada', 'Cervezas');
+    pll_register_string('cervezas_negra', 'Negra', 'Cervezas');
+    pll_register_string('cervezas_trigo', 'Trigo', 'Cervezas');
+    pll_register_string('cervezas_ipa', 'IPA', 'Cervezas');
+    pll_register_string('cervezas_sin_gluten', 'Sin gluten', 'Cervezas');
 
   /* ---------- EVENTOS PAGE ---------- */
 

@@ -38,28 +38,28 @@ $urls = [
       <div class="cat-item">
         <a href="<?php echo esc_url($urls['cervezas']); ?>">
           <img src="<?php echo get_template_directory_uri(); ?>/assets/imagenes/ChatGPT Image 3 feb 2026, 01_09_20.png">
-          <h3>Cervezas</h3>
+          <h3><?php echo pll__('Cervezas'); ?></h3>
         </a>
       </div>
 
       <div class="cat-item">
         <a href="<?php echo esc_url($urls['destilados']); ?>">
           <img src="<?php echo get_template_directory_uri(); ?>/assets/imagenes/placeholder-1-e1533569576673-960x960.png">
-          <h3>Destilados</h3>
+          <h3><?php echo pll__('Destilados'); ?></h3>
         </a>
       </div>
 
       <div class="cat-item">
         <a href="<?php echo esc_url($urls['sidras']); ?>">
           <img src="<?php echo get_template_directory_uri(); ?>/assets/imagenes/placeholder-1-e1533569576673-960x960.png">
-          <h3>Sidras</h3>
+          <h3><?php echo pll__('Sidras'); ?></h3>
         </a>
       </div>
 
       <div class="cat-item">
         <a href="<?php echo esc_url($urls['vinos']); ?>">
           <img src="<?php echo get_template_directory_uri(); ?>/assets/imagenes/ChatGPT Image 3 feb 2026, 01_10_32.png">
-          <h3>Vinos</h3>
+          <h3><?php echo pll__('Vinos'); ?></h3>
         </a>
       </div>
 
@@ -70,21 +70,21 @@ $urls = [
       <div class="cat-item">
         <a href="<?php echo esc_url($urls['espumosos']); ?>">
           <img src="<?php echo get_template_directory_uri(); ?>/assets/imagenes/placeholder-1-e1533569576673-960x960.png">
-          <h3>Espumosos</h3>
+          <h3><?php echo pll__('Espumosos'); ?></h3>
         </a>
       </div>
 
       <div class="cat-item">
         <a href="<?php echo esc_url($urls['vermut']); ?>">
           <img src="<?php echo get_template_directory_uri(); ?>/assets/imagenes/placeholder-1-e1533569576673-960x960.png">
-          <h3>Vermut</h3>
+          <h3><?php echo pll__('Vermut'); ?></h3>
         </a>
       </div>
 
       <div class="cat-item">
         <a href="<?php echo esc_url($urls['cocteles']); ?>">
           <img src="<?php echo get_template_directory_uri(); ?>/assets/imagenes/placeholder-1-e1533569576673-960x960.png">
-          <h3>Cócteles</h3>
+          <h3><?php echo pll__('Cócteles'); ?></h3>
         </a>
       </div>
 
