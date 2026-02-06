@@ -5,6 +5,21 @@
 <meta charset="<?php bloginfo('charset'); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- ================================
+     APPLY THEME BEFORE RENDER
+================================ -->
+<script>
+(function () {
+  try {
+    const theme = localStorage.getItem("theme");
+    if (theme === "dark") {
+      document.documentElement.classList.add("dark-mode");
+      document.body && document.body.classList.add("dark-mode");
+    }
+  } catch (e) {}
+})();
+</script>
+
 <?php wp_head(); ?>
 
 </head>
@@ -18,9 +33,13 @@
   <div class="loader-inner">
 
     <img 
-      src="<?php echo get_template_directory_uri(); ?>/assets/imagenes/loader.png"
+      id="loader-img"
+      src=""
+      data-light="<?php echo get_template_directory_uri(); ?>/assets/imagenes/loader-light.png"
+      data-dark="<?php echo get_template_directory_uri(); ?>/assets/imagenes/loader-dark.png"
       alt="Free Soul loading"
       class="loader-icon"
+      style="opacity:0;"
     />
 
     <div class="loader-bar">
