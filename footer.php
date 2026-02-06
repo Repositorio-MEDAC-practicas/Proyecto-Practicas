@@ -11,24 +11,37 @@
       </p>
     </div>
 
-    <!-- LINKS -->
+    <!-- DESCUBRE -->
     <div class="footer-col">
       <h4><?php echo pll__('Descubre'); ?></h4>
       <a href="#"><?php echo pll__('Catálogo'); ?></a>
+      <a href="#"><?php echo pll__('Noticias'); ?></a>
+      <a href="#"><?php echo pll__('Preguntas frecuentes'); ?></a>
       <a href="#"><?php echo pll__('Sobre la marca'); ?></a>
-      <a href="#"><?php echo pll__('Eventos'); ?></a>
     </div>
 
+    <!-- PROFESIONAL -->
     <div class="footer-col">
       <h4><?php echo pll__('Profesional'); ?></h4>
-      <a href="#"><?php echo pll__('Distribución'); ?></a>
-      <a href="#"><?php echo pll__('Proveedores'); ?></a>
       <a href="#"><?php echo pll__('Contacto'); ?></a>
+      <a href="#"><?php echo pll__('Distribución'); ?></a>
+      <a href="<?php echo get_permalink( get_page_by_path('eventos') ); ?>">
+        <?php echo pll__('Eventos'); ?>
+      </a>
+      <a href="#"><?php echo pll__('Proveedores'); ?></a>
     </div>
 
-    <!-- LEGAL (sustituye Idiomas) -->
+    <!-- LEGAL -->
     <div class="footer-col footer-legal">
       <h4><?php echo pll__('Legal'); ?></h4>
+
+      <a href="<?php echo get_permalink( get_page_by_path('aviso-legal') ); ?>">
+        <?php echo pll__('Aviso legal'); ?>
+      </a>
+
+      <a href="<?php echo get_permalink( get_page_by_path('condiciones-de-uso') ); ?>">
+        <?php echo pll__('Condiciones de uso'); ?>
+      </a>
 
       <a href="<?php echo get_permalink( get_page_by_path('cookies') ); ?>">
         <?php echo pll__('Política de Cookies'); ?>

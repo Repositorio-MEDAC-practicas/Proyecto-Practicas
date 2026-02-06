@@ -18,9 +18,10 @@
   }
 }
 
-/* Dark mode global */
+/* Dark mode SOLO legales */
 
-.dark-mode .legal-page{
+html.dark-mode body .legal-page{
+  background:#141816;
   color:#d6ddd9;
 }
 
@@ -35,10 +36,18 @@
   border-bottom: 1px solid rgba(95,122,103,.18);
 }
 
+html.dark-mode body .legal-page .privacy-header{
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
 .privacy-header .lead{
   max-width: 720px;
   margin-top: 1rem;
   opacity: .8;
+}
+
+html.dark-mode body .legal-page .privacy-header .lead{
+  opacity:.7;
 }
 
 /* WRAPPER */
@@ -56,6 +65,10 @@
 
 .privacy-section.alt{
   background: #f4f7f2;
+}
+
+html.dark-mode body .legal-page .privacy-section.alt{
+  background:#151a18;
 }
 
 /* HEADINGS */
@@ -79,20 +92,6 @@
   margin-bottom: .6rem;
 }
 
-/* DARK MODE */
-
-.dark-mode .privacy-header{
-  border-bottom:1px solid rgba(255,255,255,.08);
-}
-
-.dark-mode .privacy-section.alt{
-  background:#151a18;
-}
-
-.dark-mode .privacy-header .lead{
-  opacity:.7;
-}
-
 /* ======================================================
    COOKIES PAGE
 ====================================================== */
@@ -104,10 +103,18 @@
   border-bottom: 1px solid rgba(95,122,103,.18);
 }
 
+html.dark-mode body .legal-page .cookies-header{
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
 .cookies-header .lead{
   max-width: 720px;
   margin-top: 1rem;
   opacity: .8;
+}
+
+html.dark-mode body .legal-page .cookies-header .lead{
+  opacity:.7;
 }
 
 /* WRAPPER */
@@ -125,6 +132,10 @@
 
 .cookies-section.alt{
   background: #f4f7f2;
+}
+
+html.dark-mode body .legal-page .cookies-section.alt{
+  background:#151a18;
 }
 
 /* HEADINGS */
@@ -181,32 +192,20 @@
   border-bottom: none;
 }
 
-/* DARK MODE */
+/* DARK MODE TABLE SOLO LEGALES */
 
-.dark-mode .cookies-header{
-  border-bottom:1px solid rgba(255,255,255,.08);
-}
-
-.dark-mode .cookies-section.alt{
-  background:#151a18;
-}
-
-.dark-mode .cookies-table{
+html.dark-mode body .legal-page .cookies-table{
   background:#101412;
   box-shadow:none;
 }
 
-.dark-mode .cookies-table th{
+html.dark-mode body .legal-page .cookies-table th{
   background: rgba(190,230,207,.12);
   color:white;
 }
 
-.dark-mode .cookies-table td{
+html.dark-mode body .legal-page .cookies-table td{
   border-bottom:1px solid rgba(255,255,255,.08);
-}
-
-.dark-mode .cookies-header .lead{
-  opacity:.7;
 }
 
 /* ======================================================

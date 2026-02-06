@@ -114,7 +114,7 @@ get_header();
           <li><?php echo pll__('Destilados premium'); ?></li>
         </ul>
         <span class="pack-price">Desde 199€</span>
-        <button class="btn-outline select-pack"><?php echo pll__('Elegir pack'); ?></button>
+        <button type="button" class="btn-outline select-pack"><?php echo pll__('Elegir pack'); ?></button>
       </article>
 
       <article class="pack destacado" data-pack="<?php echo pll__('Pack Evento 150'); ?>">
@@ -126,7 +126,7 @@ get_header();
           <li><?php echo pll__('Asesoramiento incluido'); ?></li>
         </ul>
         <span class="pack-price">Desde 499€</span>
-        <button class="btn-main select-pack"><?php echo pll__('Elegir pack'); ?></button>
+        <button type="button" class="btn-main select-pack"><?php echo pll__('Elegir pack'); ?></button>
       </article>
 
       <article class="pack" data-pack="<?php echo pll__('Pack Boda 300'); ?>">
@@ -138,7 +138,7 @@ get_header();
           <li><?php echo pll__('Logística incluida'); ?></li>
         </ul>
         <span class="pack-price">Desde 899€</span>
-        <button class="btn-outline select-pack"><?php echo pll__('Elegir pack'); ?></button>
+        <button type="button" class="btn-outline select-pack"><?php echo pll__('Elegir pack'); ?></button>
       </article>
 
     </div>
@@ -155,33 +155,45 @@ get_header();
         <p><?php echo pll__('Cuéntanos cómo es tu evento y te enviaremos una propuesta personalizada sin compromiso.'); ?></p>
       </div>
 
-      <form class="form-eventos">
+      <form
+        class="form-eventos"
+        method="POST"
+        action="<?php echo esc_url( admin_url('admin-post.php') ); ?>"
+      >
+
+        <input type="hidden" name="action" value="freesoul_event_form">
+
+        <?php wp_nonce_field( 'freesoul_event_nonce', 'freesoul_nonce' ); ?>
 
         <div class="form-grid">
 
-          <input type="text" name="nombre" placeholder="<?php echo pll__('Nombre completo'); ?>" required>
-          <input type="email" name="email" placeholder="<?php echo pll__('Email'); ?>" required>
-          <input type="tel" name="telefono" placeholder="<?php echo pll__('Teléfono'); ?>">
+          <input type="text" name="name" placeholder="<?php echo pll__('Nombre completo'); ?>" required>
 
-          <select name="tipo_evento">
+          <input type="email" name="email" placeholder="<?php echo pll__('Email'); ?>" required>
+
+          <input type="tel" name="phone" placeholder="<?php echo pll__('Teléfono'); ?>">
+
+          <select name="type">
             <option value=""><?php echo pll__('Tipo de evento'); ?></option>
-            <option><?php echo pll__('Boda'); ?></option>
-            <option><?php echo pll__('Cumpleaños'); ?></option>
-            <option><?php echo pll__('Empresa'); ?></option>
-            <option><?php echo pll__('Fiesta privada'); ?></option>
+            <option value="wedding"><?php echo pll__('Boda'); ?></option>
+            <option value="birthday"><?php echo pll__('Cumpleaños'); ?></option>
+            <option value="company"><?php echo pll__('Empresa'); ?></option>
+            <option value="private"><?php echo pll__('Fiesta privada'); ?></option>
           </select>
 
-          <input type="date" name="fecha">
+          <input type="date" name="date">
 
-          <input type="number" name="asistentes" placeholder="<?php echo pll__('Número de asistentes'); ?>">
+          <input type="number" name="guests" placeholder="<?php echo pll__('Número de asistentes'); ?>">
 
           <input type="hidden" name="pack" id="packInput">
 
         </div>
 
-        <textarea name="mensaje" placeholder="<?php echo pll__('Cuéntanos qué necesitas...'); ?>"></textarea>
+        <textarea name="message" placeholder="<?php echo pll__('Cuéntanos qué necesitas...'); ?>"></textarea>
 
-        <button type="submit" class="btn-main"><?php echo pll__('Enviar solicitud'); ?></button>
+        <button type="submit" class="btn-main">
+          <?php echo pll__('Enviar solicitud'); ?>
+        </button>
 
       </form>
 

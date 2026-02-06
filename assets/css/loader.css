@@ -14,7 +14,16 @@
 
   z-index: 99999;
 
-  transition: opacity .6s ease, visibility .6s ease;
+  transition: 
+    opacity .6s ease,
+    visibility .6s ease,
+    background .3s ease;
+}
+
+/* Fondo en modo oscuro */
+body.dark-mode #freesoul-loader,
+html.dark-mode body #freesoul-loader {
+  background: #171c19;
 }
 
 #freesoul-loader.hide {
@@ -26,7 +35,7 @@
   text-align: center;
 }
 
-/* Imagen del loader (MÁS GRANDE) */
+/* Imagen del loader */
 .loader-icon {
   width: 120px;
   height: auto;
@@ -46,6 +55,12 @@
   overflow: hidden;
 }
 
+/* Barra oscuro */
+body.dark-mode .loader-bar,
+html.dark-mode body .loader-bar {
+  background: rgba(150,200,175,.18);
+}
+
 .loader-bar span {
   display: block;
   height: 100%;
@@ -55,6 +70,12 @@
   border-radius: 99px;
 
   animation: loadingBar 1.2s ease-in-out infinite;
+}
+
+/* Animación oscuro */
+body.dark-mode .loader-bar span,
+html.dark-mode body .loader-bar span {
+  background: #8be0b2;
 }
 
 /* Animaciones */
