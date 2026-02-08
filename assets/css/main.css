@@ -566,3 +566,25 @@ footer,
     color .6s ease,
     box-shadow .6s ease;
 }
+
+/* ================= AJUSTE BOTON HOME CATALOGO ================= */
+
+/* la tarjeta necesita referencia para posicionar el boton */
+.product{
+  position:relative;
+  padding-bottom:70px; /* espacio para el boton */
+}
+
+/* precio separado del boton */
+.product span{
+  display:block;
+  margin-top:8px;
+  margin-bottom:18px;
+}
+
+/* boton fijo en esquina inferior derecha */
+.btn-add{
+  position:absolute;
+  right:26px;
+  bottom:24px;
+}

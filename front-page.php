@@ -126,7 +126,10 @@
 
 <div class="product-grid">
 
+  <!-- ===== PRODUCTO: NATUREO ===== -->
+
   <article class="product">
+
     <div class="product-img">
       <img src="<?php echo get_template_directory_uri(); ?>/assets/imagenes/vino-natureo.png">
       <div class="product-overlay">
@@ -136,11 +139,23 @@
     </div>
 
     <h3>Natureo</h3>
-    <span>€12,90</span>
-    <button class="btn-add"><?php echo pll__('Añadir'); ?></button>
+    <span>12,90€</span>
+
+    <a
+      href="<?php echo site_url('/catalogo'); ?>?buscar=natureo"
+      class="btn-add"
+      style="position:absolute;right:1.5rem;bottom:1.5rem;"
+    >
+      <?php echo pll__('Añadir'); ?>
+    </a>
+
   </article>
 
+
+  <!-- ===== PRODUCTO: HEINEKEN ===== -->
+
   <article class="product">
+
     <div class="product-img">
       <img src="<?php echo get_template_directory_uri(); ?>/assets/imagenes/cerveza-heineken.png">
       <div class="product-overlay">
@@ -150,11 +165,23 @@
     </div>
 
     <h3>Heineken 0.0</h3>
-    <span>€3,00</span>
-    <button class="btn-add"><?php echo pll__('Añadir'); ?></button>
+    <span>3,00€</span>
+
+    <a
+      href="<?php echo site_url('/catalogo'); ?>?buscar=heineken"
+      class="btn-add"
+      style="position:absolute;right:1.5rem;bottom:1.5rem;"
+    >
+      <?php echo pll__('Añadir'); ?>
+    </a>
+
   </article>
 
+
+  <!-- ===== PRODUCTO: TANQUERAY ===== -->
+
   <article class="product">
+
     <div class="product-img">
       <img src="<?php echo get_template_directory_uri(); ?>/assets/imagenes/ginebra-tanqueray.png">
       <div class="product-overlay">
@@ -164,12 +191,22 @@
     </div>
 
     <h3>Tanqueray 0.0</h3>
-    <span>€14,90</span>
-    <button class="btn-add"><?php echo pll__('Añadir'); ?></button>
+    <span>14,90€</span>
+
+    <a
+      href="<?php echo site_url('/catalogo'); ?>?buscar=tanqueray"
+      class="btn-add"
+      style="position:absolute;right:1.5rem;bottom:1.5rem;"
+    >
+      <?php echo pll__('Añadir'); ?>
+    </a>
+
   </article>
 
 </div>
 </section>
+
+
 
 <!-- ================= B2B ================= -->
 
