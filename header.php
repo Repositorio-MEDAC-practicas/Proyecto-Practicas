@@ -79,12 +79,12 @@
   <nav class="nav-left">
 
     <?php
-    $bebidas = get_page_by_path('bebidas');
+    $catalogo = get_page_by_path('catalogo');
 
-    if ($bebidas) {
-      $translated = pll_get_post($bebidas->ID);
+    if ($catalogo) {
+      $translated = pll_get_post($catalogo->ID);
       echo '<a href="' . get_permalink($translated) . '">';
-      echo pll__('Bebidas');
+      echo pll__('Catálogo');
       echo '</a>';
     }
     ?>

@@ -36,17 +36,17 @@ function freesoul_assets() {
     filemtime( get_template_directory() . '/assets/css/loader.css' )
   );
 
-  // ================= PAGE: BEBIDAS =================
+  // ================= PAGE: CATALOGO =================
 
   if (
-    is_page('bebidas') ||
-    is_page('drinks') ||
-    is_page('boissons')
+    is_page('catalogo') ||
+    is_page('catalog') ||
+    is_page('catalogue')
   ) {
 
     wp_enqueue_style(
-      'freesoul-bebidas',
-      get_template_directory_uri() . '/assets/css/page-bebidas.css',
+      'freesoul-catalogo',
+      get_template_directory_uri() . '/assets/css/catalogo.css',
       [],
       time()
     );
@@ -55,28 +55,25 @@ function freesoul_assets() {
 
   // ================= PAGE: SUBCATEGORÍAS =================
 
-  $bebidas_pages = [
+  $catalogo_pages = [
     'cervezas',
-    'cocteles',
     'destilados',
-    'espumosos',
     'sidras',
-    'vermut',
     'vinos'
   ];
 
-  if ( is_page( $bebidas_pages ) ) {
+  if ( is_page( $catalogo_pages ) ) {
 
     wp_enqueue_style(
-      'freesoul-bebidas-sub',
-      get_template_directory_uri() . '/assets/css/page-bebidas.css',
+      'freesoul-catalogo-sub',
+      get_template_directory_uri() . '/assets/css/catalogo.css',
       [],
       time()
     );
 
   }
 
-  // ================= PAGE: EVENTOS =================
+  // ================= PAGE: EVENTOS CSS =================
 
   if (
     is_page('eventos') ||
@@ -134,6 +131,24 @@ function freesoul_assets() {
       get_template_directory_uri() . '/assets/js/eventos.js',
       [],
       time(),
+      true
+    );
+
+  }
+
+  // ================= PAGE: CATALOGO JS =================
+
+  if (
+    is_page('catalogo') ||
+    is_page('catalog') ||
+    is_page('catalogue')
+  ) {
+
+    wp_enqueue_script(
+      'freesoul-catalogo',
+      get_template_directory_uri() . '/assets/js/catalogo.js',
+      [],
+      filemtime( get_template_directory() . '/assets/js/catalogo.js' ),
       true
     );
 
@@ -197,7 +212,6 @@ add_action( 'admin_post_freesoul_event_form', 'freesoul_handle_event_form' );
 
 function freesoul_handle_event_form() {
 
-  // Seguridad nonce
   if (
     ! isset( $_POST['freesoul_nonce'] ) ||
     ! wp_verify_nonce( $_POST['freesoul_nonce'], 'freesoul_event_nonce' )
@@ -205,7 +219,6 @@ function freesoul_handle_event_form() {
     wp_die( 'Security check failed' );
   }
 
-  // Sanitizar campos
   $name    = sanitize_text_field( $_POST['name'] ?? '' );
   $email   = sanitize_email( $_POST['email'] ?? '' );
   $phone   = sanitize_text_field( $_POST['phone'] ?? '' );
@@ -215,7 +228,6 @@ function freesoul_handle_event_form() {
   $pack    = sanitize_text_field( $_POST['pack'] ?? '' );
   $message = sanitize_textarea_field( $_POST['message'] ?? '' );
 
-  // Email destino
   $to = get_option( 'admin_email' );
 
   $subject = 'Nueva solicitud de evento – Free Soul';
@@ -234,7 +246,6 @@ function freesoul_handle_event_form() {
 
   wp_mail( $to, $subject, $body, $headers );
 
-  // Redirección tras envío
   wp_redirect( home_url('/gracias/') );
   exit;
 }
@@ -246,7 +257,7 @@ if ( function_exists( 'pll_register_string' ) ) {
 
   /* ---------- HEADER ---------- */
 
-  pll_register_string( 'menu_bebidas', 'Bebidas', 'Header' );
+  pll_register_string( 'menu_catalogo', 'Catálogo', 'Header' );
   pll_register_string( 'menu_eventos', 'Eventos', 'Header' );
   pll_register_string( 'menu_news', 'Noticias', 'Header' );
   pll_register_string( 'menu_tienda', 'Tienda', 'Header' );
@@ -401,5 +412,70 @@ if ( function_exists( 'pll_register_string' ) ) {
   pll_register_string( 'eventos_form_guests', 'Número de asistentes', 'Eventos' );
   pll_register_string( 'eventos_form_message', 'Cuéntanos qué necesitas...', 'Eventos' );
   pll_register_string( 'eventos_form_submit', 'Enviar solicitud', 'Eventos' );
+
+/* ===============================
+   POLYLANG — CATALOGO STRINGS
+================================ */
+
+add_action('init', function () {
+
+  if (!function_exists('pll_register_string')) {
+    return;
+  }
+
+  $group = 'Catálogo';
+
+  // HERO
+  pll_register_string('catalogo', 'Catálogo', $group);
+  pll_register_string('catalogo_desc', 'Explora nuestra selección premium de bebidas sin alcohol.', $group);
+  pll_register_string('catalogo_search', 'Buscar bebida...', $group);
+
+  // FILTROS
+  pll_register_string('catalogo_todos', 'Todos', $group);
+  pll_register_string('catalogo_cervezas', 'Cervezas', $group);
+  pll_register_string('catalogo_vinos', 'Vinos', $group);
+  pll_register_string('catalogo_destilados', 'Destilados', $group);
+  pll_register_string('catalogo_sidras', 'Sidras', $group);
+
+  // ORDENAR
+  pll_register_string('catalogo_sort', 'Ordenar por', $group);
+  pll_register_string('catalogo_relevancia', 'Relevancia', $group);
+  pll_register_string('catalogo_price_asc', 'Precio: menor a mayor', $group);
+  pll_register_string('catalogo_price_desc', 'Precio: mayor a menor', $group);
+  pll_register_string('catalogo_alpha_asc', 'Nombre: A–Z', $group);
+  pll_register_string('catalogo_alpha_desc', 'Nombre: Z–A', $group);
+
+/* ===============================
+   POLYLANG — CATALOGO PRODUCTOS
+================================ */
+
+  if (!function_exists('pll_register_string')) return;
+
+  $group = 'Catálogo';
+
+  // PAGINACIÓN
+  pll_register_string('catalogo_prev', 'Anterior', $group);
+  pll_register_string('catalogo_next', 'Siguiente', $group);
+
+  // DESCRIPCIONES PRODUCTOS
+  pll_register_string('desc_estrella', 'Suave y equilibrada', $group);
+  pll_register_string('desc_cruzcampo', 'Cuerpo intenso y tostado', $group);
+  pll_register_string('desc_granvia', 'Tostada y redonda', $group);
+  pll_register_string('desc_mahou', 'Notas de cereal y caramelo', $group);
+  pll_register_string('desc_heineken', 'Refrescante y herbal', $group);
+
+  pll_register_string('desc_cava', 'Burbuja fina y elegante', $group);
+  pll_register_string('desc_frenchbloom', 'Aromas florales', $group);
+  pll_register_string('desc_natureo', 'Afrutado y fresco', $group);
+
+  pll_register_string('desc_captain', 'Vainilla y especias', $group);
+  pll_register_string('desc_beefeater', 'Botánicos clásicos', $group);
+  pll_register_string('desc_tanqueray', 'Ginebra cítrica', $group);
+
+  pll_register_string('desc_gaitero', 'Manzana natural', $group);
+  pll_register_string('desc_maeloc', 'Afrutada y aromática', $group);
+  pll_register_string('desc_trabanco', 'Asturiana y seca', $group);
+
+});
 
 }
