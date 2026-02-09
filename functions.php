@@ -167,22 +167,18 @@ function freesoul_enqueue_legal_styles() {
   if (
     is_page([
 
-      // ================= PRIVACIDAD =================
       'privacidad',
       'privacy',
       'confidentialite',
 
-      // ================= COOKIES =================
       'cookies',
       'cookies-en',
       'cookies-fr',
 
-      // ================= AVISO LEGAL =================
       'aviso-legal',
       'legal-notice',
       'mentions-legales',
 
-      // ================= CONDICIONES =================
       'condiciones-de-uso',
       'terms-of-use',
       'conditions-utilisation'
@@ -242,13 +238,22 @@ function freesoul_handle_event_form() {
   $body .= "Pack: $pack\n\n";
   $body .= "Mensaje:\n$message";
 
-  $headers = [ 'Content-Type: text/plain; charset=UTF-8' ];
+  $headers = [
+    'Content-Type: text/plain; charset=UTF-8',
+    'From: Free Soul <no-reply@freesoul.test>',
+    "Reply-To: $name <$email>"
+  ];
 
   wp_mail( $to, $subject, $body, $headers );
 
-  wp_redirect( home_url('/gracias/') );
+  // Volver a la misma página + anchor
+  wp_redirect(
+    add_query_arg( 'enviado', '1', wp_get_referer() ) . '#form-eventos'
+  );
+
   exit;
 }
+
 
 
 /* ================= POLYLANG STRINGS ================= */
