@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+<html <?php language_attributes(); ?>>
+<head>
+
+<meta charset="<?php bloginfo('charset'); ?>">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ================================
+     APPLY THEME BEFORE RENDER
+================================ -->
 <script>
 (function () {
   try {
@@ -18,6 +28,7 @@
 
 <!-- ================================
      FREE SOUL — PAGE LOADER
+================================ -->
 <div id="freesoul-loader">
   <div class="loader-inner">
 
@@ -115,138 +126,6 @@ if ($noticias) {
   }
 }
 ?>
-  </nav>
-
-  <!-- MOBILE -->
-  <button class="burger" aria-label="<?php echo pll__('Abrir menú'); ?>">
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
-
-</div>
-
-</header>
-<!DOCTYPE html>
-<html <?php language_attributes(); ?>>
-<head>
-
-<meta charset="<?php bloginfo('charset'); ?>">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<!-- ================================
-     APPLY THEME BEFORE RENDER
-<script>
-(function () {
-  try {
-    const theme = localStorage.getItem("theme");
-    if (theme === "dark") {
-      document.documentElement.classList.add("dark-mode");
-      document.body && document.body.classList.add("dark-mode");
-    }
-  } catch (e) {}
-})();
-</script>
-
-<?php wp_head(); ?>
-
-</head>
-
-<body <?php body_class(); ?>>
-
-<!-- ================================
-     FREE SOUL — PAGE LOADER
-<div id="freesoul-loader">
-  <div class="loader-inner">
-
-    <img 
-      id="loader-img"
-      src=""
-      data-light="<?php echo get_template_directory_uri(); ?>/assets/imagenes/loader-light.png"
-      data-dark="<?php echo get_template_directory_uri(); ?>/assets/imagenes/loader-dark.png"
-      alt="Free Soul loading"
-      class="loader-icon"
-      style="opacity:0;"
-    />
-
-    <div class="loader-bar">
-      <span></span>
-    </div>
-
-  </div>
-</div>
-
-<header class="freesoul-header">
-
-<div class="top-bar">
-
-  <button
-    class="modo-oscuro-y-claro"
-    id="themeToggle"
-    data-dark="<?php echo pll__('Modo oscuro'); ?>"
-    data-light="<?php echo pll__('Modo claro'); ?>"
-  >
-    <?php echo pll__('Modo oscuro'); ?>
-  </button>
-
-<div class="top-lang">
-  <?php pll_the_languages([
-    'show_flags' => 0,
-    'show_names' => 0,
-    'show_codes' => 1,
-    'dropdown'   => 0
-  ]); ?>
-</div>
-
-</div>
-
-<div class="header-inner">
-
-  <!-- LEFT -->
-  <nav class="nav-left">
-
-    <?php
-    $catalogo = get_page_by_path('catalogo');
-
-    if ($catalogo) {
-      $translated = pll_get_post($catalogo->ID);
-      echo '<a href="' . get_permalink($translated) . '">';
-      echo pll__('Catálogo');
-      echo '</a>';
-    }
-    ?>
-
-    <a href="<?php echo pll_home_url() . '#catalog'; ?>">
-      <?php echo pll__('Tienda'); ?>
-    </a>
-
-  </nav>
-
-  <!-- LOGO -->
-  <div class="header-logo">
-    <a href="<?php echo pll_home_url(); ?>">
-      <img src="<?php echo get_template_directory_uri(); ?>/assets/imagenes/logo.png" alt="Free Soul Drinks">
-    </a>
-  </div>
-
-  <!-- RIGHT -->
-  <nav class="nav-right">
-
-<?php
-$eventos = get_page_by_path('eventos');
-
-if ($eventos) {
-  $translated = pll_get_post($eventos->ID);
-  echo '<a href="' . get_permalink($translated) . '">';
-  echo pll__('Eventos');
-  echo '</a>';
-}
-?>
-
-    <a href="<?php echo pll_home_url() . '#news'; ?>">
-      <?php echo pll__('Noticias'); ?>
-    </a>
-
   </nav>
 
   <!-- MOBILE -->
