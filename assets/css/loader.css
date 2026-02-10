@@ -1,6 +1,93 @@
+
+#freesoul-loader {
+  position: fixed;
+  inset: 0;
+
+  background: #E3E8DE;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 99999;
+
+  transition: 
+    opacity .6s ease,
+    visibility .6s ease,
+    background .3s ease;
+}
+
+/* Fondo en modo oscuro */
+body.dark-mode #freesoul-loader,
+html.dark-mode body #freesoul-loader {
+  background: #171c19;
+}
+
+#freesoul-loader.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader-inner {
+  text-align: center;
+}
+
+/* Imagen del loader */
+.loader-icon {
+  width: 120px;
+  height: auto;
+  margin-bottom: 28px;
+
+  animation: floatDrink 1.6s ease-in-out infinite;
+}
+
+/* Barra */
+
+.loader-bar {
+  width: 200px;
+  height: 7px;
+
+  background: rgba(95,122,103,.25);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+/* Barra oscuro */
+body.dark-mode .loader-bar,
+html.dark-mode body .loader-bar {
+  background: rgba(150,200,175,.18);
+}
+
+.loader-bar span {
+  display: block;
+  height: 100%;
+  width: 40%;
+
+  background: #5f7a67;
+  border-radius: 99px;
+
+  animation: loadingBar 1.2s ease-in-out infinite;
+}
+
+/* Animación oscuro */
+body.dark-mode .loader-bar span,
+html.dark-mode body .loader-bar span {
+  background: #8be0b2;
+}
+
+/* Animaciones */
+
+@keyframes loadingBar {
+  0% { transform: translateX(-120%); }
+  100% { transform: translateX(260%); }
+}
+
+@keyframes floatDrink {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
 /* ======================================
    FREE SOUL — SIMPLE BRAND LOADER
-====================================== */
 
 #freesoul-loader {
   position: fixed;
