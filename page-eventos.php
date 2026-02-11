@@ -145,61 +145,106 @@ get_header();
 
   </section>
 
-  <!-- FORM -->
-  <section id="form-eventos" class="eventos-form">
+<!-- FORM -->
+<section id="form-eventos" class="eventos-form">
 
-    <div class="form-wrap">
+  <div class="form-wrap">
 
-      <div class="form-copy">
-        <h2><?php echo pll__('Solicita tu presupuesto'); ?></h2>
-        <p><?php echo pll__('Cuéntanos cómo es tu evento y te enviaremos una propuesta personalizada sin compromiso.'); ?></p>
-      </div>
+    <!-- COLUMNA IZQUIERDA -->
+    <div class="form-copy">
 
-      <form
-        class="form-eventos"
-        method="POST"
-        action="<?php echo esc_url( admin_url('admin-post.php') ); ?>"
-      >
+      <h2><?php echo pll__('Solicita tu presupuesto'); ?></h2>
 
-        <input type="hidden" name="action" value="freesoul_event_form">
+      <p><?php echo pll__('Cuéntanos cómo es tu evento y te enviaremos una propuesta personalizada sin compromiso.'); ?></p>
 
-        <?php wp_nonce_field( 'freesoul_event_nonce', 'freesoul_nonce' ); ?>
-
-        <div class="form-grid">
-
-          <input type="text" name="name" placeholder="<?php echo pll__('Nombre completo'); ?>" required>
-
-          <input type="email" name="email" placeholder="<?php echo pll__('Email'); ?>" required>
-
-          <input type="tel" name="phone" placeholder="<?php echo pll__('Teléfono'); ?>">
-
-          <select name="type">
-            <option value=""><?php echo pll__('Tipo de evento'); ?></option>
-            <option value="wedding"><?php echo pll__('Boda'); ?></option>
-            <option value="birthday"><?php echo pll__('Cumpleaños'); ?></option>
-            <option value="company"><?php echo pll__('Empresa'); ?></option>
-            <option value="private"><?php echo pll__('Fiesta privada'); ?></option>
-          </select>
-
-          <input type="date" name="date">
-
-          <input type="number" name="guests" placeholder="<?php echo pll__('Número de asistentes'); ?>">
-
-          <input type="hidden" name="pack" id="packInput">
-
+      <?php if ( isset($_GET['enviado']) && $_GET['enviado'] === '1' ) : ?>
+        <div class="form-success">
+          ✔ <?php echo pll__('Solicitud enviada correctamente. Te contactaremos pronto.'); ?>
         </div>
 
-        <textarea name="message" placeholder="<?php echo pll__('Cuéntanos qué necesitas...'); ?>"></textarea>
+        <div class="form-success-img">
+          <img 
+            src="<?php echo get_template_directory_uri(); ?>/assets/imagenes/mensaje-enviado.png"
+            alt="Solicitud enviada"
+          >
+        </div>
+      <?php endif; ?>
 
-        <button type="submit" class="btn-main">
-          <?php echo pll__('Enviar solicitud'); ?>
-        </button>
+    </div><!-- /.form-copy -->
 
-      </form>
+    <!-- FORMULARIO -->
+    <form
+      class="form-eventos"
+      method="POST"
+      action="<?php echo esc_url( admin_url('admin-post.php') ); ?>"
+    >
 
-    </div>
+      <input type="hidden" name="action" value="freesoul_event_form">
 
-  </section>
+      <?php wp_nonce_field( 'freesoul_event_nonce', 'freesoul_nonce' ); ?>
+
+      <div class="form-grid">
+
+        <input 
+          type="text" 
+          name="name" 
+          placeholder="<?php echo pll__('Nombre completo'); ?>" 
+          required
+        >
+
+        <input 
+          type="email" 
+          name="email" 
+          placeholder="<?php echo pll__('Email'); ?>" 
+          required
+        >
+
+        <input 
+          type="tel" 
+          name="phone" 
+          placeholder="<?php echo pll__('Teléfono'); ?>"
+        >
+
+        <select name="type">
+          <option value=""><?php echo pll__('Tipo de evento'); ?></option>
+          <option value="wedding"><?php echo pll__('Boda'); ?></option>
+          <option value="birthday"><?php echo pll__('Cumpleaños'); ?></option>
+          <option value="company"><?php echo pll__('Empresa'); ?></option>
+          <option value="private"><?php echo pll__('Fiesta privada'); ?></option>
+        </select>
+
+        <input type="date" name="date">
+
+        <input 
+          type="number" 
+          name="guests" 
+          placeholder="<?php echo pll__('Número de asistentes'); ?>"
+        >
+
+        <input type="hidden" name="pack" id="packInput">
+
+      </div>
+
+      <textarea 
+        name="message" 
+        placeholder="<?php echo pll__('Cuéntanos qué necesitas...'); ?>">
+      </textarea>
+
+      <button type="submit" class="btn-main">
+        <?php echo pll__('Enviar solicitud'); ?>
+      </button>
+
+    </form>
+
+  </div><!-- /.form-wrap -->
+
+</section>
+
+
+  </div>
+
+</section>
+
 
 </main>
 
