@@ -114,12 +114,18 @@ if ($eventos) {
   echo pll__('Eventos');
   echo '</a>';
 }
+
+$noticias = get_page_by_path('noticias');
+
+if ($noticias) {
+  $translated = pll_get_post($noticias->ID);
+  if ($translated) {
+    echo '<a href="' . get_permalink($translated) . '">';
+    echo pll__('Noticias');
+    echo '</a>';
+  }
+}
 ?>
-
-    <a href="<?php echo pll_home_url() . '#news'; ?>">
-      <?php echo pll__('Noticias'); ?>
-    </a>
-
   </nav>
 
   <!-- MOBILE -->

@@ -90,6 +90,21 @@ function freesoul_assets() {
 
   }
 
+  // ================= PAGE: NOTICIAS CSS =================
+
+  if (
+    is_page('noticias')
+  ) {
+
+    wp_enqueue_style(
+      'freesoul-noticias',
+      get_template_directory_uri() . '/assets/css/noticias.css',
+      ['freesoul-main'],
+      time()
+    );
+
+  }
+
   /* ================= JS ================= */
 
   wp_enqueue_script(
@@ -135,6 +150,26 @@ function freesoul_assets() {
     );
 
   }
+  
+  // ================= PAGE: NOTICIAS JS =================
+
+  if (
+    is_page('noticias')
+  ) {
+
+    wp_enqueue_script(
+      'freesoul-noticias',
+      get_template_directory_uri() . '/assets/js/noticias.js',
+      [],
+      time(),
+      true
+    );
+
+  }
+
+
+
+add_action('wp_enqueue_scripts', 'freesoul_assets');
 
   // ================= PAGE: CATALOGO JS =================
 
@@ -167,18 +202,22 @@ function freesoul_enqueue_legal_styles() {
   if (
     is_page([
 
+      // ================= PRIVACIDAD =================
       'privacidad',
       'privacy',
       'confidentialite',
 
+      // ================= COOKIES =================
       'cookies',
       'cookies-en',
       'cookies-fr',
 
+      // ================= AVISO LEGAL =================
       'aviso-legal',
       'legal-notice',
       'mentions-legales',
 
+      // ================= CONDICIONES =================
       'condiciones-de-uso',
       'terms-of-use',
       'conditions-utilisation'
@@ -238,22 +277,13 @@ function freesoul_handle_event_form() {
   $body .= "Pack: $pack\n\n";
   $body .= "Mensaje:\n$message";
 
-  $headers = [
-    'Content-Type: text/plain; charset=UTF-8',
-    'From: Free Soul <no-reply@freesoul.test>',
-    "Reply-To: $name <$email>"
-  ];
+  $headers = [ 'Content-Type: text/plain; charset=UTF-8' ];
 
   wp_mail( $to, $subject, $body, $headers );
 
-  // Volver a la misma página + anchor
-  wp_redirect(
-    add_query_arg( 'enviado', '1', wp_get_referer() ) . '#form-eventos'
-  );
-
+  wp_redirect( home_url('/gracias/') );
   exit;
 }
-
 
 
 /* ================= POLYLANG STRINGS ================= */
@@ -420,67 +450,3 @@ if ( function_exists( 'pll_register_string' ) ) {
 
 /* ===============================
    POLYLANG — CATALOGO STRINGS
-================================ */
-
-add_action('init', function () {
-
-  if (!function_exists('pll_register_string')) {
-    return;
-  }
-
-  $group = 'Catálogo';
-
-  // HERO
-  pll_register_string('catalogo', 'Catálogo', $group);
-  pll_register_string('catalogo_desc', 'Explora nuestra selección premium de bebidas sin alcohol.', $group);
-  pll_register_string('catalogo_search', 'Buscar bebida...', $group);
-
-  // FILTROS
-  pll_register_string('catalogo_todos', 'Todos', $group);
-  pll_register_string('catalogo_cervezas', 'Cervezas', $group);
-  pll_register_string('catalogo_vinos', 'Vinos', $group);
-  pll_register_string('catalogo_destilados', 'Destilados', $group);
-  pll_register_string('catalogo_sidras', 'Sidras', $group);
-
-  // ORDENAR
-  pll_register_string('catalogo_sort', 'Ordenar por', $group);
-  pll_register_string('catalogo_relevancia', 'Relevancia', $group);
-  pll_register_string('catalogo_price_asc', 'Precio: menor a mayor', $group);
-  pll_register_string('catalogo_price_desc', 'Precio: mayor a menor', $group);
-  pll_register_string('catalogo_alpha_asc', 'Nombre: A–Z', $group);
-  pll_register_string('catalogo_alpha_desc', 'Nombre: Z–A', $group);
-
-/* ===============================
-   POLYLANG — CATALOGO PRODUCTOS
-================================ */
-
-  if (!function_exists('pll_register_string')) return;
-
-  $group = 'Catálogo';
-
-  // PAGINACIÓN
-  pll_register_string('catalogo_prev', 'Anterior', $group);
-  pll_register_string('catalogo_next', 'Siguiente', $group);
-
-  // DESCRIPCIONES PRODUCTOS
-  pll_register_string('desc_estrella', 'Suave y equilibrada', $group);
-  pll_register_string('desc_cruzcampo', 'Cuerpo intenso y tostado', $group);
-  pll_register_string('desc_granvia', 'Tostada y redonda', $group);
-  pll_register_string('desc_mahou', 'Notas de cereal y caramelo', $group);
-  pll_register_string('desc_heineken', 'Refrescante y herbal', $group);
-
-  pll_register_string('desc_cava', 'Burbuja fina y elegante', $group);
-  pll_register_string('desc_frenchbloom', 'Aromas florales', $group);
-  pll_register_string('desc_natureo', 'Afrutado y fresco', $group);
-
-  pll_register_string('desc_captain', 'Vainilla y especias', $group);
-  pll_register_string('desc_beefeater', 'Botánicos clásicos', $group);
-  pll_register_string('desc_tanqueray', 'Ginebra cítrica', $group);
-
-  pll_register_string('desc_gaitero', 'Manzana natural', $group);
-  pll_register_string('desc_maeloc', 'Afrutada y aromática', $group);
-  pll_register_string('desc_trabanco', 'Asturiana y seca', $group);
-
-});
-
-}
