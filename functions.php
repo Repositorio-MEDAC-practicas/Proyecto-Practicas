@@ -93,7 +93,9 @@ function freesoul_assets() {
   // ================= PAGE: NOTICIAS CSS =================
 
   if (
-    is_page('noticias')
+    is_page('noticias') ||
+    is_page('news') ||
+    is_page('nouvelles')
   ) {
 
     wp_enqueue_style(
@@ -154,7 +156,9 @@ function freesoul_assets() {
   // ================= PAGE: NOTICIAS JS =================
 
   if (
-    is_page('noticias')
+    is_page('noticias') ||
+    is_page('news') ||
+    is_page('nouvelles')
   ) {
 
     wp_enqueue_script(
@@ -447,6 +451,47 @@ if ( function_exists( 'pll_register_string' ) ) {
   pll_register_string( 'eventos_form_guests', 'Número de asistentes', 'Eventos' );
   pll_register_string( 'eventos_form_message', 'Cuéntanos qué necesitas...', 'Eventos' );
   pll_register_string( 'eventos_form_submit', 'Enviar solicitud', 'Eventos' );
+  
+  /* ---------- NOTICIAS ---------- */
+
+  pll_register_string( 'news_discount_beer', '15% DE DESCUENTO EN CERVEZAS', 'Noticias' );
+
+  pll_register_string( 'news_discount_title', 'Nuevo descuento disponible', 'Noticias' );
+
+  pll_register_string( 'news_date_jan1', '1 de Enero', 'Noticias' );
+
+  pll_register_string( 'news_new_discount', '¡Buenas noticias! Durante esta semana tienes un 15% de descuento en nuestra selección de cervezas.', 'Noticias' );
+  pll_register_string( 'news_new_drinks', 'Nuevas bebidas añadidas al catálogo', 'Noticias' );
+
+  pll_register_string( 'news_offer_ends', 'Aprovecha la oferta antes del domingo.', 'Noticias' );
+
+  pll_register_string('news_jan25', '25 de Enero', 'Noticias');
+
+  pll_register_string('news_new_drinks', 'Hemos incorporado nuevas opciones a nuestra carta, incluyendo whisky sin alcohol y gin 0.0 premium.', 'Noticias');
+  pll_register_string('news_check_favorites', '¡Échales un vistazo y descubre tu favorita!', 'Noticias');
+
+  pll_register_string('news_technical_issue', 'Incidencia técnica temporal', 'Noticias');
+
+  pll_register_string('news_12_febrero', '12 de Febrero', 'Noticias');
+
+  pll_register_string('news_payment_issue', 'Estamos experimentando algunos problemas técnicos en la página de pagos.', 'Noticias');
+  pll_register_string('news_team_working', 'Nuestro equipo ya está trabajando para solucionarlo lo antes posible.', 'Noticias');
+
+  pll_register_string('news_vuelta_producto', 'Vuelta de un producto muy solicitado', 'Noticias');
+
+  pll_register_string('news_17_febrero', '17 de Febrero', 'Noticias');
+
+  pll_register_string('news_back_product', '¡Está de vuelta!', 'Noticias');
+  pll_register_string('news_most_requested_back', 'La bebida sin alcohol más pedida por nuestros clientes ya vuelve a estar disponible en stock.', 'Noticias');
+  pll_register_string('news_dont_miss_it', 'No te quedes sin ella.', 'Noticias');
+
+  pll_register_string('news_schedule_changes', 'Cambios en el horario de atención', 'Noticias');
+
+  pll_register_string('news_feb29', '29 de Febrero', 'Noticias');
+
+  pll_register_string('news_maintenance_notice', 'Con motivo de mantenimiento,', 'Noticias');
+  pll_register_string('news_customer_service_hours', 'nuestro servicio de atención al cliente no estará disponible el jueves de 22:00 a 00:00.', 'Noticias');
+  pll_register_string('news_website_normal', 'La web seguirá funcionando con normalidad.', 'Noticias');
 
 /* ===============================
    POLYLANG — CATALOGO STRINGS

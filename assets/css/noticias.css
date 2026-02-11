@@ -24,6 +24,10 @@ body{
     align-items: center; 
 }
 
+.dark-mode .top{
+  background-color: rgb(167, 208, 121);
+}
+
 .inbox{
     margin: 0;
     background-color: rgba(251, 251, 200, 0.75);
@@ -31,7 +35,7 @@ body{
     text-align: center;
     height: 200px;
     color: black;
-    border: 5px, solid, rgb(139, 161, 127);
+    border: 5px, solid, rgb(139, 161, 127,);
     border-top: 0;
     border-right: 0;
     border-left: 0;
@@ -43,11 +47,25 @@ body{
     margin: auto;
 }
 
+.dark-mode .inbox{
+  background-color: rgba(125, 125, 64, 0.75);
+}
+
 h2{
     background-color: rgb(255, 249, 227);
     padding: 20px;
     border: 5px, dashed, rgb(171, 185, 164);
     border-radius: 50px;
+    transition: transform 0.3s ease;
+}
+
+h2:hover {
+  transform: scale(1.05);
+}
+
+.dark-mode h2{
+  background-color: rgb(169, 161, 129);
+  border-color: rgb(108, 120, 102);;
 }
 
 .fecha{
@@ -56,4 +74,8 @@ h2{
     border: 0;
     background-color: rgb(100, 144, 100);
     color: white;
+}
+
+.dark-mode .fecha{
+  background-color: rgb(59, 91, 59);
 }
