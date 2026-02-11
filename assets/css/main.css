@@ -588,26 +588,3 @@ footer,
   right:26px;
   bottom:24px;
 }
-
-.cat-item,
-.product {
-  transition: transform .35s ease;
-  will-change: transform;
-}
-
-.cat-item-wrap:hover .cat-item,
-.product-wrap:hover .product {
-  transform: translateY(-12px);
-}
-
-/* ================= LIFESTYLE HOVER FIX ================= */
-
-.life-grid > div {
-  transition: transform .35s ease;
-  will-change: transform;
-}
-
-/* Hover estable */
-.life-grid > div:hover {
-  transform: translateY(-12px);
-}
