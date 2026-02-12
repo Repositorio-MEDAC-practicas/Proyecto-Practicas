@@ -35,7 +35,7 @@ get_header();
   <button data-filter="sidras"><?php echo pll__('Sidras'); ?></button>
 </section>
 
-<!-- ================= ORDENAR (CUSTOM) ================= -->
+<!-- ================= ORDENAR ================= -->
 
 <section class="catalogo-sort">
 
@@ -76,170 +76,105 @@ get_header();
 </section>
 
 <!-- ===================================================
-      PRODUCTOS DEL CATALOGO
+      PRODUCTOS DEL CATALOGO (WooCommerce)
 =================================================== -->
 
 <section id="grid-catalogo" class="catalogo-grid">
 
 <?php
 
-$productos = [
-
-  [
-    'title' => 'Estrella Galicia 0.0',
-    'image' => get_template_directory_uri() . '/assets/imagenes/catalogo/botella-estrella-galicia-00.png',
-    'desc'  => pll__('Suave y equilibrada'),
-    'cat'   => 'cervezas',
-    'price' => 2.80,
-  ],
-
-  [
-    'title' => 'Cruzcampo Gran Reserva 0.0',
-    'image' => get_template_directory_uri() . '/assets/imagenes/catalogo/cerveza-cruzcampo-gran-reserva-00.png',
-    'desc'  => pll__('Cuerpo intenso y tostado'),
-    'cat'   => 'cervezas',
-    'price' => 3.60,
-  ],
-
-  [
-    'title' => 'Gran Vía 0.0',
-    'image' => get_template_directory_uri() . '/assets/imagenes/catalogo/cerveza-granvia-00-tostada.png',
-    'desc'  => pll__('Tostada y redonda'),
-    'cat'   => 'cervezas',
-    'price' => 2.95,
-  ],
-
-  [
-    'title' => 'Mahou Tostada 0.0',
-    'image' => get_template_directory_uri() . '/assets/imagenes/catalogo/cerveza-mahou-00-tostada.png',
-    'desc'  => pll__('Notas de cereal y caramelo'),
-    'cat'   => 'cervezas',
-    'price' => 3.10,
-  ],
-
-  [
-    'title' => 'Heineken 0.0',
-    'image' => get_template_directory_uri() . '/assets/imagenes/catalogo/heineken-00.png',
-    'desc'  => pll__('Refrescante y herbal'),
-    'cat'   => 'cervezas',
-    'price' => 3.00,
-  ],
-
-  [
-    'title' => 'Cava Maset Zero',
-    'image' => get_template_directory_uri() . '/assets/imagenes/catalogo/cava-maset-zero-alcohol.png',
-    'desc'  => pll__('Burbuja fina y elegante'),
-    'cat'   => 'vinos',
-    'price' => 11.90,
-  ],
-
-  [
-    'title' => 'French Bloom 0.0',
-    'image' => get_template_directory_uri() . '/assets/imagenes/catalogo/espumoso-sin-alcohol-french-bloo.png',
-    'desc'  => pll__('Aromas florales'),
-    'cat'   => 'vinos',
-    'price' => 18.50,
-  ],
-
-  [
-    'title' => 'Natureo Espumoso',
-    'image' => get_template_directory_uri() . '/assets/imagenes/catalogo/natureo-espumoso-sin-alcohol-00.png',
-    'desc'  => pll__('Afrutado y fresco'),
-    'cat'   => 'vinos',
-    'price' => 12.40,
-  ],
-
-  [
-    'title' => 'Captain Morgan Gold 0.0',
-    'image' => get_template_directory_uri() . '/assets/imagenes/catalogo/licor-captain-morgan-spiced-gold-sin-alcohol-00.png',
-    'desc'  => pll__('Vainilla y especias'),
-    'cat'   => 'destilados',
-    'price' => 15.90,
-  ],
-
-  [
-    'title' => 'Beefeater 0.0',
-    'image' => get_template_directory_uri() . '/assets/imagenes/catalogo/licor-beefeater-sin-alcohol-00.png',
-    'desc'  => pll__('Botánicos clásicos'),
-    'cat'   => 'destilados',
-    'price' => 16.90,
-  ],
-
-  [
-    'title' => 'Tanqueray 0.0',
-    'image' => get_template_directory_uri() . '/assets/imagenes/catalogo/licor-tanqueray-sin-alcohol-00.png',
-    'desc'  => pll__('Ginebra cítrica'),
-    'cat'   => 'destilados',
-    'price' => 17.50,
-  ],
-
-  [
-    'title' => 'Sidra El Gaitero 0.0',
-    'image' => get_template_directory_uri() . '/assets/imagenes/catalogo/sidra-el-gaitero-00.png',
-    'desc'  => pll__('Manzana natural'),
-    'cat'   => 'sidras',
-    'price' => 4.20,
-  ],
-
-  [
-    'title' => 'Sidra Maeloc',
-    'image' => get_template_directory_uri() . '/assets/imagenes/catalogo/sidra-maeloc-sin.png',
-    'desc'  => pll__('Afrutada y aromática'),
-    'cat'   => 'sidras',
-    'price' => 4.50,
-  ],
-
-  [
-    'title' => 'Sidra Trabanco 0.0',
-    'image' => get_template_directory_uri() . '/assets/imagenes/catalogo/sidra-trabanco-sin-alcohol.png',
-    'desc'  => pll__('Asturiana y seca'),
-    'cat'   => 'sidras',
-    'price' => 4.80,
-  ],
-
+$args = [
+  'post_type'      => 'product',
+  'posts_per_page' => -1,
+  'post_status'    => 'publish',
 ];
 
+$query = new WP_Query($args);
 
-foreach ($productos as $producto) :
+if ($query->have_posts()) :
+  while ($query->have_posts()) : $query->the_post();
+
+    global $product;
+
+    if (!$product) continue;
+
+    $id    = $product->get_id();
+    $title = get_the_title();
+    $price = $product->get_price();
+
+    $img = wp_get_attachment_image_url(
+      $product->get_image_id(),
+      'medium'
+    );
+
+    if (!$img) {
+      $img = wc_placeholder_img_src();
+    }
+
+    $slug = '';
+
+    $terms = get_the_terms($id, 'product_cat');
+    if ($terms && !is_wp_error($terms)) {
+      $slug = $terms[0]->slug;
+    }
 ?>
 
 <article
   class="catalogo-card"
-  data-nombre="<?php echo strtolower($producto['title']); ?>"
-  data-categoria="<?php echo $producto['cat']; ?>"
-  data-price="<?php echo $producto['price']; ?>"
+  data-nombre="<?php echo esc_attr(strtolower($title)); ?>"
+  data-categoria="<?php echo esc_attr($slug); ?>"
+  data-price="<?php echo esc_attr($price); ?>"
 >
 
   <div class="catalogo-img">
-    <img src="<?php echo esc_url($producto['image']); ?>" alt="">
+    <img src="<?php echo esc_url($img); ?>" alt="">
   </div>
 
   <div class="catalogo-info">
 
-    <h3><?php echo esc_html($producto['title']); ?></h3>
+    <h3><?php echo esc_html($title); ?></h3>
 
-    <p><?php echo esc_html($producto['desc']); ?></p>
+    <p><?php echo esc_html( wp_strip_all_tags( get_the_excerpt() ) ); ?></p>
 
     <strong class="catalogo-price">
-      <?php echo number_format($producto['price'], 2, ',', '.') . '€'; ?>
+      <?php echo wc_price($price); ?>
     </strong>
 
   </div>
 
-  <!-- CONTROL CARRITO -->
-  <div class="catalogo-cart-control">
+<!-- ===================================================
+      BOTON CARRITO NORMAL WOO
+=================================================== -->
 
-    <button class="cart-minus">−</button>
+<div class="catalogo-cart-control">
 
-    <span class="cart-qty">0</span>
+  <?php
+  $product_id = $product->get_id();
 
-    <button class="cart-plus">+</button>
+  echo sprintf(
+      '<a href="%s" 
+         data-quantity="1"
+         data-product_id="%s"
+         class="button add_to_cart_button ajax_add_to_cart">
+         %s
+       </a>',
+      esc_url( $product->add_to_cart_url() ),
+      esc_attr( $product_id ),
+      esc_html__( 'Añadir', 'woocommerce' )
+  );
+  ?>
 
-  </div>
+</div>
+
+
 
 </article>
 
-<?php endforeach; ?>
+<?php
+  endwhile;
+  wp_reset_postdata();
+endif;
+?>
 
 </section>
 

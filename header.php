@@ -75,59 +75,80 @@
 
 <div class="header-inner">
 
-  <!-- LEFT -->
-  <nav class="nav-left">
+<!-- LEFT -->
+<nav class="nav-left">
 
-    <?php
-    $catalogo = get_page_by_path('catalogo');
+  <?php
+  // CATÁLOGO
+  $catalogo = get_page_by_path('catalogo');
+  if ($catalogo) {
+    $translated = pll_get_post($catalogo->ID);
+    echo '<a href="' . get_permalink($translated) . '">';
+    echo pll__('Catálogo');
+    echo '</a>';
+  }
 
-    if ($catalogo) {
-      $translated = pll_get_post($catalogo->ID);
-      echo '<a href="' . get_permalink($translated) . '">';
-      echo pll__('Catálogo');
-      echo '</a>';
-    }
-    ?>
+  // EVENTOS
+  $eventos = get_page_by_path('eventos');
+  if ($eventos) {
+    $translated = pll_get_post($eventos->ID);
+    echo '<a href="' . get_permalink($translated) . '">';
+    echo pll__('Eventos');
+    echo '</a>';
+  }
+  ?>
 
-    <a href="<?php echo pll_home_url() . '#catalog'; ?>">
-      <?php echo pll__('Tienda'); ?>
+</nav>
+
+
+<!-- LOGO -->
+<div class="header-logo">
+  <a href="<?php echo pll_home_url(); ?>">
+    <img src="<?php echo get_template_directory_uri(); ?>/assets/imagenes/logo.png" alt="Free Soul Drinks">
+  </a>
+</div>
+
+
+<!-- RIGHT -->
+<nav class="nav-right">
+
+  <?php
+  // NOTICIAS
+  $noticias = get_page_by_path('noticias');
+  if ($noticias) {
+    $translated = pll_get_post($noticias->ID);
+    echo '<a href="' . get_permalink($translated) . '">';
+    echo pll__('Noticias');
+    echo '</a>';
+  }
+  ?>
+
+  <!-- CARRITO -->
+  <?php if ( function_exists('WC') && WC()->cart ) : ?>
+
+    <?php $count = WC()->cart->get_cart_contents_count(); ?>
+
+    <a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="freesoul-cart-link">
+      <?php echo pll__('Carrito'); ?>
+
+      <span id="freesoul-cart-count" class="freesoul-cart-count"
+        <?php if ( $count == 0 ) echo 'style="display:none;"'; ?>>
+        <?php echo esc_html( $count ); ?>
+      </span>
+
     </a>
 
-  </nav>
+  <?php endif; ?>
 
-  <!-- LOGO -->
-  <div class="header-logo">
-    <a href="<?php echo pll_home_url(); ?>">
-      <img src="<?php echo get_template_directory_uri(); ?>/assets/imagenes/logo.png" alt="Free Soul Drinks">
-    </a>
-  </div>
+</nav>
 
-  <!-- RIGHT -->
-  <nav class="nav-right">
 
-<?php
-$eventos = get_page_by_path('eventos');
-
-if ($eventos) {
-  $translated = pll_get_post($eventos->ID);
-  echo '<a href="' . get_permalink($translated) . '">';
-  echo pll__('Eventos');
-  echo '</a>';
-}
-?>
-
-    <a href="<?php echo pll_home_url() . '#news'; ?>">
-      <?php echo pll__('Noticias'); ?>
-    </a>
-
-  </nav>
-
-  <!-- MOBILE -->
-  <button class="burger" aria-label="<?php echo pll__('Abrir menú'); ?>">
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
+<!-- MOBILE -->
+<button class="burger" aria-label="<?php echo pll__('Abrir menú'); ?>">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
 
 </div>
 

@@ -1,0 +1,313 @@
+/* ==============================
+   FREESOUL — CHECKOUT
+================================ */
+
+body.woocommerce-checkout {
+  background: #f5f6f4;
+}
+
+/* Contenedor */
+body.woocommerce-checkout 
+.wp-block-woocommerce-checkout {
+
+  max-width: 1140px;
+  margin: 240px auto 160px;
+  padding: 0 20px;
+}
+
+/* Cards */
+body.woocommerce-checkout 
+.wc-block-components-card,
+body.woocommerce-checkout 
+.wp-block-woocommerce-checkout-order-summary-block {
+
+  background: #fff;
+  border-radius: 12px;
+  padding: 2.4rem;
+
+  border: 1px solid rgba(0,0,0,.08);
+  box-shadow: 0 18px 40px rgba(0,0,0,.08);
+}
+
+/* Resumen verde */
+body.woocommerce-checkout 
+.wp-block-woocommerce-checkout-order-summary-block {
+  background: #dfe9dc;
+}
+
+/* Botón pagar */
+body.woocommerce-checkout 
+.wc-block-components-checkout-place-order-button {
+
+  background: #5f745e !important;
+  color: #fff !important;
+
+  border-radius: 8px;
+  padding: 20px;
+
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+/* Responsive */
+@media(max-width:900px){
+
+  body.woocommerce-checkout 
+  .wp-block-woocommerce-checkout {
+    margin-top: 160px;
+  }
+
+}
+
+/* ======================================
+   BOTONES — ANIMACIONES PREMIUM
+====================================== */
+
+body.woocommerce-cart button,
+body.woocommerce-cart .wc-block-components-button,
+body.woocommerce-cart .wp-block-button__link,
+body.woocommerce-checkout button,
+body.woocommerce-checkout .wc-block-components-button,
+body.woocommerce-checkout .wp-block-button__link {
+
+  transition:
+    background-color .25s ease,
+    color .25s ease,
+    box-shadow .25s ease,
+    transform .18s ease,
+    border-color .25s ease;
+
+  will-change: transform;
+}
+
+/* Hover */
+
+body.woocommerce-cart button:hover,
+body.woocommerce-cart .wc-block-components-button:hover,
+body.woocommerce-checkout button:hover,
+body.woocommerce-checkout .wc-block-components-button:hover {
+
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(0,0,0,.18);
+}
+
+/* Click */
+
+body.woocommerce-cart button:active,
+body.woocommerce-cart .wc-block-components-button:active,
+body.woocommerce-checkout button:active,
+body.woocommerce-checkout .wc-block-components-button:active {
+
+  transform: translateY(0);
+  box-shadow: 0 6px 14px rgba(0,0,0,.22);
+}
+
+/* Focus accesible */
+
+body.woocommerce-cart button:focus-visible,
+body.woocommerce-checkout button:focus-visible {
+
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(95,116,94,.35);
+}
+
+/* =====================================
+   DARK MODE — CHECKOUT
+===================================== */
+
+.dark-mode body.woocommerce-checkout,
+.dark-mode body.woocommerce-checkout main,
+.dark-mode body.woocommerce-checkout .site-main {
+  background-color: #141816 !important;
+}
+
+/* Cards */
+
+.dark-mode body.woocommerce-checkout 
+.wc-block-components-card {
+  background: #1c2420 !important;
+}
+
+.dark-mode body.woocommerce-checkout 
+.wp-block-woocommerce-checkout-order-summary-block {
+  background: #233028 !important;
+}
+
+/* Textos */
+
+.dark-mode body.woocommerce-checkout {
+  color: #e4efe8;
+}
+
+/* Inputs */
+
+.dark-mode body.woocommerce-checkout 
+input,
+.dark-mode body.woocommerce-checkout 
+select,
+.dark-mode body.woocommerce-checkout 
+textarea {
+  background: #1f2723;
+  border-color: rgba(255,255,255,.15);
+  color: white;
+}
+
+/* Botón pagar */
+
+.dark-mode body.woocommerce-checkout 
+.wc-block-components-checkout-place-order-button {
+  background: #6f8f7c !important;
+}
+
+.dark-mode body.woocommerce-checkout 
+.wc-block-components-checkout-place-order-button:hover {
+  background: #82a793 !important;
+}
+
+
+/* ============================================
+   DARK MODE — FORCE CHECKOUT CARDS
+============================================ */
+
+.dark-mode body.woocommerce-checkout 
+.wp-block-woocommerce-checkout * {
+
+  --wc-content-bg: #1b2420 !important;
+}
+
+/* TODOS los contenedores */
+
+.dark-mode body.woocommerce-checkout 
+.wc-block-components-card,
+.dark-mode body.woocommerce-checkout 
+.wp-block-woocommerce-checkout-order-summary-block,
+.dark-mode body.woocommerce-checkout 
+.wc-block-components-panel,
+.dark-mode body.woocommerce-checkout 
+.wc-block-components-panel__content,
+.dark-mode body.woocommerce-checkout 
+.wc-block-checkout__container,
+.dark-mode body.woocommerce-checkout 
+.wc-block-checkout__main,
+.dark-mode body.woocommerce-checkout 
+.wc-block-checkout__sidebar {
+
+  background: #1b2420 !important;
+  background-color: #1b2420 !important;
+
+  border-color: rgba(255,255,255,.12) !important;
+
+  box-shadow: 0 18px 40px rgba(0,0,0,.65) !important;
+}
+
+/* Inputs */
+
+.dark-mode body.woocommerce-checkout 
+input,
+.dark-mode body.woocommerce-checkout 
+select,
+.dark-mode body.woocommerce-checkout 
+textarea {
+
+  background-color: #202a25 !important;
+  color: #ffffff !important;
+
+  border-color: rgba(255,255,255,.18) !important;
+}
+
+/* Separadores */
+
+.dark-mode body.woocommerce-checkout 
+.wc-block-components-totals-item,
+.dark-mode body.woocommerce-checkout 
+.wc-block-components-panel__header {
+
+  border-bottom-color: rgba(255,255,255,.15) !important;
+}
+
+/* =====================================================
+   CHECKOUT — FORZAR ANCHO COMPLETO COLUMNA IZQUIERDA
+===================================================== */
+
+body.woocommerce-checkout 
+.wp-block-woocommerce-checkout .wc-block-checkout__form,
+body.woocommerce-checkout 
+.wp-block-woocommerce-checkout .wc-block-checkout__form > *,
+body.woocommerce-checkout 
+.wp-block-woocommerce-checkout .wc-block-components-card,
+body.woocommerce-checkout 
+.wp-block-woocommerce-checkout .wc-block-components-card__content {
+
+  width: 100% !important;
+  max-width: 100% !important;
+
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+
+/* =====================================================
+   DAR AIRE REAL AL PANEL IZQUIERDO
+===================================================== */
+
+body.woocommerce-checkout 
+.wp-block-woocommerce-checkout 
+.wc-block-checkout__form {
+
+  padding: 2.6rem !important;
+}
+
+
+/* =====================================================
+   MATAR POSIBLES COLUMNAS FANTASMA
+===================================================== */
+
+body.woocommerce-checkout 
+.wp-block-woocommerce-checkout 
+.wc-block-components-card {
+
+  box-shadow: none !important;
+  background-clip: padding-box;
+}
+
+/* =====================================================
+   CHECKOUT — ELIMINAR DOBLE FONDO RESUMEN
+===================================================== */
+
+/* Wrapper exterior */
+body.woocommerce-checkout 
+.wp-block-woocommerce-checkout 
+.wc-block-checkout__sidebar {
+
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+
+/* Card real del resumen */
+body.woocommerce-checkout 
+.wp-block-woocommerce-checkout 
+.wp-block-woocommerce-checkout-order-summary-block {
+
+  background: #dfe9dc !important;
+  box-shadow: 0 18px 40px rgba(0,0,0,.12) !important;
+  border: 1px solid rgba(0,0,0,.08);
+}
+
+
+/* DARK MODE */
+
+.dark-mode body.woocommerce-checkout 
+.wp-block-woocommerce-checkout 
+.wp-block-woocommerce-checkout-order-summary-block {
+
+  background: #233028 !important;
+  border-color: rgba(255,255,255,.14);
+  box-shadow: 0 18px 40px rgba(0,0,0,.6) !important;
+}
+

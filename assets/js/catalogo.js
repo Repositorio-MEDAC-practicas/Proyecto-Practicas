@@ -305,30 +305,3 @@ document.addEventListener("DOMContentLoaded", () => {
   applyAll(true, false);
 
 });
-
-
-/* =============================
-   CART COUNTER UI
-============================= */
-
-document.querySelectorAll(".catalogo-card").forEach(card => {
-
-  const minus = card.querySelector(".cart-minus");
-  const plus = card.querySelector(".cart-plus");
-  const qtyEl = card.querySelector(".cart-qty");
-
-  let qty = 0;
-
-  plus.addEventListener("click", () => {
-    qty++;
-    qtyEl.textContent = qty;
-  });
-
-  minus.addEventListener("click", () => {
-    if (qty > 0) {
-      qty--;
-      qtyEl.textContent = qty;
-    }
-  });
-
-});

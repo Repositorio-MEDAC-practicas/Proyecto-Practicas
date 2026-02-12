@@ -75,3 +75,65 @@ window.setLanguage = function(lang){
 
 const savedLang = localStorage.getItem("lang") || "es";
 setLanguage(savedLang);
+
+// ================= BOTON LIMPIAR CARRITO =================
+document.addEventListener("DOMContentLoaded", () => {
+
+  const container = document.querySelector(
+    ".wp-block-woocommerce-cart-items-block"
+  );
+
+  if (!container) return;
+
+  if (document.querySelector(".freesoul-empty-cart")) return;
+
+  const btn = document.createElement("a");
+
+  btn.href = "?freesoul-empty-cart=true";
+  btn.className = "freesoul-empty-cart";
+  btn.textContent = "Vaciar carrito";
+
+  container.prepend(btn);
+
+});
+
+  // Notificación Carrito
+jQuery(document.body).on('added_to_cart', function(event, fragments, cart_hash){
+
+  const countEl = document.getElementById('freesoul-cart-count');
+
+  if(!countEl) return;
+
+  if(fragments && fragments['div.widget_shopping_cart_content']){
+    
+    // Woo guarda el nuevo contador aquí
+    const temp = document.createElement('div');
+    temp.innerHTML = fragments['div.widget_shopping_cart_content'];
+
+    const newCount = temp.querySelector('.woocommerce-mini-cart__total')
+      ? temp.querySelectorAll('.mini_cart_item').length
+      : null;
+  }
+
+
+  fetch('/?wc-ajax=get_refreshed_fragments')
+    .then(r => r.json())
+    .then(data => {
+
+      if(!data.fragments) return;
+
+      const temp = document.createElement('div');
+      temp.innerHTML = data.fragments['div.widget_shopping_cart_content'] || '';
+
+      const items = temp.querySelectorAll('.mini_cart_item').length;
+
+      if(items > 0){
+        countEl.textContent = items;
+        countEl.style.display = 'inline-block';
+      } else {
+        countEl.style.display = 'none';
+      }
+
+    });
+
+});
