@@ -75,65 +75,80 @@
 
 <div class="header-inner">
 
-  <!-- LEFT -->
-  <nav class="nav-left">
+<!-- LEFT -->
+<nav class="nav-left">
 
-    <?php
-    $catalogo = get_page_by_path('catalogo');
+  <?php
+  // CATÁLOGO
+  $catalogo = get_page_by_path('catalogo');
+  if ($catalogo) {
+    $translated = pll_get_post($catalogo->ID);
+    echo '<a href="' . get_permalink($translated) . '">';
+    echo pll__('Catálogo');
+    echo '</a>';
+  }
 
-    if ($catalogo) {
-      $translated = pll_get_post($catalogo->ID);
-      echo '<a href="' . get_permalink($translated) . '">';
-      echo pll__('Catálogo');
-      echo '</a>';
-    }
-    ?>
+  // EVENTOS
+  $eventos = get_page_by_path('eventos');
+  if ($eventos) {
+    $translated = pll_get_post($eventos->ID);
+    echo '<a href="' . get_permalink($translated) . '">';
+    echo pll__('Eventos');
+    echo '</a>';
+  }
+  ?>
 
-    <a href="<?php echo pll_home_url() . '#catalog'; ?>">
-      <?php echo pll__('Tienda'); ?>
-    </a>
+</nav>
 
-  </nav>
 
-  <!-- LOGO -->
-  <div class="header-logo">
-    <a href="<?php echo pll_home_url(); ?>">
-      <img src="<?php echo get_template_directory_uri(); ?>/assets/imagenes/logo.png" alt="Free Soul Drinks">
-    </a>
-  </div>
+<!-- LOGO -->
+<div class="header-logo">
+  <a href="<?php echo pll_home_url(); ?>">
+    <img src="<?php echo get_template_directory_uri(); ?>/assets/imagenes/logo.png" alt="Free Soul Drinks">
+  </a>
+</div>
 
-  <!-- RIGHT -->
-  <nav class="nav-right">
 
-<?php
-$eventos = get_page_by_path('eventos');
+<!-- RIGHT -->
+<nav class="nav-right">
 
-if ($eventos) {
-  $translated = pll_get_post($eventos->ID);
-  echo '<a href="' . get_permalink($translated) . '">';
-  echo pll__('Eventos');
-  echo '</a>';
-}
-
-$noticias = get_page_by_path('noticias');
-
-if ($noticias) {
-  $translated = pll_get_post($noticias->ID);
-  if ($translated) {
+  <?php
+  // NOTICIAS
+  $noticias = get_page_by_path('noticias');
+  if ($noticias) {
+    $translated = pll_get_post($noticias->ID);
     echo '<a href="' . get_permalink($translated) . '">';
     echo pll__('Noticias');
     echo '</a>';
   }
-}
-?>
-  </nav>
+  ?>
 
-  <!-- MOBILE -->
-  <button class="burger" aria-label="<?php echo pll__('Abrir menú'); ?>">
-    <span></span>
-    <span></span>
-    <span></span>
-  </button>
+  <!-- CARRITO -->
+  <?php if ( function_exists('WC') && WC()->cart ) : ?>
+
+    <?php $count = WC()->cart->get_cart_contents_count(); ?>
+
+    <a href="<?php echo esc_url( wc_get_cart_url() ); ?>" class="freesoul-cart-link">
+      <?php echo pll__('Carrito'); ?>
+
+      <span id="freesoul-cart-count" class="freesoul-cart-count"
+        <?php if ( $count == 0 ) echo 'style="display:none;"'; ?>>
+        <?php echo esc_html( $count ); ?>
+      </span>
+
+    </a>
+
+  <?php endif; ?>
+
+</nav>
+
+
+<!-- MOBILE -->
+<button class="burger" aria-label="<?php echo pll__('Abrir menú'); ?>">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
 
 </div>
 

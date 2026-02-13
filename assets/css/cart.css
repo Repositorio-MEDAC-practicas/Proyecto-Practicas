@@ -1,0 +1,491 @@
+/* ======================================================
+   FREESOUL — CART FINAL CON AIRE
+====================================================== */
+
+
+/* ======================================================
+   FONDO GENERAL
+====================================================== */
+
+body.woocommerce-cart,
+body.woocommerce-cart main,
+body.woocommerce-cart .site-main,
+body.woocommerce-cart .wp-site-blocks {
+  background-color: #f5f6f4 !important;
+}
+
+
+/* ======================================================
+   ESPACIADO GLOBAL DEL CARRITO
+====================================================== */
+
+body.woocommerce-cart .wp-block-woocommerce-cart {
+  padding-top: 260px !important;
+  padding-bottom: 200px !important;
+}
+
+
+/* ======================================================
+   GRID PRINCIPAL
+====================================================== */
+
+body.woocommerce-cart .wp-block-woocommerce-filled-cart-block {
+  display: grid;
+  grid-template-columns: 2.2fr 1.3fr;
+  gap: 36px;
+
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+
+/* ======================================================
+   RESET WOO
+====================================================== */
+
+body.woocommerce-cart .wp-block-woocommerce-cart-items-block,
+body.woocommerce-cart .wp-block-woocommerce-cart-totals-block {
+  width: 100% !important;
+  max-width: none !important;
+}
+
+
+/* ======================================================
+   CARDS
+====================================================== */
+
+body.woocommerce-cart .wp-block-woocommerce-cart-items-block {
+  background: #ffffff !important;
+}
+
+body.woocommerce-cart .wp-block-woocommerce-cart-totals-block {
+  background: #dfe9dc !important;
+}
+
+body.woocommerce-cart 
+.wp-block-woocommerce-cart-items-block,
+body.woocommerce-cart 
+.wp-block-woocommerce-cart-totals-block {
+
+  border-radius: 10px;
+  padding: 2.4rem;
+
+  border: 1px solid rgba(0,0,0,.08);
+  box-shadow: 0 18px 40px rgba(0,0,0,.08);
+}
+
+
+/* ======================================================
+   HEADER TABLA
+====================================================== */
+
+body.woocommerce-cart .wc-block-cart-items__header {
+  border-bottom: 2px solid #dee2e6;
+  padding-bottom: 1.2rem;
+  margin-bottom: 1.6rem;
+
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  letter-spacing: .05em;
+
+  color: #495057;
+}
+
+
+/* ======================================================
+   FILAS
+====================================================== */
+
+body.woocommerce-cart .wc-block-cart-items__row {
+  padding: 20px 0;
+  border-bottom: 1px solid #e9ecef;
+}
+
+body.woocommerce-cart .wc-block-cart-item__image img {
+  border-radius: 8px;
+  border: 1px solid #e5e5e5;
+  max-width: 88px;
+}
+
+body.woocommerce-cart .wc-block-cart-item__name {
+  font-weight: 600;
+  color: #212529;
+}
+
+
+/* ======================================================
+   QTY
+====================================================== */
+
+body.woocommerce-cart .wc-block-components-quantity-selector button {
+  background: #eef2ed !important;
+  border-radius: 6px !important;
+}
+
+
+/* ======================================================
+   TOTAL
+====================================================== */
+
+body.woocommerce-cart .wc-block-cart-totals__total-value {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+
+/* ======================================================
+   BOTÓN CHECKOUT
+====================================================== */
+
+body.woocommerce-cart 
+.wp-block-woocommerce-proceed-to-checkout-block button,
+body.woocommerce-cart 
+.wc-block-components-button {
+
+  background-color: #5f745e !important;
+  color: #fff !important;
+
+  border-radius: 8px !important;
+  padding: 22px !important;
+
+  text-transform: uppercase;
+  letter-spacing: .09em;
+  font-weight: 700;
+
+  width: 100%;
+  border: none !important;
+
+  transition: all .25s ease;
+}
+
+body.woocommerce-cart 
+.wp-block-woocommerce-proceed-to-checkout-block button:hover {
+
+  background-color: #495c49 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(0,0,0,.18);
+}
+
+
+/* ======================================================
+   CROSS SELLS
+====================================================== */
+
+body.woocommerce-cart .wc-block-components-product-list {
+
+  max-width: 1140px;
+  margin: 110px auto 0;
+  padding: 0 20px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 36px;
+}
+
+
+/* ======================================================
+   EMPTY CART
+====================================================== */
+
+body.woocommerce-cart .wp-block-woocommerce-empty-cart-block {
+
+  max-width: 900px;
+  margin: 200px auto 0;
+
+  text-align: center;
+}
+
+body.woocommerce-cart .wp-block-woocommerce-empty-cart-block h2 {
+  font-size: 1.9rem;
+  font-weight: 700;
+}
+
+
+/* ======================================================
+   RESPONSIVE
+====================================================== */
+
+@media (max-width: 900px) {
+
+  body.woocommerce-cart .wp-block-woocommerce-filled-cart-block {
+    grid-template-columns: 1fr;
+  }
+
+  body.woocommerce-cart .wc-block-components-product-list {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  body.woocommerce-cart .wp-block-woocommerce-cart {
+    padding-top: 200px !important;
+    padding-bottom: 160px !important;
+  }
+}
+
+
+/* ======================================================
+   FREESOUL — EMPTY CART CLEAN & ELEGANTE
+====================================================== */
+
+body.woocommerce-cart .wp-block-woocommerce-empty-cart-block {
+  max-width: 900px;
+  margin: 140px auto 0 !important;
+  text-align: center;
+}
+
+/* Icono */
+
+body.woocommerce-cart 
+.wp-block-woocommerce-empty-cart-block svg {
+  width: 70px !important;
+  height: 70px !important;
+  opacity: .55;
+  margin-bottom: 20px;
+}
+
+/* Título principal */
+
+body.woocommerce-cart 
+.wp-block-woocommerce-empty-cart-block h2:first-of-type {
+  font-size: 1.6rem !important;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+/* Subtítulo */
+
+body.woocommerce-cart 
+.wp-block-woocommerce-empty-cart-block h2:nth-of-type(2) {
+  font-size: 1.15rem;
+  font-weight: 500;
+  opacity: .75;
+}
+
+/* Productos nuevos */
+
+body.woocommerce-cart 
+.wp-block-woocommerce-product-new,
+body.woocommerce-cart 
+.wc-block-grid {
+  margin-top: 40px;
+}
+
+/* Cards más pequeñas */
+
+body.woocommerce-cart 
+.wc-block-grid__product {
+  transform: scale(.92);
+}
+
+/* Quitar separador feo */
+
+body.woocommerce-cart 
+.wp-block-woocommerce-empty-cart-block hr {
+  display: none;
+}
+
+/* ======================================================
+   FREESOUL — CART TOTALS STICKY & LIMITADO
+====================================================== */
+
+/* Columna derecha sticky */
+
+body.woocommerce-cart 
+.wp-block-woocommerce-cart-totals-block {
+
+  position: sticky;
+  top: 190px; /* 👈 ajusta según altura real del header */
+
+  max-height: calc(100vh - 240px);
+  overflow-y: auto;
+
+  align-self: start;
+
+}
+
+/* Scroll interno suave */
+
+body.woocommerce-cart 
+.wp-block-woocommerce-cart-totals-block::-webkit-scrollbar {
+  width: 6px;
+}
+
+body.woocommerce-cart 
+.wp-block-woocommerce-cart-totals-block::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,.18);
+  border-radius: 6px;
+}
+
+/* Evitar que se estire por el grid */
+
+body.woocommerce-cart 
+.wp-block-woocommerce-filled-cart-block {
+  align-items: start;
+}
+
+/* ============================
+   BOTÓN VACIAR CARRITO
+============================ */
+
+.freesoul-empty-cart {
+
+  display: inline-block;
+
+  margin-bottom: 22px;
+
+  padding: 12px 22px;
+
+  border-radius: 8px;
+
+  background: #5f745e;
+
+  border: none;
+
+  color: #ffffff;
+
+  font-weight: 700;
+
+  letter-spacing: .06em;
+
+  text-transform: uppercase;
+
+  text-decoration: none;
+
+  font-size: .75rem;
+
+  transition: all .25s ease;
+
+  box-shadow: 0 8px 18px rgba(0,0,0,.12);
+}
+
+.freesoul-empty-cart:hover {
+
+  background: #495c49;
+
+  transform: translateY(-2px);
+
+  box-shadow: 0 14px 26px rgba(0,0,0,.18);
+
+}
+
+/* ======================================
+   BOTONES — ANIMACIONES PREMIUM
+====================================== */
+
+body.woocommerce-cart button,
+body.woocommerce-cart .wc-block-components-button,
+body.woocommerce-cart .wp-block-button__link,
+body.woocommerce-checkout button,
+body.woocommerce-checkout .wc-block-components-button,
+body.woocommerce-checkout .wp-block-button__link {
+
+  transition:
+    background-color .25s ease,
+    color .25s ease,
+    box-shadow .25s ease,
+    transform .18s ease,
+    border-color .25s ease;
+
+  will-change: transform;
+}
+
+/* Hover */
+
+body.woocommerce-cart button:hover,
+body.woocommerce-cart .wc-block-components-button:hover,
+body.woocommerce-checkout button:hover,
+body.woocommerce-checkout .wc-block-components-button:hover {
+
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(0,0,0,.18);
+}
+
+/* Click */
+
+body.woocommerce-cart button:active,
+body.woocommerce-cart .wc-block-components-button:active,
+body.woocommerce-checkout button:active,
+body.woocommerce-checkout .wc-block-components-button:active {
+
+  transform: translateY(0);
+  box-shadow: 0 6px 14px rgba(0,0,0,.22);
+}
+
+/* Focus accesible */
+
+body.woocommerce-cart button:focus-visible,
+body.woocommerce-checkout button:focus-visible {
+
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(95,116,94,.35);
+}
+
+/* =====================================
+   DARK MODE — CART
+===================================== */
+
+.dark-mode body.woocommerce-cart,
+.dark-mode body.woocommerce-cart main,
+.dark-mode body.woocommerce-cart .site-main {
+  background-color: #141816 !important;
+}
+
+/* Cards */
+
+.dark-mode body.woocommerce-cart 
+.wp-block-woocommerce-cart-items-block {
+  background: #1c2420 !important;
+}
+
+.dark-mode body.woocommerce-cart 
+.wp-block-woocommerce-cart-totals-block {
+  background: #233028 !important;
+}
+
+/* Textos */
+
+.dark-mode body.woocommerce-cart {
+  color: #e4efe8;
+}
+
+.dark-mode body.woocommerce-cart 
+.wc-block-cart-item__name {
+  color: #ffffff;
+}
+
+/* Bordes suaves */
+
+.dark-mode body.woocommerce-cart 
+.wp-block-woocommerce-cart-items-block,
+.dark-mode body.woocommerce-cart 
+.wp-block-woocommerce-cart-totals-block {
+  border-color: rgba(255,255,255,.12);
+}
+
+/* Botones */
+
+.dark-mode body.woocommerce-cart 
+.wp-block-woocommerce-proceed-to-checkout-block button {
+  background: #6f8f7c !important;
+}
+
+.dark-mode body.woocommerce-cart 
+.wp-block-woocommerce-proceed-to-checkout-block button:hover {
+  background: #82a793 !important;
+}
+
+/* ==============================
+   DARK MODE — LINKS CART
+============================== */
+
+.dark-mode body.woocommerce-cart a {
+  color: #9fc7ad !important;
+  text-decoration: none;
+}
+
+.dark-mode body.woocommerce-cart a:hover {
+  color: #bfe6c9 !important;
+  text-decoration: underline;
+}
+

@@ -593,3 +593,56 @@ html.dark-mode .catalogo-cart-control {
 html.dark-mode .cart-qty {
   color: white;
 }
+
+/* DARK QTY */
+.added_to_cart {
+  display: none !important;
+}
+
+
+/* ================================
+   BOTÓN AÑADIR — CATÁLOGO
+================================ */
+
+.catalogo-cart-control .add_to_cart_button {
+
+  display: inline-block;
+  padding: 12px 22px;
+
+  background: #5f745e;
+  color: #ffffff !important;
+
+  text-decoration: none !important;
+
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+
+  border-radius: 8px;
+  border: none;
+
+  transition: all .25s ease;
+}
+
+/* Hover */
+
+.catalogo-cart-control .add_to_cart_button:hover {
+
+  background: #495c49;
+  color: #ffffff !important;
+  text-decoration: none !important;
+
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(0,0,0,.15);
+}
+
+/* Quitar azul incluso si WP mete estilos raros */
+
+.catalogo-cart-control .add_to_cart_button:visited,
+.catalogo-cart-control .add_to_cart_button:focus,
+.catalogo-cart-control .add_to_cart_button:active {
+
+  color: #ffffff !important;
+  text-decoration: none !important;
+}

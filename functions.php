@@ -1,10 +1,13 @@
 <?php
 
+require_once get_template_directory() . '/inc/polylang.php';
+
+
 /* ================= ENQUEUE ASSETS ================= */
 
 function freesoul_assets() {
 
-  /* ================= CSS ================= */
+  /* ================= CSS BASE ================= */
 
   wp_enqueue_style(
     'freesoul-main',
@@ -27,8 +30,6 @@ function freesoul_assets() {
     time()
   );
 
-  // ================= LOADER CSS =================
-
   wp_enqueue_style(
     'freesoul-loader',
     get_template_directory_uri() . '/assets/css/loader.css',
@@ -36,7 +37,8 @@ function freesoul_assets() {
     filemtime( get_template_directory() . '/assets/css/loader.css' )
   );
 
-  // ================= PAGE: CATALOGO =================
+
+  /* ================= PAGE: CATALOGO ================= */
 
   if (
     is_page('catalogo') ||
@@ -48,12 +50,13 @@ function freesoul_assets() {
       'freesoul-catalogo',
       get_template_directory_uri() . '/assets/css/catalogo.css',
       [],
-      time()
+      filemtime( get_template_directory() . '/assets/css/catalogo.css' )
     );
 
   }
 
-  // ================= PAGE: SUBCATEGORÍAS =================
+
+  /* ================= SUBCATEGORÍAS ================= */
 
   $catalogo_pages = [
     'cervezas',
@@ -68,12 +71,13 @@ function freesoul_assets() {
       'freesoul-catalogo-sub',
       get_template_directory_uri() . '/assets/css/catalogo.css',
       [],
-      time()
+      filemtime( get_template_directory() . '/assets/css/catalogo.css' )
     );
 
   }
 
-  // ================= PAGE: EVENTOS CSS =================
+
+  /* ================= PAGE: EVENTOS ================= */
 
   if (
     is_page('eventos') ||
@@ -85,7 +89,7 @@ function freesoul_assets() {
       'freesoul-eventos',
       get_template_directory_uri() . '/assets/css/eventos.css',
       ['freesoul-main'],
-      time()
+      filemtime( get_template_directory() . '/assets/css/eventos.css' )
     );
 
   }
@@ -107,6 +111,34 @@ function freesoul_assets() {
 
   }
 
+  /* ================= WOO — CART ================= */
+
+  if ( function_exists('is_cart') && is_cart() ) {
+
+    wp_enqueue_style(
+      'freesoul-cart',
+      get_template_directory_uri() . '/assets/css/cart.css',
+      [],
+      filemtime( get_template_directory() . '/assets/css/cart.css' )
+    );
+
+  }
+
+
+  /* ================= WOO — CHECKOUT ================= */
+
+  if ( function_exists('is_checkout') && is_checkout() ) {
+
+    wp_enqueue_style(
+      'freesoul-checkout',
+      get_template_directory_uri() . '/assets/css/checkout.css',
+      [],
+      filemtime( get_template_directory() . '/assets/css/checkout.css' )
+    );
+
+  }
+
+
   /* ================= JS ================= */
 
   wp_enqueue_script(
@@ -125,8 +157,6 @@ function freesoul_assets() {
     true
   );
 
-  // ================= LOADER JS =================
-
   wp_enqueue_script(
     'freesoul-loader',
     get_template_directory_uri() . '/assets/js/loader.js',
@@ -135,7 +165,8 @@ function freesoul_assets() {
     true
   );
 
-  // ================= PAGE: EVENTOS JS =================
+
+  /* ================= EVENTOS JS ================= */
 
   if (
     is_page('eventos') ||
@@ -147,12 +178,12 @@ function freesoul_assets() {
       'freesoul-eventos',
       get_template_directory_uri() . '/assets/js/eventos.js',
       [],
-      time(),
+      filemtime( get_template_directory() . '/assets/js/eventos.js' ),
       true
     );
 
   }
-  
+
   // ================= PAGE: NOTICIAS JS =================
 
   if (
@@ -175,7 +206,7 @@ function freesoul_assets() {
 
 add_action('wp_enqueue_scripts', 'freesoul_assets');
 
-  // ================= PAGE: CATALOGO JS =================
+  /* ================= CATALOGO JS ================= */
 
   if (
     is_page('catalogo') ||
@@ -191,37 +222,33 @@ add_action('wp_enqueue_scripts', 'freesoul_assets');
       true
     );
 
-  }
+    // Cargar AJAX 
+  wp_enqueue_script('wc-add-to-cart');
 
-}
+    }
+
+  }
 
 add_action('wp_enqueue_scripts', 'freesoul_assets');
 
-
-
-/* ================= LEGAL PAGES CSS ================= */
 
 function freesoul_enqueue_legal_styles() {
 
   if (
     is_page([
 
-      // ================= PRIVACIDAD =================
       'privacidad',
       'privacy',
       'confidentialite',
 
-      // ================= COOKIES =================
       'cookies',
       'cookies-en',
       'cookies-fr',
 
-      // ================= AVISO LEGAL =================
       'aviso-legal',
       'legal-notice',
       'mentions-legales',
 
-      // ================= CONDICIONES =================
       'condiciones-de-uso',
       'terms-of-use',
       'conditions-utilisation'
@@ -281,281 +308,45 @@ function freesoul_handle_event_form() {
   $body .= "Pack: $pack\n\n";
   $body .= "Mensaje:\n$message";
 
-  $headers = [ 'Content-Type: text/plain; charset=UTF-8' ];
+  $headers = [
+    'Content-Type: text/plain; charset=UTF-8',
+    'From: Free Soul <no-reply@freesoul.test>',
+    "Reply-To: $name <$email>"
+  ];
 
   wp_mail( $to, $subject, $body, $headers );
 
-  wp_redirect( home_url('/gracias/') );
+  wp_redirect(
+    add_query_arg( 'enviado', '1', wp_get_referer() ) . '#form-eventos'
+  );
+
   exit;
 }
 
-
-/* ================= POLYLANG STRINGS ================= */
-
-if ( function_exists( 'pll_register_string' ) ) {
-
-  /* ---------- HEADER ---------- */
-
-  pll_register_string( 'menu_catalogo', 'Catálogo', 'Header' );
-  pll_register_string( 'menu_eventos', 'Eventos', 'Header' );
-  pll_register_string( 'menu_news', 'Noticias', 'Header' );
-  pll_register_string( 'menu_tienda', 'Tienda', 'Header' );
-
-  pll_register_string( 'toggle_dark', 'Modo oscuro', 'Header' );
-  pll_register_string( 'toggle_light', 'Modo claro', 'Header' );
-
-  /* ---------- FOOTER — BRAND ---------- */
-
-  pll_register_string( 'footer_claim_1', 'Bebidas sin alcohol para celebrar con estilo.', 'Footer' );
-  pll_register_string( 'footer_claim_2', 'Elegir también es brindar.', 'Footer' );
-
-  pll_register_string( 'footer_join', 'Únete a la comunidad', 'Footer' );
-  pll_register_string( 'footer_promos', 'Promos, lanzamientos y cultura sin alcohol.', 'Footer' );
-  pll_register_string( 'footer_email', 'Tu email', 'Footer' );
-  pll_register_string( 'footer_subscribe', 'Suscribirme', 'Footer' );
-
-  /* ---------- FOOTER — DESCUBRE ---------- */
-
-  pll_register_string( 'footer_descubre', 'Descubre', 'Footer' );
-  pll_register_string( 'footer_catalogo', 'Catálogo', 'Footer' );
-  pll_register_string( 'footer_noticias', 'Noticias', 'Footer' );
-  pll_register_string( 'footer_faq', 'Preguntas frecuentes', 'Footer' );
-  pll_register_string( 'footer_sobre', 'Sobre la marca', 'Footer' );
-
-  /* ---------- FOOTER — PROFESIONAL ---------- */
-
-  pll_register_string( 'footer_profesional', 'Profesional', 'Footer' );
-  pll_register_string( 'footer_contacto', 'Contacto', 'Footer' );
-  pll_register_string( 'footer_distribucion', 'Distribución', 'Footer' );
-  pll_register_string( 'footer_eventos', 'Eventos', 'Footer' );
-  pll_register_string( 'footer_proveedores', 'Proveedores', 'Footer' );
-
-  /* ---------- FOOTER — LEGAL ---------- */
-
-  pll_register_string( 'footer_legal', 'Legal', 'Footer' );
-  pll_register_string( 'footer_aviso', 'Aviso legal', 'Footer' );
-  pll_register_string( 'footer_condiciones', 'Condiciones de uso', 'Footer' );
-  pll_register_string( 'footer_cookies', 'Política de Cookies', 'Footer' );
-  pll_register_string( 'footer_privacidad', 'Política de Privacidad', 'Footer' );
-
-  /* ---------- HOME ---------- */
-
-  pll_register_string( 'hero_and', 'y', 'Home' );
-  pll_register_string( 'hero_buy', 'Comprar', 'Home' );
-  pll_register_string( 'hero_companies', 'empresas.', 'Home' );
-  pll_register_string( 'hero_contact', 'Contacto profesional', 'Home' );
-  pll_register_string( 'hero_events', 'Eventos', 'Home' );
-  pll_register_string( 'hero_sub_1', 'Bebidas sin alcohol para noches inolvidables.', 'Home' );
-  pll_register_string( 'hero_sub_2', 'Soluciones premium sin alcohol para hostelería.', 'Home' );
-  pll_register_string( 'hero_title_1', 'Celebra diferente.', 'Home' );
-
-  /* ---------- CATEGORIES ---------- */
-
-  pll_register_string( 'cat_title', '¿Qué te apetece hoy?', 'Home' );
-  pll_register_string( 'cat_beer', 'Cervezas 0.0', 'Home' );
-  pll_register_string( 'cat_cider', 'Sidras', 'Home' );
-  pll_register_string( 'cat_spirits', 'Destilados', 'Home' );
-  pll_register_string( 'cat_wine', 'Vinos', 'Home' );
-
-  /* ---------- EVENTOS — HERO ---------- */
-
-  pll_register_string( 'eventos_hero_cta', 'Solicitar presupuesto', 'Eventos' );
-  pll_register_string( 'eventos_hero_subtitle', 'Packs premium para bodas, fiestas privadas y empresas.', 'Eventos' );
-  pll_register_string( 'eventos_hero_title', 'Eventos sin alcohol que sí molan', 'Eventos' );
-
-  /* ---------- EVENTOS — INTRO ---------- */
-
-  pll_register_string( 'eventos_intro_lead', 'Cada evento es único, y en Free Soul lo tratamos como tal.', 'Eventos' );
-  pll_register_string( 'eventos_intro_title', 'Celebraciones pensadas para disfrutar', 'Eventos' );
-
-  pll_register_string(
-    'eventos_intro_text',
-    'Seleccionamos bebidas sin alcohol que destacan por su sabor y su presencia, diseñando propuestas pensadas para sorprender y encajar con la atmósfera de tu celebración. Bodas, cumpleaños o eventos corporativos: tú celebras, nosotros nos ocupamos del resto.',
-    'Eventos'
-  );
-
-  /* ---------- EVENTOS — HOW ---------- */
-
-  pll_register_string( 'eventos_how_title', 'Cómo lo hacemos posible', 'Eventos' );
-
-  pll_register_string( 'eventos_how_1_title', 'Elegimos sabores premium', 'Eventos' );
-  pll_register_string(
-    'eventos_how_1_text',
-    'Seleccionamos bebidas sin alcohol que destacan por su complejidad, aromas y presencia en copa.',
-    'Eventos'
-  );
-
-  pll_register_string( 'eventos_how_2_title', 'Personalizamos tu pack', 'Eventos' );
-  pll_register_string(
-    'eventos_how_2_text',
-    'Calculamos la cantidad ideal y combinaciones según tu evento y número de invitados.',
-    'Eventos'
-  );
-
-  pll_register_string( 'eventos_how_3_title', 'Coordinamos la entrega', 'Eventos' );
-  pll_register_string(
-    'eventos_how_3_text',
-    'Nos encargamos de la logística y coordinamos para que llegue todo a tiempo y sin complicaciones.',
-    'Eventos'
-  );
-
-  /* ---------- EVENTOS — METRICAS ---------- */
-
-  pll_register_string( 'eventos_metricas_1', 'eventos organizados', 'Eventos' );
-  pll_register_string( 'eventos_metricas_2', 'invitados atendidos', 'Eventos' );
-  pll_register_string( 'eventos_metricas_3', 'en toda España', 'Eventos' );
-  pll_register_string( 'eventos_metricas_4', 'premium seleccionadas', 'Eventos' );
-
-  /* ---------- EVENTOS — PACKS ---------- */
-
-  pll_register_string( 'eventos_pack_btn', 'Elegir pack', 'Eventos' );
-
-  pll_register_string( 'eventos_pack_1_title', 'Pack Fiesta 50', 'Eventos' );
-  pll_register_string( 'eventos_pack_1_desc', '50 bebidas variadas', 'Eventos' );
-
-  pll_register_string( 'eventos_pack_2_title', 'Pack Evento 150', 'Eventos' );
-  pll_register_string( 'eventos_pack_2_desc', 'Ideal para celebraciones grandes', 'Eventos' );
-
-  pll_register_string( 'eventos_pack_3_title', 'Pack Boda 300', 'Eventos' );
-  pll_register_string( 'eventos_pack_3_desc', 'Eventos premium', 'Eventos' );
-
-  pll_register_string( 'eventos_pack_advice', 'Asesoramiento incluido', 'Eventos' );
-  pll_register_string( 'eventos_pack_bestprice', 'Mejor precio por unidad', 'Eventos' );
-  pll_register_string( 'eventos_pack_custom', 'Personalizado', 'Eventos' );
-  pll_register_string( 'eventos_pack_full', 'Selección completa', 'Eventos' );
-  pll_register_string( 'eventos_pack_highend', 'Gama alta', 'Eventos' );
-  pll_register_string( 'eventos_pack_logistics', 'Logística incluida', 'Eventos' );
-  pll_register_string( 'eventos_pack_spirits', 'Destilados premium', 'Eventos' );
-  pll_register_string( 'eventos_pack_wines', 'Vinos sin alcohol', 'Eventos' );
-
-  /* ---------- EVENTOS — FORM ---------- */
-
-  pll_register_string( 'eventos_form_title', 'Solicita tu presupuesto', 'Eventos' );
-
-  pll_register_string(
-    'eventos_form_text',
-    'Cuéntanos cómo es tu evento y te enviaremos una propuesta personalizada sin compromiso.',
-    'Eventos'
-  );
-
-  pll_register_string( 'eventos_form_name', 'Nombre completo', 'Eventos' );
-  pll_register_string( 'eventos_form_email', 'Email', 'Eventos' );
-  pll_register_string( 'eventos_form_phone', 'Teléfono', 'Eventos' );
-
-  pll_register_string( 'eventos_form_type', 'Tipo de evento', 'Eventos' );
-  pll_register_string( 'eventos_form_wedding', 'Boda', 'Eventos' );
-  pll_register_string( 'eventos_form_birthday', 'Cumpleaños', 'Eventos' );
-  pll_register_string( 'eventos_form_company', 'Empresa', 'Eventos' );
-  pll_register_string( 'eventos_form_private', 'Fiesta privada', 'Eventos' );
-
-  pll_register_string( 'eventos_form_guests', 'Número de asistentes', 'Eventos' );
-  pll_register_string( 'eventos_form_message', 'Cuéntanos qué necesitas...', 'Eventos' );
-  pll_register_string( 'eventos_form_submit', 'Enviar solicitud', 'Eventos' );
-  
-  /* ---------- NOTICIAS ---------- */
-
-  pll_register_string( 'news_discount_beer', '15% DE DESCUENTO EN CERVEZAS', 'Noticias' );
-
-  pll_register_string( 'news_discount_title', 'Nuevo descuento disponible', 'Noticias' );
-
-  pll_register_string( 'news_date_jan1', '1 de Enero', 'Noticias' );
-
-  pll_register_string( 'news_new_discount', '¡Buenas noticias! Durante esta semana tienes un 15% de descuento en nuestra selección de cervezas.', 'Noticias' );
-  pll_register_string( 'news_new_drinks', 'Nuevas bebidas añadidas al catálogo', 'Noticias' );
-
-  pll_register_string( 'news_offer_ends', 'Aprovecha la oferta antes del domingo.', 'Noticias' );
-
-  pll_register_string('news_jan25', '25 de Enero', 'Noticias');
-
-  pll_register_string('news_new_drinks', 'Hemos incorporado nuevas opciones a nuestra carta, incluyendo whisky sin alcohol y gin 0.0 premium.', 'Noticias');
-  pll_register_string('news_check_favorites', '¡Échales un vistazo y descubre tu favorita!', 'Noticias');
-
-  pll_register_string('news_technical_issue', 'Incidencia técnica temporal', 'Noticias');
-
-  pll_register_string('news_12_febrero', '12 de Febrero', 'Noticias');
-
-  pll_register_string('news_payment_issue', 'Estamos experimentando algunos problemas técnicos en la página de pagos.', 'Noticias');
-  pll_register_string('news_team_working', 'Nuestro equipo ya está trabajando para solucionarlo lo antes posible.', 'Noticias');
-
-  pll_register_string('news_vuelta_producto', 'Vuelta de un producto muy solicitado', 'Noticias');
-
-  pll_register_string('news_17_febrero', '17 de Febrero', 'Noticias');
-
-  pll_register_string('news_back_product', '¡Está de vuelta!', 'Noticias');
-  pll_register_string('news_most_requested_back', 'La bebida sin alcohol más pedida por nuestros clientes ya vuelve a estar disponible en stock.', 'Noticias');
-  pll_register_string('news_dont_miss_it', 'No te quedes sin ella.', 'Noticias');
-
-  pll_register_string('news_schedule_changes', 'Cambios en el horario de atención', 'Noticias');
-
-  pll_register_string('news_feb29', '29 de Febrero', 'Noticias');
-
-  pll_register_string('news_maintenance_notice', 'Con motivo de mantenimiento,', 'Noticias');
-  pll_register_string('news_customer_service_hours', 'nuestro servicio de atención al cliente no estará disponible el jueves de 22:00 a 00:00.', 'Noticias');
-  pll_register_string('news_website_normal', 'La web seguirá funcionando con normalidad.', 'Noticias');
-
-/* ===============================
-   POLYLANG — CATALOGO STRINGS
-================================ */
-
 add_action('init', function () {
 
-  if (!function_exists('pll_register_string')) {
-    return;
+  if ( isset($_GET['freesoul-empty-cart']) ) {
+
+    WC()->cart->empty_cart();
+
+    wp_safe_redirect( wc_get_cart_url() );
+    exit;
+
   }
-
-  $group = 'Catálogo';
-
-  // HERO
-  pll_register_string('catalogo', 'Catálogo', $group);
-  pll_register_string('catalogo_desc', 'Explora nuestra selección premium de bebidas sin alcohol.', $group);
-  pll_register_string('catalogo_search', 'Buscar bebida...', $group);
-
-  // FILTROS
-  pll_register_string('catalogo_todos', 'Todos', $group);
-  pll_register_string('catalogo_cervezas', 'Cervezas', $group);
-  pll_register_string('catalogo_vinos', 'Vinos', $group);
-  pll_register_string('catalogo_destilados', 'Destilados', $group);
-  pll_register_string('catalogo_sidras', 'Sidras', $group);
-
-  // ORDENAR
-  pll_register_string('catalogo_sort', 'Ordenar por', $group);
-  pll_register_string('catalogo_relevancia', 'Relevancia', $group);
-  pll_register_string('catalogo_price_asc', 'Precio: menor a mayor', $group);
-  pll_register_string('catalogo_price_desc', 'Precio: mayor a menor', $group);
-  pll_register_string('catalogo_alpha_asc', 'Nombre: A–Z', $group);
-  pll_register_string('catalogo_alpha_desc', 'Nombre: Z–A', $group);
-
-/* ===============================
-   POLYLANG — CATALOGO PRODUCTOS
-================================ */
-
-  if (!function_exists('pll_register_string')) return;
-
-  $group = 'Catálogo';
-
-  // PAGINACIÓN
-  pll_register_string('catalogo_prev', 'Anterior', $group);
-  pll_register_string('catalogo_next', 'Siguiente', $group);
-
-  // DESCRIPCIONES PRODUCTOS
-  pll_register_string('desc_estrella', 'Suave y equilibrada', $group);
-  pll_register_string('desc_cruzcampo', 'Cuerpo intenso y tostado', $group);
-  pll_register_string('desc_granvia', 'Tostada y redonda', $group);
-  pll_register_string('desc_mahou', 'Notas de cereal y caramelo', $group);
-  pll_register_string('desc_heineken', 'Refrescante y herbal', $group);
-
-  pll_register_string('desc_cava', 'Burbuja fina y elegante', $group);
-  pll_register_string('desc_frenchbloom', 'Aromas florales', $group);
-  pll_register_string('desc_natureo', 'Afrutado y fresco', $group);
-
-  pll_register_string('desc_captain', 'Vainilla y especias', $group);
-  pll_register_string('desc_beefeater', 'Botánicos clásicos', $group);
-  pll_register_string('desc_tanqueray', 'Ginebra cítrica', $group);
-
-  pll_register_string('desc_gaitero', 'Manzana natural', $group);
-  pll_register_string('desc_maeloc', 'Afrutada y aromática', $group);
-  pll_register_string('desc_trabanco', 'Asturiana y seca', $group);
 
 });
 
-}
+ /* ================= Icono Carrito ================= */
+add_filter( 'woocommerce_add_to_cart_fragments', function( $fragments ) {
+
+    ob_start();
+    ?>
+    <span class="freesoul-cart-count">
+        <?php echo WC()->cart->get_cart_contents_count(); ?>
+    </span>
+    <?php
+    $fragments['.freesoul-cart-count'] = ob_get_clean();
+
+    return $fragments;
+
+});

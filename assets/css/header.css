@@ -252,12 +252,10 @@ body:not(.dark-mode) .modo-oscuro-y-claro:hover{
   padding:6px 14px;
   border-radius:999px;
   background:rgba(95,122,103,.65);
-
   color:white !important;
   font-weight:700;
   font-size:.75rem;
   text-transform:uppercase;
-
   text-decoration:none !important;
   box-shadow:0 4px 12px rgba(0,0,0,.18);
 }
@@ -270,4 +268,130 @@ body:not(.dark-mode) .modo-oscuro-y-claro:hover{
 
 .top-bar .modo-oscuro-y-claro{
   margin:0;
+}
+/* ======================================================
+   HEADER — CART & CHECKOUT
+   (solo quitar transparencia)
+====================================================== */
+
+body.woocommerce-cart .freesoul-header,
+body.woocommerce-cart .freesoul-header.scrolled,
+body.woocommerce-checkout .freesoul-header,
+body.woocommerce-checkout .freesoul-header.scrolled {
+
+  background: rgb(227,232,222) !important;
+  backdrop-filter: none !important;
+}
+/* ======================================================
+   HEADER — CART & CHECKOUT SIEMPRE EN MODO SCROLLED
+====================================================== */
+
+body.woocommerce-cart .freesoul-header,
+body.woocommerce-checkout .freesoul-header {
+
+  background: rgb(227,232,222) !important;
+  backdrop-filter: none !important;
+  box-shadow: 0 14px 34px rgba(0,0,0,.16) !important;
+}
+
+/* Forzar tamaño reducido (como cuando hace scroll) */
+
+body.woocommerce-cart .header-logo img,
+body.woocommerce-checkout .header-logo img {
+  height: 120px !important;
+}
+
+/* Evitar animación de crecimiento */
+
+body.woocommerce-cart .freesoul-header,
+body.woocommerce-checkout .freesoul-header {
+  transition: none !important;
+}
+
+/* =====================================
+   HEADER LINKS FIX — CART & CHECKOUT
+===================================== */
+
+/* MODO CLARO → NEGRO SIEMPRE */
+
+body.woocommerce-cart header a,
+body.woocommerce-checkout header a {
+  color: #000 !important;
+}
+
+
+/* MODO OSCURO → BLANCO SIEMPRE */
+
+body.dark-mode.woocommerce-cart header a,
+body.dark-mode.woocommerce-checkout header a,
+body.dark-mode.woocommerce-cart header.scrolled a,
+body.dark-mode.woocommerce-checkout header.scrolled a,
+body.dark-mode.woocommerce-cart .freesoul-header.scrolled a,
+body.dark-mode.woocommerce-checkout .freesoul-header.scrolled a {
+  color: #fff !important;
+}
+
+/* =====================================
+   DARK HEADER — SOLO CART & CHECKOUT
+===================================== */
+
+.dark-mode body.woocommerce-cart .freesoul-header,
+.dark-mode body.woocommerce-checkout .freesoul-header,
+.dark-mode body.woocommerce-cart .freesoul-header.scrolled,
+.dark-mode body.woocommerce-checkout .freesoul-header.scrolled {
+
+  background: #141816 !important;
+  box-shadow: 0 14px 34px rgba(0,0,0,.45) !important;
+  backdrop-filter: none !important;
+}
+
+/* Links normales (no verdes) */
+
+.dark-mode body.woocommerce-cart header a,
+.dark-mode body.woocommerce-checkout header a {
+  color: #e4efe8 !important;
+}
+
+.dark-mode body.woocommerce-cart header a:hover,
+.dark-mode body.woocommerce-checkout header a:hover {
+  color: #e4efe8 !important;
+}
+
+/* Burger */
+
+.dark-mode body.woocommerce-cart .burger span,
+.dark-mode body.woocommerce-checkout .burger span {
+  background: #e4efe8 !important;
+}
+
+/* Idiomas */
+
+.dark-mode body.woocommerce-cart .top-lang a,
+.dark-mode body.woocommerce-checkout .top-lang a {
+  background: rgba(255,255,255,.08) !important;
+  color: #e4efe8 !important;
+}
+
+/* Botón modo */
+
+.dark-mode body.woocommerce-cart .modo-oscuro-y-claro,
+.dark-mode body.woocommerce-checkout .modo-oscuro-y-claro {
+  background: rgba(255,255,255,.12) !important;
+  color: #e4efe8 !important;
+}
+
+ /* Icono Carrito */
+.freesoul-cart-link {
+  position: relative;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.freesoul-cart-count {
+  background: var(--green);
+  color: white;
+  font-size: 0.7rem;
+  padding: 4px 8px;
+  border-radius: 20px;
+  margin-left: 6px;
 }
