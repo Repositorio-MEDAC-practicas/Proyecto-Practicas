@@ -110,7 +110,28 @@ function freesoul_assets() {
     );
 
   }
+/* ================= PAGE: PREGUNTAS FRECUENTES ================= */
 
+// CSS Preguntas Frecuentes
+if ( is_page('preguntas-frecuentes') ) {
+    wp_enqueue_style(
+        'preguntas-frecuentes-css',
+        get_template_directory_uri() . '/assets/css/preguntas-frecuentes.css',
+        [],
+        filemtime( get_template_directory() . '/assets/css/preguntas-frecuentes.css' )
+    );
+}
+
+// JS Preguntas Frecuentes
+if ( is_page('preguntas-frecuentes') ) {
+    wp_enqueue_script(
+        'preguntas-frecuentes-js',
+        get_template_directory_uri() . '/assets/js/preguntas-frecuentes.js',
+        [],
+        filemtime( get_template_directory() . '/assets/js/preguntas-frecuentes.js' ),
+        true
+    );
+}
   /* ================= WOO — CART ================= */
 
   if ( function_exists('is_cart') && is_cart() ) {
