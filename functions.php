@@ -110,6 +110,19 @@ function freesoul_assets() {
     );
 
   }
+
+/* ================= PAGE: SOBRE LA MARCA ================= */
+
+// CSS Sobre la marca
+if ( is_page('sobre-la-marca') ) {
+    wp_enqueue_style(
+        'sobre-la-marca-css',
+        get_template_directory_uri() . '/assets/css/legal.css',
+        [],
+        filemtime( get_template_directory() . '/assets/css/legal.css' )
+    );
+}
+
 /* ================= PAGE: PREGUNTAS FRECUENTES ================= */
 
 // CSS Preguntas Frecuentes
