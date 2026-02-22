@@ -16,8 +16,12 @@
       <h4><?php echo pll__('Descubre'); ?></h4>
       <a href="#"><?php echo pll__('Catálogo'); ?></a>
       <a href="#"><?php echo pll__('Noticias'); ?></a>
-      <a href="#"><?php echo pll__('Preguntas frecuentes'); ?></a>
-      <a href="#"><?php echo pll__('Sobre la marca'); ?></a>
+      <a href="<?php echo get_permalink( get_page_by_path('preguntas-frecuentes') ); ?>">
+      <?php echo pll__('Preguntas frecuentes'); ?>
+      </a>
+      <a href="<?php echo get_permalink( get_page_by_path('sobre-la-marca') ); ?>">
+      <?php echo pll__('Sobre la marca'); ?>
+      </a>
     </div>
 
     <!-- PROFESIONAL -->
