@@ -1,0 +1,648 @@
+/* ===============================
+   FREE SOUL — CATALOGO PREMIUM
+================================ */
+
+.catalogo-page {
+  padding-bottom: 7rem;
+  background:
+    linear-gradient(180deg,#f7f8f6 0%,#fff 45%,#eef2ef 100%);
+}
+
+html.dark-mode .catalogo-page {
+  background:
+    linear-gradient(180deg,#0f1513 0%,#141d19 55%,#0b0f0d 100%);
+}
+
+/* ---------- HERO ---------- */
+
+.catalogo-hero {
+  position: relative;
+  min-height: 75vh;
+  background: url("../imagenes/catalogo-b2b.jpg") center / cover no-repeat;
+  display:flex;
+  align-items:flex-end;
+  justify-content:center;
+  padding-bottom:6rem;
+  text-align:center;
+  color:white;
+}
+
+.catalogo-hero .overlay {
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    to bottom,
+    rgba(0,0,0,.25),
+    rgba(0,0,0,.75)
+  );
+}
+
+.catalogo-hero-content {
+  position:relative;
+  max-width:760px;
+}
+
+/* ---------- SEARCH ---------- */
+
+.catalogo-search-wrap {
+  margin:2.2rem auto 0;
+  max-width:460px;
+}
+
+.catalogo-search-wrap input {
+  width:100%;
+  padding:1rem 1.8rem;
+  border-radius:999px;
+  border:none;
+  font-size:.95rem;
+  outline:none;
+
+  transition:
+    transform .4s ease,
+    box-shadow .4s ease,
+    padding .4s ease;
+}
+
+.catalogo-search-wrap input:focus {
+  transform:scale(1.18);
+  padding:1.35rem 2.6rem;
+  box-shadow:0 18px 55px rgba(0,0,0,.45);
+}
+
+/* ---------- FILTROS ---------- */
+
+.catalogo-filtros {
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:1.4rem;
+  margin:5rem auto 2rem;
+  perspective:1200px;
+}
+
+.catalogo-filtros button {
+  background: var(--accent, #5f7a67);
+  border:none;
+  padding:1rem 2.8rem;
+  border-radius:999px;
+  font-size:.95rem;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  color:white;
+  cursor:pointer;
+  transform-style:preserve-3d;
+  backface-visibility:hidden;
+
+  transition:
+    transform .6s cubic-bezier(.2,.8,.2,1),
+    box-shadow .4s,
+    opacity .4s;
+
+  box-shadow:0 10px 25px rgba(0,0,0,.18);
+}
+
+.catalogo-filtros button:hover {
+  transform:translateY(-3px);
+}
+
+.catalogo-filtros button.active {
+  transform:rotateY(180deg);
+  color:transparent;
+  opacity:.95;
+}
+
+/* ---------- SORT CUSTOM ---------- */
+
+.catalogo-sort {
+  width:min(1320px,92%);
+  margin:0 auto 3.5rem;
+  display:flex;
+  justify-content:flex-end;
+  align-items:center;
+  gap:1rem;
+}
+
+.catalogo-sort label {
+  font-size:.8rem;
+  opacity:.6;
+}
+
+.catalogo-sort .custom-select {
+  position:relative;
+  min-width:220px;
+}
+
+/* trigger */
+
+.catalogo-sort .custom-select-trigger {
+  background:#fff;
+  border:2px solid rgba(0,0,0,.25);
+  border-radius:999px;
+  padding:.7rem 2.6rem .7rem 1.4rem;
+  cursor:pointer;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  transition:
+    background .25s,
+    border .25s,
+    box-shadow .25s;
+}
+
+.catalogo-sort .custom-select-trigger::after {
+  content:"▾";
+  font-size:.7rem;
+  margin-left:1rem;
+  transition:.3s;
+}
+
+/* abierto */
+
+.catalogo-sort .custom-select.open .custom-select-trigger {
+  border-color:var(--accent);
+  box-shadow:0 0 0 3px rgba(95,122,103,.35);
+}
+
+.catalogo-sort .custom-select.open .custom-select-trigger::after {
+  transform:rotate(180deg);
+}
+
+/* opciones */
+
+.catalogo-sort .custom-options {
+  position:absolute;
+  right:0;
+  top:calc(100% + 12px);
+  background:#fff;
+  border-radius:22px;
+  box-shadow:0 25px 70px rgba(0,0,0,.22);
+  overflow:hidden;
+  display:none;
+  z-index:200;
+}
+
+.catalogo-sort .custom-select.open .custom-options {
+  display:block;
+}
+
+/* cada opción */
+
+.catalogo-sort .custom-option {
+  padding:1rem 1.8rem;
+  cursor:pointer;
+  transition:background .25s,color .25s;
+}
+
+/* 🔥 HOVER VERDE */
+
+.catalogo-sort .custom-option:hover,
+.catalogo-sort .custom-option.active {
+  background:var(--accent);
+  color:white;
+}
+
+/* ---------- GRID ---------- */
+
+.catalogo-grid {
+  width:min(1320px,92%);
+  margin:0 auto;
+  display:grid;
+  gap:3rem;
+  grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+}
+
+/* ---------- CARD ---------- */
+
+.catalogo-card {
+  background:var(--card-bg);
+  border-radius:28px;
+  overflow:hidden;
+  box-shadow:0 25px 65px rgba(0,0,0,.08);
+  transition:.35s ease;
+}
+
+.catalogo-card:hover {
+  transform:translateY(-12px) scale(1.015);
+}
+
+.catalogo-img {
+  height: 300px;
+  background: radial-gradient(
+    circle at center,
+    rgba(95,122,103,.08),
+    transparent 70%
+  );
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding: 1.5rem;
+}
+
+.catalogo-img img {
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+
+  object-fit: contain;
+
+  transition: transform .35s ease;
+}
+
+/* micro zoom elegante al hover */
+
+.catalogo-card:hover .catalogo-img img {
+  transform: scale(1.06);
+}
+
+
+.catalogo-info {
+  padding:2rem;
+  display:flex;
+  flex-direction:column;
+  gap:.9rem;
+}
+
+/* ---------- DARK MODE ---------- */
+
+html.dark-mode .catalogo-card {
+  background:#1a211d;
+  border:1px solid rgba(95,122,103,.25);
+  box-shadow:0 30px 80px rgba(0,0,0,.8);
+}
+
+/* dropdown dark */
+
+html.dark-mode .catalogo-sort .custom-select-trigger {
+  background:#131a16;
+  color:white;
+  border:2px solid rgba(255,255,255,.2);
+}
+
+html.dark-mode .catalogo-sort .custom-options {
+  background:#131a16;
+}
+
+html.dark-mode .catalogo-sort .custom-option:hover,
+html.dark-mode .catalogo-sort .custom-option.active {
+  background:var(--accent);
+  color:white;
+}
+
+/* buscador dark */
+
+html.dark-mode .catalogo-search-wrap input {
+  background:#131a16;
+  color:#fff;
+}
+
+
+/* ===============================
+   FIX FINAL COLOR VERDE FREE SOUL
+================================ */
+
+.catalogo-filtros button {
+  background: var(--green) !important;
+}
+
+.catalogo-sort .custom-select-trigger:hover,
+.catalogo-sort .custom-select.open .custom-select-trigger {
+  border-color: var(--green) !important;
+  box-shadow: 0 0 0 3px rgba(95,122,103,.35) !important;
+}
+
+.catalogo-sort .custom-option:hover,
+.catalogo-sort .custom-option.active {
+  background: var(--green) !important;
+  color: white !important;
+}
+
+html.dark-mode .catalogo-sort .custom-option:hover,
+html.dark-mode .catalogo-sort .custom-option.active {
+  background: var(--green) !important;
+}
+
+
+/* ===============================
+   FIX TEXTO DROPDOWN DARK MODE
+================================ */
+
+html.dark-mode .catalogo-sort .custom-option {
+  color: rgba(255,255,255,.85);
+}
+
+html.dark-mode .catalogo-sort .custom-options {
+  border:1px solid rgba(255,255,255,.08);
+}
+
+
+/* ===============================
+   PAGINACION CATALOGO
+================================ */
+
+.catalogo-pagination {
+  margin: 4rem auto 0;
+  display:flex;
+  justify-content:center;
+  gap:.6rem;
+  flex-wrap:wrap;
+}
+
+.catalogo-pagination button {
+  border:1px solid rgba(0,0,0,.15);
+  background:white;
+  padding:.6rem 1.1rem;
+  border-radius:10px;
+  cursor:pointer;
+  transition:.25s;
+  color:var(--dark);
+}
+
+
+#catalogoPaginationTop {
+  margin-bottom: 3.5rem;
+}
+
+
+.catalogo-pagination {
+  margin-top: 4rem;
+}
+
+
+/* HOVER CLARO */
+
+.catalogo-pagination button:hover {
+  background:var(--green);
+  color:white;
+}
+
+/* ACTIVO */
+
+.catalogo-pagination button.active {
+  background:var(--green);
+  color:white;
+  border-color:var(--green);
+}
+
+/* DARK MODE BASE */
+
+html.dark-mode .catalogo-pagination button {
+  background:#1a211d;
+  border-color:rgba(255,255,255,.18);
+  color:#e8eee9;
+}
+
+/* 🔥 HOVER DARK */
+
+html.dark-mode .catalogo-pagination button:hover {
+  background:var(--green);
+  color:white;
+  border-color:var(--green);
+}
+
+/* ACTIVO DARK */
+
+html.dark-mode .catalogo-pagination button.active {
+  background:var(--green);
+  color:white;
+}
+
+/* ===============================
+   ADD TO CART BUTTON
+================================ */
+
+.catalogo-card {
+  position: relative;
+}
+
+.catalogo-add-cart {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+
+  width: 42px;
+  height: 42px;
+
+  border-radius: 50%;
+  border: none;
+
+  background: var(--accent, #5f7a67);
+  color: white;
+
+  font-size: 1.4rem;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 10px 25px rgba(0,0,0,.25);
+
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.catalogo-add-cart:hover {
+  transform: scale(1.08);
+  box-shadow: 0 16px 35px rgba(0,0,0,.35);
+}
+
+/* DARK MODE */
+
+html.dark-mode .catalogo-add-cart {
+  background: #6f8f7b;
+}
+
+/* ===============================
+   PRECIO
+================================ */
+
+.catalogo-price {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--dark);
+}
+
+html.dark-mode .catalogo-price {
+  color: #ffffff;
+}
+
+/* ===============================
+   CARRITO INLINE
+================================ */
+
+.catalogo-card {
+  position: relative;
+}
+
+/* ===============================
+   CARRITO INLINE — INTEGRADO
+================================ */
+
+.catalogo-card {
+  position: relative;
+}
+
+/* CONTENEDOR */
+
+.catalogo-cart-control {
+  position: absolute;
+  bottom: 18px;
+  right: 18px;
+
+  display: flex;
+  align-items: center;
+
+  background: var(--green);
+  border-radius: 999px;
+
+  overflow: hidden;
+
+  box-shadow: none;
+}
+
+/* DARK = MISMO TONO */
+
+html.dark-mode .catalogo-cart-control {
+  background: var(--green);
+}
+
+/* BOTONES */
+
+.catalogo-cart-control button {
+  width: 44px;
+  height: 38px;
+
+  border: none;
+  background: transparent;
+
+  font-size: 1.15rem;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  color: white;
+
+  transition: background .25s ease;
+}
+
+/* HOVER MAS OSCURO */
+
+.catalogo-cart-control button:hover {
+  background: rgba(0,0,0,.18);
+}
+
+/* CANTIDAD */
+
+.cart-qty {
+  min-width: 34px;
+  text-align: center;
+
+  font-weight: 600;
+  font-size: .9rem;
+
+  color: white;
+}
+
+
+/* DARK */
+
+html.dark-mode .catalogo-cart-control {
+  background: #1b221f;
+  box-shadow: 0 14px 30px rgba(0,0,0,.7);
+}
+
+/* BOTONES */
+
+.catalogo-cart-control button {
+  width: 44px;
+  height: 38px;
+
+  border: none;
+  background: transparent;
+
+  font-size: 1.2rem;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: .25s;
+}
+
+/* VERDE HOVER */
+
+.catalogo-cart-control button:hover {
+  background: var(--green);
+  color: white;
+}
+
+/* CANTIDAD */
+
+.cart-qty {
+  min-width: 36px;
+  text-align: center;
+  font-weight: 600;
+  font-size: .9rem;
+}
+
+/* DARK QTY */
+
+html.dark-mode .cart-qty {
+  color: white;
+}
+
+/* DARK QTY */
+.added_to_cart {
+  display: none !important;
+}
+
+
+/* ================================
+   BOTÓN AÑADIR — CATÁLOGO
+================================ */
+
+.catalogo-cart-control .add_to_cart_button {
+
+  display: inline-block;
+  padding: 12px 22px;
+
+  background: #5f745e;
+  color: #ffffff !important;
+
+  text-decoration: none !important;
+
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+
+  border-radius: 8px;
+  border: none;
+
+  transition: all .25s ease;
+}
+
+/* Hover */
+
+.catalogo-cart-control .add_to_cart_button:hover {
+
+  background: #495c49;
+  color: #ffffff !important;
+  text-decoration: none !important;
+
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(0,0,0,.15);
+}
+
+/* Quitar azul incluso si WP mete estilos raros */
+
+.catalogo-cart-control .add_to_cart_button:visited,
+.catalogo-cart-control .add_to_cart_button:focus,
+.catalogo-cart-control .add_to_cart_button:active {
+
+  color: #ffffff !important;
+  text-decoration: none !important;
+}
