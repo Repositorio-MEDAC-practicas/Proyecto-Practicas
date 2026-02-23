@@ -90,8 +90,8 @@ add_action('template_redirect', function () {
         exit;
     }
 
-    // 2. Bloquear productos B2B por URL
-    if (is_product() && !current_user_can('b2b_client')) {
+    // 2. Bloquear productos B2B SOLO a usuarios normales
+    if (is_product() && !current_user_can('b2b_client') && !current_user_can('administrator')) {
 
         $product_id = get_queried_object_id();
 
@@ -109,20 +109,24 @@ add_action('template_redirect', function () {
 
 add_action('pre_get_posts', function ($query) {
 
-    if (is_admin()) return;
+    if (is_admin() || !$query->is_main_query()) return;
+
+    // 🔥 NO tocar el catálogo B2B
+    if (is_page('catalogo-b2b')) return;
 
     $post_type = $query->get('post_type');
 
     if ($post_type === 'product' || (is_array($post_type) && in_array('product', $post_type))) {
 
-        if (!current_user_can('b2b_client')) {
+        // 🔥 SOLO usuarios normales (ni admin ni B2B)
+        if (!current_user_can('b2b_client') && !current_user_can('administrator')) {
 
             $tax_query = (array) $query->get('tax_query');
 
             $tax_query[] = [
                 'taxonomy' => 'product_cat',
                 'field'    => 'slug',
-                'terms'    => ['b2b'], // categoría mayorista
+                'terms'    => ['b2b'],
                 'operator' => 'NOT IN',
             ];
 
@@ -183,10 +187,6 @@ add_action('woocommerce_before_my_account', function() {
 
 /* ================= APROBACIÓN MANUAL ================= */
 
-// Para admin: aprobar usuario
-// (se hace desde WordPress → Usuarios → cambiar rol a b2b_client)
-
-
 add_action('set_user_role', function($user_id, $role) {
 
     if ($role === 'b2b_client') {
@@ -220,13 +220,15 @@ add_action('woocommerce_process_product_meta', function($post_id) {
 });
 
 
-// Mostrar precio B2B
+// Mostrar precio B2B (admin incluido)
 add_filter('woocommerce_product_get_price', 'freesoul_b2b_price', 10, 2);
 add_filter('woocommerce_product_get_regular_price', 'freesoul_b2b_price', 10, 2);
 
 function freesoul_b2b_price($price, $product) {
 
-    if (is_user_logged_in() && current_user_can('b2b_client')) {
+    if (is_user_logged_in() && (
+        current_user_can('b2b_client') || current_user_can('administrator')
+    )) {
 
         $b2b_price = get_post_meta($product->get_id(), '_b2b_price', true);
 

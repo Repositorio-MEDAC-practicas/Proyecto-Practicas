@@ -14,7 +14,8 @@
 
       <div class="hero-ctas">
 
-        <a href="#catalog" class="btn-outline btn-cart">
+        <!-- CATALOGO NORMAL -->
+        <a href="<?php echo home_url('/catalogo/'); ?>" class="btn-outline btn-cart">
 
           <svg class="cart-icon" viewBox="0 0 24 24" fill="none">
             <path d="M4 5h2l2.5 10h8l2-6H7"
@@ -38,17 +39,28 @@
     <div class="hero-overlay"></div>
 
     <div class="hero-content">
-
-      <h1 class="hero-split">
-        <?php echo pll__('Eventos'); ?><br>
-        <span><?php echo pll__('y'); ?></span><br>
-        <?php echo pll__('empresas.'); ?>
-      </h1>
-
+      <h1><?php echo pll__('Sirve diferente.'); ?></h1>
       <p><?php echo pll__('Soluciones premium sin alcohol para hostelería.'); ?></p>
 
       <div class="hero-ctas">
-        <a href="#b2b" class="btn-main"><?php echo pll__('Contacto profesional'); ?></a>
+
+        <!-- CATALOGO B2B -->
+        <a href="<?php echo home_url('/catalogo-b2b/'); ?>" class="btn-outline btn-cart">
+
+          <svg class="cart-icon" viewBox="0 0 24 24" fill="none">
+            <path d="M4 5h2l2.5 10h8l2-6H7"
+              stroke="currentColor"
+              stroke-width="1.6"
+              stroke-linecap="round"
+              stroke-linejoin="round"/>
+            <circle cx="10" cy="20" r="1.3"/>
+            <circle cx="17" cy="20" r="1.3"/>
+          </svg>
+
+          <?php echo pll__('Comprar'); ?>
+
+        </a>
+
       </div>
 
     </div>
@@ -212,9 +224,11 @@
 
 <section id="b2b" class="b2b">
   <div class="b2b-box">
-    <h2><?php echo pll__('Eventos sin alcohol que sí molan'); ?></h2>
-    <p><?php echo pll__('Empresas · Catering · Hostelería'); ?></p>
-    <a class="btn-main"><?php echo pll__('Contacto profesional'); ?></a>
+    <h2><?php echo pll__('Empresas · Catering · Hostelería'); ?></h2>
+    <p><?php echo pll__('Artículos sólo para clientes B2B'); ?></p>
+<a href="<?php echo home_url('/catalogo-b2b/'); ?>" class="btn-main">
+  <?php echo pll__('Catálogo B2B'); ?>
+</a>
   </div>
 </section>
 

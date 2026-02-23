@@ -72,15 +72,15 @@ if ( in_array( $slug, ['aviso-legal','legal-notice','mentions-legales'] ) ) {
 if ( in_array( $slug, ['condiciones','terms','conditions'] ) ) {
 
   if ( $slug === 'condiciones' ) {
-    include get_template_directory() . '/partials/legal/terms-es.php';
+    include get_template_directory() . '/partials/legal/conditions-es.php';
   }
 
   if ( $slug === 'terms' ) {
-    include get_template_directory() . '/partials/legal/terms-en.php';
+    include get_template_directory() . '/partials/legal/conditions-en.php';
   }
 
   if ( $slug === 'conditions' ) {
-    include get_template_directory() . '/partials/legal/terms-fr.php';
+    include get_template_directory() . '/partials/legal/conditions-fr.php';
   }
 
 }

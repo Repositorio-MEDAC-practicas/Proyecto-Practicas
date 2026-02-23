@@ -39,22 +39,38 @@ function freesoul_assets() {
   );
 
 
-  /* ================= PAGE: CATALOGO ================= */
+/* ================= CATALOGO NORMAL ================= */
 
-  if (
-    is_page('catalogo') ||
-    is_page('catalog') ||
-    is_page('catalogue')
-  ) {
+if ( is_page_template('page-catalogo.php') ) {
 
-    wp_enqueue_style(
-      'freesoul-catalogo',
-      get_template_directory_uri() . '/assets/css/catalogo.css',
-      [],
-      filemtime( get_template_directory() . '/assets/css/catalogo.css' )
-    );
+  wp_enqueue_style(
+    'freesoul-catalogo',
+    get_template_directory_uri() . '/assets/css/catalogo.css',
+    [],
+    filemtime( get_template_directory() . '/assets/css/catalogo.css' )
+  );
 
-  }
+}
+
+
+/* ================= CATALOGO B2B ================= */
+
+if ( is_page_template('page-catalogo-b2b.php') ) {
+
+  wp_enqueue_style(
+    'freesoul-catalogo',
+    get_template_directory_uri() . '/assets/css/catalogo.css',
+    [],
+    filemtime( get_template_directory() . '/assets/css/catalogo.css' )
+  );
+  wp_enqueue_style(
+    'freesoul-catalogo-b2b',
+    get_template_directory_uri() . '/assets/css/catalogo-b2b.css',
+    ['freesoul-catalogo'],
+    filemtime( get_template_directory() . '/assets/css/catalogo-b2b.css' )
+  );
+
+}
 
 
   /* ================= SUBCATEGORÍAS ================= */
@@ -219,19 +235,22 @@ if ( is_page('preguntas-frecuentes') ) {
   }
 
 
-  /* ================= CATALOGO JS ================= */
+/* ================= CATALOGO JS ================= */
 
-  if ( is_page(['catalogo','catalog','catalogue']) ) {
+if (
+  is_page_template('page-catalogo.php') ||
+  is_page_template('page-catalogo-b2b.php')
+) {
 
-    wp_enqueue_script(
-      'freesoul-catalogo',
-      get_template_directory_uri() . '/assets/js/catalogo.js',
-      [],
-      filemtime( get_template_directory() . '/assets/js/catalogo.js' ),
-      true
-    );
+  wp_enqueue_script(
+    'freesoul-catalogo',
+    get_template_directory_uri() . '/assets/js/catalogo.js',
+    [],
+    filemtime( get_template_directory() . '/assets/js/catalogo.js' ),
+    true
+  );
 
-  }
+}
 
 
   /* ================= FAQ JS ================= */
@@ -292,7 +311,7 @@ function freesoul_enqueue_legal_styles() {
     'privacidad','privacy','confidentialite',
     'cookies','cookies-en','cookies-fr',
     'aviso-legal','legal-notice','mentions-legales',
-    'condiciones-de-uso','terms-of-use','conditions-utilisation'
+    'condiciones','terms','conditions'
   ]) ) {
 
     wp_enqueue_style(

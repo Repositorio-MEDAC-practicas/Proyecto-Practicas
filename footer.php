@@ -14,8 +14,12 @@
     <!-- DESCUBRE -->
     <div class="footer-col">
       <h4><?php echo pll__('Descubre'); ?></h4>
-      <a href="#"><?php echo pll__('Catálogo'); ?></a>
-      <a href="#"><?php echo pll__('Noticias'); ?></a>
+      <a href="<?php echo get_permalink( get_page_by_path('catalogo') ); ?>">
+        <?php echo pll__('Catálogo'); ?>
+      </a>
+      <a href="<?php echo get_permalink( get_page_by_path('noticias') ); ?>">
+        <?php echo pll__('Noticias'); ?>
+      </a>
       <a href="<?php echo get_permalink( get_page_by_path('preguntas-frecuentes') ); ?>">
       <?php echo pll__('Preguntas frecuentes'); ?>
       </a>
@@ -27,12 +31,15 @@
     <!-- PROFESIONAL -->
     <div class="footer-col">
       <h4><?php echo pll__('Profesional'); ?></h4>
-      <a href="#"><?php echo pll__('Contacto'); ?></a>
-      <a href="#"><?php echo pll__('Distribución'); ?></a>
+      <a href="<?php echo get_permalink( get_page_by_path('catalogo') ); ?>">
+        <?php echo pll__('Contacto'); ?>
+      </a>
+      <a href="<?php echo get_permalink( get_page_by_path('catalogo-b2b') ); ?>">
+        <?php echo pll__('Catálogo B2B'); ?>
+      </a>
       <a href="<?php echo get_permalink( get_page_by_path('eventos') ); ?>">
         <?php echo pll__('Eventos'); ?>
       </a>
-      <a href="#"><?php echo pll__('Proveedores'); ?></a>
     </div>
 
     <!-- LEGAL -->
@@ -43,7 +50,7 @@
         <?php echo pll__('Aviso legal'); ?>
       </a>
 
-      <a href="<?php echo get_permalink( get_page_by_path('condiciones-de-uso') ); ?>">
+      <a href="<?php echo get_permalink( get_page_by_path('condiciones') ); ?>">
         <?php echo pll__('Condiciones de uso'); ?>
       </a>
 
