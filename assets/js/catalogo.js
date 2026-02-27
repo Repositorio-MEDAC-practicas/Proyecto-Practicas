@@ -94,11 +94,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     visibleCards = [...cards];
 
-    // FILTER
+    // 🔥 FILTER CORREGIDO (soporta varias categorias)
     if (currentFilter !== "all") {
-      visibleCards = visibleCards.filter(card =>
-        card.dataset.categoria === currentFilter
-      );
+      visibleCards = visibleCards.filter(card => {
+
+        const categorias = card.dataset.categoria.split(" ");
+
+        return categorias.includes(currentFilter);
+
+      });
     }
 
     // SEARCH
@@ -301,7 +305,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   });
 
-  // INIT — aplica filtro si viene desde home
+  // INIT
   applyAll(true, false);
 
 });

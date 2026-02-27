@@ -51,28 +51,66 @@
 
 <header class="freesoul-header">
 
+<!-- ================================
+     TOP BAR
+================================ -->
 <div class="top-bar">
 
-  <button
-    class="modo-oscuro-y-claro"
-    id="themeToggle"
-    data-dark="<?php echo pll__('Modo oscuro'); ?>"
-    data-light="<?php echo pll__('Modo claro'); ?>"
-  >
-    <?php echo pll__('Modo oscuro'); ?>
-  </button>
+  <!-- IZQUIERDA → MI CUENTA -->
+  <div class="top-account">
 
-<div class="top-lang">
-  <?php pll_the_languages([
-    'show_flags' => 0,
-    'show_names' => 0,
-    'show_codes' => 1,
-    'dropdown'   => 0
-  ]); ?>
+    <?php
+    $account_url = function_exists('wc_get_page_permalink') 
+      ? wc_get_page_permalink('myaccount') 
+      : wp_login_url();
+
+    if ( is_user_logged_in() ) {
+        $current_user = wp_get_current_user();
+        $name = $current_user->display_name;
+
+        echo '<a href="' . esc_url($account_url) . '" class="freesoul-login">';
+        echo 'Hola, ' . esc_html($name);
+        echo '</a>';
+
+    } else {
+
+        echo '<a href="' . esc_url($account_url) . '" class="freesoul-login">';
+        echo pll__('Mi cuenta');
+        echo '</a>';
+    }
+    ?>
+
+  </div>
+
+  <!-- DERECHA → MODO + IDIOMAS -->
+  <div class="top-right">
+
+    <button
+      class="modo-oscuro-y-claro"
+      id="themeToggle"
+      data-dark="<?php echo pll__('Modo oscuro'); ?>"
+      data-light="<?php echo pll__('Modo claro'); ?>"
+    >
+      <?php echo pll__('Modo oscuro'); ?>
+    </button>
+
+    <div class="top-lang">
+      <?php pll_the_languages([
+        'show_flags' => 0,
+        'show_names' => 0,
+        'show_codes' => 1,
+        'dropdown'   => 0
+      ]); ?>
+    </div>
+
+  </div>
+
 </div>
 
-</div>
 
+<!-- ================================
+     HEADER MAIN
+================================ -->
 <div class="header-inner">
 
 <!-- LEFT -->
