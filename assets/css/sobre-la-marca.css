@@ -1,0 +1,172 @@
+body{
+  margin: 0;
+}
+
+.sobre-la-marca-page {
+  margin-top: 170px;
+  position: relative;
+  overflow: hidden;
+  background-color: rgb(245, 245, 220);
+}
+
+.freesoul-header {
+  background-color: beige;
+}
+
+.dark-mode .freesoul-header {
+  background-color: rgb(69, 95, 66);
+}
+
+.dark-mode .privacy-wrap *{
+  color: white;
+}
+
+.dark-mode .privacy-bg{
+  background-color: black;
+}
+
+.dark-mode .sobre-la-marca-page{
+  background-color: rgb(69, 95, 66);
+}
+
+.dark-mode .espuma{
+  fill: rgb(99, 99, 99);
+}
+
+.dark-mode .cerveza{
+  fill: #755a00;
+}
+
+.dark-mode .beer-bubbles span{
+  background-color: rgb(99, 99, 99);;
+}
+
+.dark-mode .beer-foam::before{
+  background-color: #755a00
+}
+
+.site-footer{
+  z-index: 12;
+  position: relative;
+}
+
+.freesoul-header .nav-left a,
+.freesoul-header .nav-right a{
+  color:black;
+}
+
+.titulo, .privacy-section {
+  padding: 3.5rem 2rem 2rem;
+  position: relative;
+}
+
+/* ESPUMA */
+.beer-foam {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  transition: top 0.6s ease;
+  z-index: 2;
+  position: relative;
+  overflow: visible;
+}
+
+/* CERVEZA DEBAJO DE LA ESPUMA */
+.beer-foam::before {
+  content: "";
+  position: absolute;
+  top: 25px;
+  left: 0;
+  width: 100%;
+  height: 2000px;
+  background: #f6c31a;
+  z-index: -1; /* CAMBIO CLAVE */
+}
+
+/* CONTENIDO */
+.sobre-la-marca-page > * {
+  position: relative;
+}
+
+/* estilos existentes */
+.privacy-wrap {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 50px;
+  z-index: 2;
+}
+
+.privacy-bg {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 100px;
+  background-color: white;
+  z-index: -2; /* fondo detrás */
+}
+
+.privacy-page h1 {
+  font-size: clamp(2rem, 4vw, 2.6rem);
+}
+
+.privacy-page h2 {
+  font-size: 1.6rem;
+  margin-bottom: .75rem;
+}
+
+.beer-bubbles {
+  position: absolute;
+  bottom: -950px;
+  width: 100%;
+  height: 200px; /* ajusta según el nivel de la cerveza */
+  pointer-events: none;
+  z-index: 3; /* ahora sí está encima de los SVG */
+}
+
+.beer-bubbles span {
+  position: absolute;
+  bottom: 0;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border-radius: 50%;
+  animation: bubbleUp 6s linear infinite;
+}
+
+/* posiciones aleatorias */
+.beer-bubbles span:nth-child(1){ left:0; animation-duration:0; animation-delay: 0; }
+.beer-bubbles span:nth-child(2){ left:0; animation-duration:0; animation-delay: 0; }
+.beer-bubbles span:nth-child(3){ left:0; animation-duration:0; animation-delay: 0; }
+.beer-bubbles span:nth-child(4){ left:0; animation-duration:0; animation-delay: 0; }
+.beer-bubbles span:nth-child(5){ left:0; animation-duration:0; animation-delay: 0; }
+.beer-bubbles span:nth-child(6){ left:0; animation-duration:0; animation-delay: 0; }
+.beer-bubbles span:nth-child(7){ left:0; animation-duration:0; animation-delay: 0; }
+.beer-bubbles span:nth-child(8){ left:0; animation-duration:0; animation-delay: 0; }
+.beer-bubbles span:nth-child(9){ left:0; animation-duration:0; animation-delay: 0; }
+.beer-bubbles span:nth-child(10){ left:0; animation-duration:0; animation-delay: 0; }
+.beer-bubbles span:nth-child(12){ left:0; animation-duration:0; animation-delay: 0; }
+.beer-bubbles span:nth-child(13){ left:0; animation-duration:0; animation-delay: 0; }
+.beer-bubbles span:nth-child(14){ left:0; animation-duration:0; animation-delay: 0; }
+.beer-bubbles span:nth-child(15){ left:0; animation-duration:0; animation-delay: 0; }
+.beer-bubbles span:nth-child(16){ left:0; animation-duration:0; animation-delay: 0; }
+.beer-bubbles span:nth-child(17){ left:0; animation-duration:0; animation-delay: 0; }
+.beer-bubbles span:nth-child(18){ left:0; animation-duration:0; animation-delay: 0; }
+.beer-bubbles span:nth-child(19){ left:0; animation-duration:0; animation-delay: 0; }
+.beer-bubbles span:nth-child(20){ left:0; animation-duration:0; animation-delay: 0; }
+
+@keyframes bubbleUp {
+  0% {
+    transform: translateY(0);
+    opacity: 0.25;
+  }
+
+  100% {
+    transform: translateY(-1000px);
+    opacity: 0.75;
+  }
+}
