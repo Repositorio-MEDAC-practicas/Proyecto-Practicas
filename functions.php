@@ -400,6 +400,31 @@ function freesoul_enqueue_legal_styles() {
 }
 add_action('wp_enqueue_scripts', 'freesoul_enqueue_legal_styles');
 
+function freesoul_enqueue_descubre_styles() {
+
+  if (
+    is_page([
+
+      
+      'about-the-brand',
+      'a-propos-de-la-marque',
+
+    ])
+  ) {
+
+    wp_enqueue_style(
+      'freesoul-descubre',
+      get_template_directory_uri() . '/assets/css/descubre.css',
+      ['freesoul-main'],
+      filemtime( get_template_directory() . '/assets/css/descubre.css' )
+    );
+
+  }
+
+}
+
+add_action('wp_enqueue_scripts', 'freesoul_enqueue_descubre_styles');
+
 
 /* ================= EVENTOS FORM ================= */
 
