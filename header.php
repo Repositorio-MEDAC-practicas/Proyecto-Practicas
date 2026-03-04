@@ -117,7 +117,6 @@
 <nav class="nav-left">
 
   <?php
-  // CATÁLOGO
   $catalogo = get_page_by_path('catalogo');
   if ($catalogo) {
     $translated = pll_get_post($catalogo->ID);
@@ -126,7 +125,6 @@
     echo '</a>';
   }
 
-  // EVENTOS
   $eventos = get_page_by_path('eventos');
   if ($eventos) {
     $translated = pll_get_post($eventos->ID);
@@ -151,7 +149,6 @@
 <nav class="nav-right">
 
   <?php
-  // NOTICIAS
   $noticias = get_page_by_path('noticias');
   if ($noticias) {
     $translated = pll_get_post($noticias->ID);
@@ -161,7 +158,6 @@
   }
   ?>
 
-  <!-- CARRITO -->
   <?php if ( function_exists('WC') && WC()->cart ) : ?>
 
     <?php $count = WC()->cart->get_cart_contents_count(); ?>
@@ -191,3 +187,6 @@
 </div>
 
 </header>
+
+<!-- MOBILE MENU (NUEVO — NO AFECTA A ESCRITORIO) -->
+<div id="mobile-menu"></div>

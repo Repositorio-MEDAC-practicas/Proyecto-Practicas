@@ -588,3 +588,164 @@ footer,
   right:26px;
   bottom:24px;
 }
+
+/* =========================================================
+   📱 RESPONSIVE MOBILE — HOME
+========================================================= */
+/* =========================
+   HERO POSITION FIX MOBILE
+========================= */
+
+@media (max-width:768px){
+
+  .hero-content{
+    padding-top:180px; /* antes 120px */
+  }
+
+}
+
+@media (max-width:768px){
+
+  /* =========================
+     HERO
+  ========================= */
+
+  .hero-slider{
+    height:70vh;
+  }
+
+  .hero-content{
+    padding:120px 6% 40px;
+    max-width:100%;
+  }
+
+  .hero-slider h1{
+    font-size:2.3rem;
+    line-height:1.2;
+  }
+
+  .hero-content p{
+    font-size:.95rem;
+    margin-top:10px;
+  }
+
+  .hero-ctas{
+    margin-top:20px;
+  }
+
+  .hero-slider .btn-outline{
+    padding:12px 26px;
+    font-size:.9rem;
+  }
+
+  /* =========================
+     CATEGORIES
+  ========================= */
+
+  .categories{
+    padding:80px 6%;
+  }
+
+  .categories h2{
+    font-size:2rem;
+  }
+
+  .cat-grid{
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+  }
+
+  .cat-item img{
+    width:100px;
+  }
+
+  .cat-item h3{
+    font-size:.95rem;
+  }
+
+  /* =========================
+     LIFESTYLE
+  ========================= */
+
+  .lifestyle{
+    padding:90px 6%;
+  }
+
+  .lifestyle h2{
+    font-size:2.1rem;
+  }
+
+  .life-grid{
+    grid-template-columns:1fr;
+    gap:28px;
+  }
+
+  .life-grid div{
+    padding:30px 20px;
+  }
+
+  /* =========================
+     PARTY
+  ========================= */
+
+  .party-strip{
+    padding:60px 6%;
+  }
+
+  .party-strip h2{
+    font-size:2rem;
+  }
+
+  /* =========================
+     CATALOG
+  ========================= */
+
+  .catalog{
+    padding:90px 6%;
+  }
+
+  .catalog h2{
+    font-size:2.2rem;
+  }
+
+  .product-grid{
+    grid-template-columns:1fr;
+    gap:30px;
+  }
+
+  .product-img img{
+    height:240px;
+  }
+
+  .product h3{
+    font-size:1.1rem;
+  }
+
+  .product span{
+    font-size:.9rem;
+  }
+
+  .btn-add{
+    right:18px;
+    bottom:18px;
+    padding:10px 22px;
+    font-size:.85rem;
+  }
+
+  /* =========================
+     B2B
+  ========================= */
+
+  .b2b{
+    padding:100px 6%;
+  }
+
+  .b2b h2{
+    font-size:2rem;
+  }
+
+  .b2b p{
+    font-size:.95rem;
+  }
+
+}
