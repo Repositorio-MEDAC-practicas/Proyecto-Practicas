@@ -14,7 +14,6 @@
 
       <div class="hero-ctas">
 
-        <!-- CATALOGO NORMAL -->
         <a href="<?php echo home_url('/catalogo/'); ?>" class="btn-outline btn-cart">
 
           <svg class="cart-icon" viewBox="0 0 24 24" fill="none">
@@ -44,7 +43,6 @@
 
       <div class="hero-ctas">
 
-        <!-- CATALOGO B2B -->
         <a href="<?php echo home_url('/catalogo-b2b/'); ?>" class="btn-outline btn-cart">
 
           <svg class="cart-icon" viewBox="0 0 24 24" fill="none">
@@ -66,13 +64,13 @@
     </div>
   </div>
 
-  <!-- DOTS -->
   <div class="slider-dots">
     <span class="dot active"></span>
     <span class="dot"></span>
   </div>
 
 </section>
+
 
 <!-- ================= CATEGORIES ================= -->
 
@@ -102,6 +100,7 @@
   </div>
 </section>
 
+
 <!-- ================= LIFESTYLE ================= -->
 
 <section class="lifestyle">
@@ -126,9 +125,11 @@
   </div>
 </section>
 
+
 <section class="party-strip">
   <h2><?php echo pll__('Elegir también es celebrar'); ?></h2>
 </section>
+
 
 <!-- ================= CATALOG ================= -->
 
@@ -136,10 +137,13 @@
 
 <h2><?php echo pll__('Lo más buscado'); ?></h2>
 
+<div class="product-slider-wrapper">
+
+<button class="product-arrow left">‹</button>
+
 <div class="product-grid">
 
-  <!-- ===== PRODUCTO: NATUREO ===== -->
-
+  <!-- PRODUCTO 1 -->
   <article class="product">
 
     <div class="product-img">
@@ -153,19 +157,13 @@
     <h3>Natureo</h3>
     <span>12,90€</span>
 
-    <a
-      href="<?php echo site_url('/catalogo'); ?>?buscar=natureo"
-      class="btn-add"
-      style="position:absolute;right:1.5rem;bottom:1.5rem;"
-    >
+    <a href="<?php echo site_url('/catalogo'); ?>?buscar=natureo" class="btn-add">
       <?php echo pll__('Añadir'); ?>
     </a>
 
   </article>
 
-
-  <!-- ===== PRODUCTO: HEINEKEN ===== -->
-
+  <!-- PRODUCTO 2 -->
   <article class="product">
 
     <div class="product-img">
@@ -179,19 +177,13 @@
     <h3>Heineken 0.0</h3>
     <span>3,00€</span>
 
-    <a
-      href="<?php echo site_url('/catalogo'); ?>?buscar=heineken"
-      class="btn-add"
-      style="position:absolute;right:1.5rem;bottom:1.5rem;"
-    >
+    <a href="<?php echo site_url('/catalogo'); ?>?buscar=heineken" class="btn-add">
       <?php echo pll__('Añadir'); ?>
     </a>
 
   </article>
 
-
-  <!-- ===== PRODUCTO: TANQUERAY ===== -->
-
+  <!-- PRODUCTO 3 -->
   <article class="product">
 
     <div class="product-img">
@@ -205,19 +197,19 @@
     <h3>Tanqueray 0.0</h3>
     <span>14,90€</span>
 
-    <a
-      href="<?php echo site_url('/catalogo'); ?>?buscar=tanqueray"
-      class="btn-add"
-      style="position:absolute;right:1.5rem;bottom:1.5rem;"
-    >
+    <a href="<?php echo site_url('/catalogo'); ?>?buscar=tanqueray" class="btn-add">
       <?php echo pll__('Añadir'); ?>
     </a>
 
   </article>
 
 </div>
-</section>
 
+<button class="product-arrow right">›</button>
+
+</div>
+
+</section>
 
 
 <!-- ================= B2B ================= -->
@@ -226,9 +218,11 @@
   <div class="b2b-box">
     <h2><?php echo pll__('Empresas · Catering · Hostelería'); ?></h2>
     <p><?php echo pll__('Artículos sólo para clientes B2B'); ?></p>
-<a href="<?php echo home_url('/catalogo-b2b/'); ?>" class="btn-main">
-  <?php echo pll__('Catálogo B2B'); ?>
-</a>
+
+    <a href="<?php echo home_url('/catalogo-b2b/'); ?>" class="btn-main">
+      <?php echo pll__('Catálogo B2B'); ?>
+    </a>
+
   </div>
 </section>
 
