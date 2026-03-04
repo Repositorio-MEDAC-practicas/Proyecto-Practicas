@@ -186,3 +186,131 @@
   opacity:1;
   text-decoration:underline;
 }
+
+/* =========================================================
+   📱 RESPONSIVE MOBILE — FOOTER PRO
+========================================================= */
+
+@media (max-width:768px){
+
+  /* CONTENEDOR */
+  .site-footer{
+    padding:80px 6% 30px;
+  }
+
+  /* GRID → 1 columna */
+  .footer-inner{
+    grid-template-columns:1fr;
+    gap:40px;
+  }
+
+  /* =========================
+     BRAND CENTRADO
+  ========================= */
+
+  .footer-brand{
+    text-align:center;
+  }
+
+  .footer-brand img{
+    height:70px;
+    margin:auto;
+  }
+
+  .footer-brand p{
+    margin:14px auto 0;
+    max-width:260px;
+    font-size:.9rem;
+    line-height:1.5;
+  }
+
+  /* =========================
+     COLUMNAS
+  ========================= */
+
+  .footer-col,
+  .footer-newsletter{
+    text-align:center;
+  }
+
+  .footer-col h4,
+  .footer-newsletter h4{
+    font-size:1rem;
+    margin-bottom:12px;
+    letter-spacing:.5px;
+  }
+
+  /* LINKS */
+  .footer-col a{
+    margin:6px 0;
+    font-size:.95rem;
+  }
+
+  /* =========================
+     SEPARACIÓN VISUAL
+  ========================= */
+
+  .footer-col,
+  .footer-newsletter{
+    padding-top:20px;
+    border-top:1px solid rgba(0,0,0,.08);
+  }
+
+  .dark-mode .footer-col,
+  .dark-mode .footer-newsletter{
+    border-top:1px solid rgba(255,255,255,.08);
+  }
+
+  /* =========================
+     NEWSLETTER
+  ========================= */
+
+  .footer-newsletter p{
+    font-size:.85rem;
+    max-width:260px;
+    margin:0 auto;
+  }
+
+  .footer-newsletter form{
+    margin-top:12px;
+  }
+
+  .footer-newsletter input{
+    padding:12px;
+    font-size:.9rem;
+  }
+
+  .footer-newsletter button{
+    margin-top:10px;
+    padding:12px;
+    font-size:.9rem;
+  }
+
+  /* =========================
+     FOOTER BOTTOM
+  ========================= */
+
+  .footer-bottom{
+    flex-direction:column;
+    gap:16px;
+    text-align:center;
+  }
+
+  .footer-bottom span{
+    font-size:.8rem;
+    opacity:.8;
+  }
+
+  /* SOCIAL */
+  .footer-social{
+    display:flex;
+    justify-content:center;
+    gap:16px;
+  }
+
+  .footer-social a{
+    margin:0;
+    font-size:.9rem;
+  }
+
+}

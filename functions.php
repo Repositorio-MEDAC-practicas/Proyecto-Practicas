@@ -1,7 +1,10 @@
 <?php
 
+  /* ================= PÁG ENLAZADAS ================= */
+
 require_once get_template_directory() . '/inc/polylang.php';
 require_once get_template_directory() . '/inc/woocommerce.php';
+require_once get_template_directory() . '/inc/2fa.php';
 
 
 /* ================= ENQUEUE ASSETS ================= */
@@ -38,6 +41,14 @@ function freesoul_assets() {
     filemtime( get_template_directory() . '/assets/css/loader.css' )
   );
 
+/* ================= ORB ================= */
+
+wp_enqueue_style(
+  'freesoul-orb',
+  get_template_directory_uri() . '/assets/css/orb.css',
+  ['freesoul-main'], 
+  filemtime( get_template_directory() . '/assets/css/orb.css' )
+);
 
 /* ================= CATALOGO NORMAL ================= */
 
@@ -128,27 +139,6 @@ if ( is_page_template('page-catalogo-b2b.php') ) {
     );
 
   }
-/* ================= PAGE: SOBRE LA MARCA ================= */
-
-if ( is_page('sobre-la-marca') ) {
-    wp_enqueue_style(
-        'sobre-la-marca-css',
-        get_template_directory_uri() . '/assets/css/legal.css',
-        [],
-        filemtime( get_template_directory() . '/assets/css/legal.css' )
-    );
-}
-
-/* ================= PAGE: PREGUNTAS FRECUENTES ================= */
-
-if ( is_page('preguntas-frecuentes') ) {
-    wp_enqueue_style(
-        'preguntas-frecuentes-css',
-        get_template_directory_uri() . '/assets/css/preguntas-frecuentes.css',
-        [],
-        filemtime( get_template_directory() . '/assets/css/preguntas-frecuentes.css' )
-    );
-}
 
 /* ================= PAGE: SOBRE LA MARCA ================= */
 
@@ -170,6 +160,17 @@ if ( is_page('sobre-la-marca') ) {
         [],
         filemtime( get_template_directory() . '/assets/js/sobre-la-marca.js' ),
         true
+    );
+}
+
+/* ================= PAGE: PREGUNTAS FRECUENTES ================= */
+
+if ( is_page('preguntas-frecuentes') ) {
+    wp_enqueue_style(
+        'preguntas-frecuentes-css',
+        get_template_directory_uri() . '/assets/css/preguntas-frecuentes.css',
+        [],
+        filemtime( get_template_directory() . '/assets/css/preguntas-frecuentes.css' )
     );
 }
 
@@ -201,6 +202,31 @@ if ( is_page('sobre-la-marca') ) {
 
   }
 
+/* ================= CSS 2FA ================= */
+
+if ( is_page('verificacion-2fa') ) {
+
+  wp_enqueue_style(
+    'freesoul-2fa',
+    get_template_directory_uri() . '/assets/css/verificacion-2fa.css',
+    [],
+    time()
+  );
+
+}
+
+/* ================= PAGE: CONTACTO ================= */
+
+if ( is_page_template('page-contacto.php') ) {
+
+  wp_enqueue_style(
+    'freesoul-contacto',
+    get_template_directory_uri() . '/assets/css/contacto.css',
+    ['freesoul-main'],
+    filemtime( get_template_directory() . '/assets/css/contacto.css' )
+  );
+
+}
 
   /* ================= JS ================= */
 
@@ -227,6 +253,17 @@ if ( is_page('sobre-la-marca') ) {
     filemtime( get_template_directory() . '/assets/js/loader.js' ),
     true
   );
+
+
+/* ================= ORB JS ================= */
+
+wp_enqueue_script(
+    'orb',
+    get_template_directory_uri() . '/assets/js/orb.js',
+    [],
+    time(),
+    true
+);
 
 
   /* ================= EVENTOS JS ================= */
@@ -276,6 +313,19 @@ if (
 
 }
 
+/* ================= CONTACTO JS ================= */
+
+if ( is_page_template('page-contacto.php') ) {
+
+  wp_enqueue_script(
+    'freesoul-contacto',
+    get_template_directory_uri() . '/assets/js/contacto.js',
+    [],
+    filemtime( get_template_directory() . '/assets/js/contacto.js' ),
+    true
+  );
+
+}
 
   /* ================= FAQ JS ================= */
 
@@ -419,4 +469,70 @@ function freesoul_handle_event_form() {
   wp_redirect( add_query_arg('enviado','1', wp_get_referer()) . '#form-eventos' );
   exit;
 
+}
+
+/* ================= CONTACTO FORM ================= */
+
+add_action( 'admin_post_nopriv_freesoul_contact_form', 'freesoul_handle_contact_form' );
+add_action( 'admin_post_freesoul_contact_form', 'freesoul_handle_contact_form' );
+
+function freesoul_handle_contact_form() {
+
+  // SEGURIDAD
+  if (
+    ! isset( $_POST['freesoul_nonce'] ) ||
+    ! wp_verify_nonce( $_POST['freesoul_nonce'], 'freesoul_contact_nonce' )
+  ) {
+    wp_die( 'Security check failed' );
+  }
+
+  // HONEYPOT (anti spam)
+  if ( ! empty( $_POST['website'] ) ) {
+    wp_redirect( add_query_arg('error','1', wp_get_referer()) . '#contacto-form' );
+    exit;
+  }
+
+  // SANITIZAR
+  $nombre  = sanitize_text_field( $_POST['nombre'] ?? '' );
+  $email   = sanitize_email( $_POST['email'] ?? '' );
+  $motivo  = sanitize_text_field( $_POST['motivo'] ?? '' );
+  $mensaje = sanitize_textarea_field( $_POST['mensaje'] ?? '' );
+
+  // VALIDACIÓN
+  if ( empty($nombre) || empty($email) || empty($mensaje) || ! is_email($email) ) {
+    wp_redirect( add_query_arg('error','1', wp_get_referer()) . '#contacto-form' );
+    exit;
+  }
+
+  // DESTINO
+  $to = get_option( 'admin_email' );
+
+  // ASUNTO
+  $subject = "Nuevo mensaje Free Soul - $motivo";
+
+  // CUERPO
+  $body  = "Nuevo mensaje desde contacto:\n\n";
+  $body .= "Nombre: $nombre\n";
+  $body .= "Email: $email\n";
+  $body .= "Motivo: $motivo\n\n";
+  $body .= "Mensaje:\n$mensaje";
+
+  // HEADERS
+  $headers = [
+    'Content-Type: text/plain; charset=UTF-8',
+    'From: Free Soul <no-reply@freesoul.test>',
+    "Reply-To: $nombre <$email>"
+  ];
+
+  // ENVÍO
+  $enviado = wp_mail( $to, $subject, $body, $headers );
+
+  // REDIRECCIÓN
+  if ( $enviado ) {
+    wp_redirect( add_query_arg('enviado','1', wp_get_referer()) . '#contacto-form' );
+  } else {
+    wp_redirect( add_query_arg('error','1', wp_get_referer()) . '#contacto-form' );
+  }
+
+  exit;
 }
