@@ -71,9 +71,9 @@ get_header();
   <!-- TÍTULO -->
   <section class="titulo">
     <div class="privacy-wrap"><div class="privacy-bg"></div>
-      <h1><?php echo pll__('Sobre la marca'); ?></h1><br>
+      <h1><?php echo pll__('À propos de la marque'); ?></h1><br>
       <p class="lead">
-        <?php echo pll__('Descubre nuestra historia, filosofía y compromiso con las bebidas sin alcohol premium.'); ?>
+        <?php echo pll__('Découvrez notre histoire, notre philosophie et notre engagement envers les boissons premium sans alcool.'); ?>
       </p>
     </div>
   </section>
@@ -81,14 +81,14 @@ get_header();
   <!-- HISTORIA -->
   <section class="privacy-section">
     <div class="privacy-wrap"><div class="privacy-bg"></div>
-      <h2><?php echo pll__('Nuestra historia'); ?></h2><br>
+      <h2><?php echo pll__('Notre histoire'); ?></h2><br>
 
       <p>
-        <?php echo pll__('Free Soul nace con la idea de redefinir la forma en la que celebramos. Creemos que brindar no depende del alcohol, sino del momento, de la compañía y de la experiencia.'); ?>
+        <?php echo pll__('Free Soul est née de l’idée de redéfinir la manière dont nous célébrons. Nous pensons que porter un toast ne dépend pas de l’alcool, mais du moment, de la compagnie et de l’expérience.'); ?>
       </p>
 
       <p>
-        <?php echo pll__('Seleccionamos bebidas sin alcohol que mantienen la complejidad, el sabor y la estética de las grandes ocasiones. Nuestro objetivo es ofrecer alternativas premium para quienes quieren disfrutar sin alcohol.'); ?>
+        <?php echo pll__('Nous sélectionnons des boissons sans alcool qui conservent la complexité, la saveur et l’esthétique des grandes occasions. Notre objectif est d’offrir des alternatives premium à celles et ceux qui souhaitent profiter sans alcool.'); ?>
       </p>
     </div>
   </section>
@@ -96,14 +96,14 @@ get_header();
   <!-- FILOSOFÍA -->
   <section class="privacy-section">
     <div class="privacy-wrap"><div class="privacy-bg"></div>
-      <h2><?php echo pll__('Nuestra filosofía'); ?></h2><br>
+      <h2><?php echo pll__('Notre philosophie'); ?></h2><br>
 
       <p>
-        <?php echo pll__('Elegir no beber alcohol no significa renunciar al ritual. Significa elegir cómo quieres disfrutar cada momento.'); ?>
+        <?php echo pll__('Choisir de ne pas boire d’alcool ne signifie pas renoncer au rituel. Cela signifie choisir la manière dont vous souhaitez savourer chaque instant.'); ?>
       </p>
 
       <p>
-        <?php echo pll__('Apostamos por una cultura de celebración inclusiva, sofisticada y consciente, donde cada persona pueda sentirse parte del momento.'); ?>
+        <?php echo pll__('Nous défendons une culture de célébration inclusive, sophistiquée et consciente, où chacun peut se sentir pleinement partie prenante du moment.'); ?>
       </p>
     </div>
   </section>
@@ -111,14 +111,14 @@ get_header();
   <!-- FUTURO -->
   <section class="privacy-section">
     <div class="privacy-wrap"><div class="privacy-bg"></div>
-      <h2><?php echo pll__('Mirando al futuro'); ?></h2><br>
+      <h2><?php echo pll__('Regard vers l’avenir'); ?></h2><br>
 
       <p>
-        <?php echo pll__('Seguimos ampliando nuestra selección con nuevas propuestas internacionales y trabajando con hostelería y organizadores de eventos.'); ?>
+        <?php echo pll__('Nous continuons d’élargir notre sélection avec de nouvelles propositions internationales et collaborons avec des professionnels de l’hôtellerie et des organisateurs d’événements.'); ?>
       </p>
 
       <p>
-        <?php echo pll__('Nuestro compromiso es claro: brindar diferente, sin renunciar a la calidad ni al estilo.'); ?>
+        <?php echo pll__('Notre engagement est clair : célébrer autrement, sans renoncer à la qualité ni au style.'); ?>
       </p>
     </div>
   </section>

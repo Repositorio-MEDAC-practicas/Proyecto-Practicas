@@ -1,7 +1,6 @@
 <?php
 
 require_once get_template_directory() . '/inc/polylang.php';
-require_once get_template_directory() . '/inc/woocommerce.php';
 
 
 /* ================= ENQUEUE ASSETS ================= */
@@ -39,38 +38,22 @@ function freesoul_assets() {
   );
 
 
-/* ================= CATALOGO NORMAL ================= */
+  /* ================= PAGE: CATALOGO ================= */
 
-if ( is_page_template('page-catalogo.php') ) {
+  if (
+    is_page('catalogo') ||
+    is_page('catalog') ||
+    is_page('catalogue')
+  ) {
 
-  wp_enqueue_style(
-    'freesoul-catalogo',
-    get_template_directory_uri() . '/assets/css/catalogo.css',
-    [],
-    filemtime( get_template_directory() . '/assets/css/catalogo.css' )
-  );
+    wp_enqueue_style(
+      'freesoul-catalogo',
+      get_template_directory_uri() . '/assets/css/catalogo.css',
+      [],
+      filemtime( get_template_directory() . '/assets/css/catalogo.css' )
+    );
 
-}
-
-
-/* ================= CATALOGO B2B ================= */
-
-if ( is_page_template('page-catalogo-b2b.php') ) {
-
-  wp_enqueue_style(
-    'freesoul-catalogo',
-    get_template_directory_uri() . '/assets/css/catalogo.css',
-    [],
-    filemtime( get_template_directory() . '/assets/css/catalogo.css' )
-  );
-  wp_enqueue_style(
-    'freesoul-catalogo-b2b',
-    get_template_directory_uri() . '/assets/css/catalogo-b2b.css',
-    ['freesoul-catalogo'],
-    filemtime( get_template_directory() . '/assets/css/catalogo-b2b.css' )
-  );
-
-}
+  }
 
 
   /* ================= SUBCATEGORÍAS ================= */
@@ -111,8 +94,7 @@ if ( is_page_template('page-catalogo-b2b.php') ) {
 
   }
 
-
-  /* ================= PAGE: NOTICIAS ================= */
+  // ================= PAGE: NOTICIAS CSS =================
 
   if (
     is_page('noticias') ||
@@ -128,32 +110,11 @@ if ( is_page_template('page-catalogo-b2b.php') ) {
     );
 
   }
-/* ================= PAGE: SOBRE LA MARCA ================= */
-
-if ( is_page('sobre-la-marca') ) {
-    wp_enqueue_style(
-        'sobre-la-marca-css',
-        get_template_directory_uri() . '/assets/css/legal.css',
-        [],
-        filemtime( get_template_directory() . '/assets/css/legal.css' )
-    );
-}
-
-/* ================= PAGE: PREGUNTAS FRECUENTES ================= */
-
-if ( is_page('preguntas-frecuentes') ) {
-    wp_enqueue_style(
-        'preguntas-frecuentes-css',
-        get_template_directory_uri() . '/assets/css/preguntas-frecuentes.css',
-        [],
-        filemtime( get_template_directory() . '/assets/css/preguntas-frecuentes.css' )
-    );
-}
 
 /* ================= PAGE: SOBRE LA MARCA ================= */
 
 // CSS Sobre la marca
-if ( is_page('sobre-la-marca') ) {
+if ( is_page(['sobre-la-marca','about-the-brand','a-propos-de-la-marque']) ) {
     wp_enqueue_style(
         'sobre-la-marca-css',
         get_template_directory_uri() . '/assets/css/sobre-la-marca.css',
@@ -162,8 +123,8 @@ if ( is_page('sobre-la-marca') ) {
     );
 }
 
-// JS Preguntas Frecuentes
-if ( is_page('sobre-la-marca') ) {
+// JS Sobre la marca
+if ( is_page(['sobre-la-marca','about-the-brand','a-propos-de-la-marque']) ) {
     wp_enqueue_script(
         'sobre-la-marca-js',
         get_template_directory_uri() . '/assets/js/sobre-la-marca.js',
@@ -173,7 +134,28 @@ if ( is_page('sobre-la-marca') ) {
     );
 }
 
+/* ================= PAGE: PREGUNTAS FRECUENTES ================= */
 
+// CSS Preguntas Frecuentes
+if ( is_page('preguntas-frecuentes') ) {
+    wp_enqueue_style(
+        'preguntas-frecuentes-css',
+        get_template_directory_uri() . '/assets/css/preguntas-frecuentes.css',
+        [],
+        filemtime( get_template_directory() . '/assets/css/preguntas-frecuentes.css' )
+    );
+}
+
+// JS Preguntas Frecuentes
+if ( is_page('preguntas-frecuentes') ) {
+    wp_enqueue_script(
+        'preguntas-frecuentes-js',
+        get_template_directory_uri() . '/assets/js/preguntas-frecuentes.js',
+        [],
+        filemtime( get_template_directory() . '/assets/js/preguntas-frecuentes.js' ),
+        true
+    );
+}
   /* ================= WOO — CART ================= */
 
   if ( function_exists('is_cart') && is_cart() ) {
@@ -208,7 +190,7 @@ if ( is_page('sobre-la-marca') ) {
     'freesoul-main',
     get_template_directory_uri() . '/assets/js/main.js',
     [],
-    filemtime( get_template_directory() . '/assets/js/main.js' ),
+    time(),
     true
   );
 
@@ -216,7 +198,7 @@ if ( is_page('sobre-la-marca') ) {
     'freesoul-header',
     get_template_directory_uri() . '/assets/js/header.js',
     [],
-    filemtime( get_template_directory() . '/assets/js/header.js' ),
+    time(),
     true
   );
 
@@ -231,7 +213,11 @@ if ( is_page('sobre-la-marca') ) {
 
   /* ================= EVENTOS JS ================= */
 
-  if ( is_page(['eventos','events','evenements']) ) {
+  if (
+    is_page('eventos') ||
+    is_page('events') ||
+    is_page('evenements')
+  ) {
 
     wp_enqueue_script(
       'freesoul-eventos',
@@ -243,140 +229,92 @@ if ( is_page('sobre-la-marca') ) {
 
   }
 
+  // ================= PAGE: NOTICIAS JS =================
 
-  /* ================= NOTICIAS JS ================= */
-
-  if ( is_page(['noticias','news','nouvelles']) ) {
+  if (
+    is_page('noticias') ||
+    is_page('news') ||
+    is_page('nouvelles')
+  ) {
 
     wp_enqueue_script(
       'freesoul-noticias',
       get_template_directory_uri() . '/assets/js/noticias.js',
       [],
-      filemtime( get_template_directory() . '/assets/js/noticias.js' ),
+      time(),
       true
     );
 
   }
 
 
-/* ================= CATALOGO JS ================= */
 
-if (
-  is_page_template('page-catalogo.php') ||
-  is_page_template('page-catalogo-b2b.php')
-) {
+add_action('wp_enqueue_scripts', 'freesoul_assets');
 
-  wp_enqueue_script(
-    'freesoul-catalogo',
-    get_template_directory_uri() . '/assets/js/catalogo.js',
-    [],
-    filemtime( get_template_directory() . '/assets/js/catalogo.js' ),
-    true
-  );
+  /* ================= CATALOGO JS ================= */
 
-}
-
-
-  /* ================= FAQ JS ================= */
-
-  if ( is_page('preguntas-frecuentes') ) {
+  if (
+    is_page('catalogo') ||
+    is_page('catalog') ||
+    is_page('catalogue')
+  ) {
 
     wp_enqueue_script(
-      'freesoul-faq',
-      get_template_directory_uri() . '/assets/js/preguntas-frecuentes.js',
+      'freesoul-catalogo',
+      get_template_directory_uri() . '/assets/js/catalogo.js',
       [],
-      filemtime( get_template_directory() . '/assets/js/preguntas-frecuentes.js' ),
+      filemtime( get_template_directory() . '/assets/js/catalogo.js' ),
       true
     );
 
-  }
+    // Cargar AJAX 
+  wp_enqueue_script('wc-add-to-cart');
 
-
-  /* ================= WOO FIX CARRITO ================= */
-
-  if ( class_exists('WooCommerce') ) {
-
-    wp_enqueue_script('wc-cart-fragments');
-
-    if ( is_shop() || is_product() || is_cart() ) {
-      wp_enqueue_script('wc-add-to-cart');
     }
 
   }
 
-}
 add_action('wp_enqueue_scripts', 'freesoul_assets');
 
 
-/* ================= WOO — MY ACCOUNT ================= */
-
-function cargar_css_my_account() {
-
-  if ( function_exists('is_account_page') && is_account_page() ) {
-
-    wp_enqueue_style(
-      'my-account-css',
-      get_template_directory_uri() . '/assets/css/my-account.css',
-      [],
-      filemtime( get_template_directory() . '/assets/css/my-account.css' )
-    );
-
-  }
-
-}
-add_action('wp_enqueue_scripts', 'cargar_css_my_account');
-
-
-/* ================= LEGAL ================= */
-
 function freesoul_enqueue_legal_styles() {
 
-  if ( is_page([
-    'privacidad','privacy','confidentialite',
-    'cookies','cookies-en','cookies-fr',
-    'aviso-legal','legal-notice','mentions-legales',
-    'condiciones','terms','conditions'
-  ]) ) {
+  if (
+    is_page([
+
+      'privacidad',
+      'privacy',
+      'confidentialite',
+
+      'cookies',
+      'cookies-en',
+      'cookies-fr',
+
+      'aviso-legal',
+      'legal-notice',
+      'mentions-legales',
+
+      'condiciones-de-uso',
+      'terms-of-use',
+      'conditions-utilisation'
+
+    ])
+  ) {
 
     wp_enqueue_style(
       'freesoul-legal',
       get_template_directory_uri() . '/assets/css/legal.css',
-      [],
+      ['freesoul-main'],
       filemtime( get_template_directory() . '/assets/css/legal.css' )
     );
 
   }
 
 }
+
 add_action('wp_enqueue_scripts', 'freesoul_enqueue_legal_styles');
 
-function freesoul_enqueue_descubre_styles() {
-
-  if (
-    is_page([
-
-      
-      'about-the-brand',
-      'a-propos-de-la-marque',
-
-    ])
-  ) {
-
-    wp_enqueue_style(
-      'freesoul-descubre',
-      get_template_directory_uri() . '/assets/css/descubre.css',
-      ['freesoul-main'],
-      filemtime( get_template_directory() . '/assets/css/descubre.css' )
-    );
-
-  }
-
-}
-
-add_action('wp_enqueue_scripts', 'freesoul_enqueue_descubre_styles');
-
-
-/* ================= EVENTOS FORM ================= */
+/* ================= EVENTOS FORM HANDLER ================= */
 
 add_action( 'admin_post_nopriv_freesoul_event_form', 'freesoul_handle_event_form' );
 add_action( 'admin_post_freesoul_event_form', 'freesoul_handle_event_form' );
@@ -404,9 +342,14 @@ function freesoul_handle_event_form() {
   $subject = 'Nueva solicitud de evento – Free Soul';
 
   $body  = "Nueva solicitud recibida:\n\n";
-  $body .= "Nombre: $name\nEmail: $email\nTeléfono: $phone\n";
-  $body .= "Tipo de evento: $type\nFecha: $date\nAsistentes: $guests\n";
-  $body .= "Pack: $pack\n\nMensaje:\n$message";
+  $body .= "Nombre: $name\n";
+  $body .= "Email: $email\n";
+  $body .= "Teléfono: $phone\n";
+  $body .= "Tipo de evento: $type\n";
+  $body .= "Fecha: $date\n";
+  $body .= "Asistentes: $guests\n";
+  $body .= "Pack: $pack\n\n";
+  $body .= "Mensaje:\n$message";
 
   $headers = [
     'Content-Type: text/plain; charset=UTF-8',
@@ -416,7 +359,37 @@ function freesoul_handle_event_form() {
 
   wp_mail( $to, $subject, $body, $headers );
 
-  wp_redirect( add_query_arg('enviado','1', wp_get_referer()) . '#form-eventos' );
-  exit;
+  wp_redirect(
+    add_query_arg( 'enviado', '1', wp_get_referer() ) . '#form-eventos'
+  );
 
+  exit;
 }
+
+add_action('init', function () {
+
+  if ( isset($_GET['freesoul-empty-cart']) ) {
+
+    WC()->cart->empty_cart();
+
+    wp_safe_redirect( wc_get_cart_url() );
+    exit;
+
+  }
+
+});
+
+ /* ================= Icono Carrito ================= */
+add_filter( 'woocommerce_add_to_cart_fragments', function( $fragments ) {
+
+    ob_start();
+    ?>
+    <span class="freesoul-cart-count">
+        <?php echo WC()->cart->get_cart_contents_count(); ?>
+    </span>
+    <?php
+    $fragments['.freesoul-cart-count'] = ob_get_clean();
+
+    return $fragments;
+
+});
