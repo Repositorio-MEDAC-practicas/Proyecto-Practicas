@@ -103,43 +103,50 @@ get_header();
 
     <h2><?php echo pll__('Nuestros packs para eventos'); ?></h2>
 
-    <div class="packs-grid">
+    <div class="packs-slider-wrapper">
 
-      <article class="pack" data-pack="<?php echo pll__('Pack Fiesta 50'); ?>">
-        <h3><?php echo pll__('Pack Fiesta 50'); ?></h3>
-        <p><?php echo pll__('50 bebidas variadas'); ?></p>
-        <ul>
-          <li><?php echo pll__('Cervezas 0.0'); ?></li>
-          <li><?php echo pll__('Vinos sin alcohol'); ?></li>
-          <li><?php echo pll__('Destilados premium'); ?></li>
-        </ul>
-        <span class="pack-price">Desde 199€</span>
-        <button type="button" class="btn-outline select-pack"><?php echo pll__('Elegir pack'); ?></button>
-      </article>
+      <button class="packs-arrow left">‹</button>
+      <button class="packs-arrow right">›</button>
 
-      <article class="pack destacado" data-pack="<?php echo pll__('Pack Evento 150'); ?>">
-        <h3><?php echo pll__('Pack Evento 150'); ?></h3>
-        <p><?php echo pll__('Ideal para celebraciones grandes'); ?></p>
-        <ul>
-          <li><?php echo pll__('Selección completa'); ?></li>
-          <li><?php echo pll__('Mejor precio por unidad'); ?></li>
-          <li><?php echo pll__('Asesoramiento incluido'); ?></li>
-        </ul>
-        <span class="pack-price">Desde 499€</span>
-        <button type="button" class="btn-main select-pack"><?php echo pll__('Elegir pack'); ?></button>
-      </article>
+      <div class="packs-grid">
 
-      <article class="pack" data-pack="<?php echo pll__('Pack Boda 300'); ?>">
-        <h3><?php echo pll__('Pack Boda 300'); ?></h3>
-        <p><?php echo pll__('Eventos premium'); ?></p>
-        <ul>
-          <li><?php echo pll__('Gama alta'); ?></li>
-          <li><?php echo pll__('Personalizado'); ?></li>
-          <li><?php echo pll__('Logística incluida'); ?></li>
-        </ul>
-        <span class="pack-price">Desde 899€</span>
-        <button type="button" class="btn-outline select-pack"><?php echo pll__('Elegir pack'); ?></button>
-      </article>
+        <article class="pack" data-pack="<?php echo pll__('Pack Fiesta 50'); ?>">
+          <h3><?php echo pll__('Pack Fiesta 50'); ?></h3>
+          <p><?php echo pll__('50 bebidas variadas'); ?></p>
+          <ul>
+            <li><?php echo pll__('Cervezas 0.0'); ?></li>
+            <li><?php echo pll__('Vinos sin alcohol'); ?></li>
+            <li><?php echo pll__('Destilados premium'); ?></li>
+          </ul>
+          <span class="pack-price">Desde 199€</span>
+          <button type="button" class="btn-outline select-pack"><?php echo pll__('Elegir pack'); ?></button>
+        </article>
+
+        <article class="pack destacado" data-pack="<?php echo pll__('Pack Evento 150'); ?>">
+          <h3><?php echo pll__('Pack Evento 150'); ?></h3>
+          <p><?php echo pll__('Ideal para celebraciones grandes'); ?></p>
+          <ul>
+            <li><?php echo pll__('Selección completa'); ?></li>
+            <li><?php echo pll__('Mejor precio por unidad'); ?></li>
+            <li><?php echo pll__('Asesoramiento incluido'); ?></li>
+          </ul>
+          <span class="pack-price">Desde 499€</span>
+          <button type="button" class="btn-main select-pack"><?php echo pll__('Elegir pack'); ?></button>
+        </article>
+
+        <article class="pack" data-pack="<?php echo pll__('Pack Boda 300'); ?>">
+          <h3><?php echo pll__('Pack Boda 300'); ?></h3>
+          <p><?php echo pll__('Eventos premium'); ?></p>
+          <ul>
+            <li><?php echo pll__('Gama alta'); ?></li>
+            <li><?php echo pll__('Personalizado'); ?></li>
+            <li><?php echo pll__('Logística incluida'); ?></li>
+          </ul>
+          <span class="pack-price">Desde 899€</span>
+          <button type="button" class="btn-outline select-pack"><?php echo pll__('Elegir pack'); ?></button>
+        </article>
+
+      </div>
 
     </div>
 
