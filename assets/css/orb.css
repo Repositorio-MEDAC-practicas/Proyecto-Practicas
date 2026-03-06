@@ -1,0 +1,720 @@
+/* =========================================================
+   FREE SOUL ORB — IA ESFERA PRO
+   ========================================================= */
+
+
+/* ================= ORB ================= */
+
+.orb {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+
+  width: 70px;
+  height: 70px;
+
+  cursor: pointer;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  animation: orb-float 6s ease-in-out infinite;
+}
+
+.orb-bubble {
+  position: absolute;
+  bottom: 85px;
+  right: 0;
+
+  max-width: 220px;
+
+  background: rgba(255,255,255,0.95);
+  color: #1a1a1a;
+
+  padding: 10px 12px;
+  border-radius: 12px;
+
+  font-size: 13px;
+  line-height: 1.3;
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+
+  opacity: 0;
+  transform: translateY(10px);
+
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.orb-bubble.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ================= ESFERA ================= */
+
+.orb-core {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  position: relative;
+
+  background: radial-gradient(circle at 30% 30%, #8fbfa3, #4e6d5a);
+
+  box-shadow:
+    inset -10px -10px 20px rgba(0,0,0,0.3),
+    inset 10px 10px 20px rgba(255,255,255,0.15),
+    0 15px 35px rgba(0,0,0,0.25);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: all 0.4s ease;
+}
+
+
+/* ================= EFECTO VIDRIO ================= */
+
+.orb-core::before {
+  content: "";
+  position: absolute;
+  top: 10%;
+  left: 20%;
+  width: 30%;
+  height: 30%;
+  border-radius: 50%;
+
+  background: radial-gradient(circle, rgba(255,255,255,0.6), transparent);
+
+  filter: blur(4px);
+}
+
+.orb-core::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+
+  background:
+    radial-gradient(circle at 70% 70%, rgba(0,0,0,0.35), transparent 60%);
+
+  mix-blend-mode: overlay;
+}
+
+
+/* ================= LOGO ================= */
+
+.orb-logo {
+  width: 60%;
+  height: 60%;
+}
+
+.orb-logo svg {
+  width: 100%;
+  height: 100%;
+}
+
+
+/* círculo interior */
+
+.orb-ring {
+  fill: none;
+  stroke: rgba(255,255,255,0.2);
+  stroke-width: 2;
+
+  animation: orb-rotate 12s linear infinite;
+  transform-origin: center;
+}
+
+
+/* línea IA */
+
+.orb-line {
+  fill: none;
+  stroke: #8fbfa3;
+  stroke-width: 4;
+  stroke-linecap: round;
+
+  stroke-dasharray: 60;
+  stroke-dashoffset: 60;
+
+  animation: orb-flow 2.5s ease-in-out infinite;
+}
+
+
+/* ================= GLOW ================= */
+
+.orb-glow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+
+  background: radial-gradient(circle, rgba(108,139,116,0.5), transparent 70%);
+
+  filter: blur(18px);
+  opacity: 0.7;
+
+  animation: orb-breath 4s infinite ease-in-out;
+}
+
+/* =========================================================
+   CHAT
+   ========================================================= */
+
+.orb-chat {
+  position: fixed;
+  bottom: 110px;
+  right: 25px;
+
+  width: 320px;
+  max-height: 420px;
+
+  background: rgba(255,255,255,0.95);
+
+  backdrop-filter: blur(20px);
+  border-radius: 18px;
+
+  box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+  border: 1px solid rgba(0,0,0,0.05);
+
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  z-index: 9999;
+
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px) scale(0.95);
+
+  transition: all 0.3s ease;
+}
+
+.orb-chat.open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0) scale(1);
+}
+
+
+/* ================= HEADER ================= */
+
+.orb-chat-header {
+  background: linear-gradient(135deg, #6c8b74, #4e6d5a);
+  color: #fff;
+
+  padding: 12px 16px;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#orb-close {
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+
+/* ================= MENSAJES ================= */
+
+.orb-messages {
+  padding: 15px;
+  overflow-y: auto;
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  font-size: 14px;
+}
+
+
+/* burbujas */
+
+.orb-msg {
+  max-width: 75%;
+  padding: 10px 14px;
+
+  border-radius: 14px;
+  font-size: 13px;
+
+  animation: msg-in 0.25s ease;
+}
+
+
+/* bot */
+
+.orb-msg.bot {
+  background: #f1f1f1;
+  color: #333;
+
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+}
+
+
+/* user */
+
+.orb-msg.user {
+  background: linear-gradient(135deg, #6c8b74, #4e6d5a);
+  color: #fff;
+
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+}
+
+
+/* ================= INPUT ================= */
+
+.orb-input {
+  border-top: 1px solid #eee;
+  padding: 10px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  background: #fafafa;
+}
+
+.orb-input input {
+  width: 100%;
+
+  border: 1px solid #eee;
+  outline: none;
+
+  font-size: 13px;
+  padding: 10px 12px;
+
+  border-radius: 10px;
+}
+
+
+/* ================= BOTONES ================= */
+
+.orb-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.orb-actions button {
+  flex: 1;
+
+  background: #6c8b74;
+  color: #fff;
+
+  border: none;
+  padding: 8px 0;
+
+  border-radius: 8px;
+  cursor: pointer;
+
+  font-size: 12px;
+
+  transition: all 0.2s ease;
+}
+
+.orb-actions button:hover {
+  background: #5a7462;
+  transform: translateY(-1px);
+}
+
+#orb-clear {
+  background: #e0e0e0;
+  color: #333;
+}
+
+#orb-clear:hover {
+  background: #ccc;
+}
+
+
+/* ================= SCROLL ================= */
+
+.orb-messages::-webkit-scrollbar {
+  width: 4px;
+}
+
+.orb-messages::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 10px;
+}
+
+
+/* =========================================================
+   ANIMACIONES
+   ========================================================= */
+
+@keyframes orb-float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+@keyframes orb-rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes orb-flow {
+  0% { stroke-dashoffset: 60; }
+  50% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: -60; }
+}
+
+@keyframes orb-breath {
+  0% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.2); opacity: 0.8; }
+  100% { transform: scale(1); opacity: 0.5; }
+}
+
+@keyframes msg-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+
+/* ================= HOVER ================= */
+
+.orb:hover .orb-core {
+  transform: scale(1.1);
+}
+
+
+/* ================= FIX INPUT ================= */
+
+#orb-chat input,
+#orb-input {
+  color: #000 !important;
+  background: #fff !important;
+  caret-color: #000 !important;
+}
+
+#orb-chat input::placeholder {
+  color: #999 !important;
+}
+
+/* =========================================================
+  ORB IA — EFECTOS AVANZADOS
+   ========================================================= */
+
+
+/* ================= ESTADO THINKING ================= */
+
+.orb.is-thinking .orb-core {
+  box-shadow:
+    inset -10px -10px 20px rgba(0,0,0,0.3),
+    inset 10px 10px 20px rgba(255,255,255,0.15),
+    0 0 25px rgba(108,139,116,0.8);
+}
+
+.orb.is-thinking .orb-line {
+  animation: orb-flow 1s linear infinite;
+}
+
+/* ================= CLICK ================= */
+
+.orb:active {
+  transform: scale(0.95) translateY(0);
+}
+
+/* ================= LAYER CORRECTION ================= */
+
+.orb-core {
+  position: relative;
+  overflow: hidden;
+}
+
+.orb-logo {
+  position: relative;
+  z-index: 2;
+}
+
+/* =========================================================
+   🌙 MODO OSCURO — ORB IA
+   ========================================================= */
+
+
+/* ================= CHAT ================= */
+
+.dark-mode .orb-chat {
+  background: rgba(18,18,18,0.95);
+  color: #eaeaea;
+
+  border: 1px solid rgba(255,255,255,0.05);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+}
+
+
+/* ================= HEADER ================= */
+
+.dark-mode .orb-chat-header {
+  background: linear-gradient(135deg, #3a4d43, #2b3a33);
+  color: #fff;
+}
+
+
+/* ================= MENSAJES ================= */
+
+.dark-mode .orb-msg.bot {
+  background: #2a2a2a;
+  color: #eaeaea;
+}
+
+.dark-mode .orb-msg.user {
+  background: linear-gradient(135deg, #6c8b74, #4e6d5a);
+  color: #fff;
+}
+
+
+/* ================= INPUT ================= */
+
+.dark-mode .orb-input {
+  background: #1a1a1a;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.dark-mode .orb-input input {
+  background: #222;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.dark-mode .orb-input input::placeholder {
+  color: #777;
+}
+
+
+/* ================= BOTONES ================= */
+
+.dark-mode .orb-actions button {
+  background: #3a4d43;
+}
+
+.dark-mode .orb-actions button:hover {
+  background: #4e6d5a;
+}
+
+.dark-mode #orb-clear {
+  background: #2a2a2a;
+  color: #ccc;
+}
+
+.dark-mode #orb-clear:hover {
+  background: #333;
+}
+
+
+/* ================= SCROLL ================= */
+
+.dark-mode .orb-messages::-webkit-scrollbar-thumb {
+  background: #444;
+}
+
+/* =========================================================
+   🚀 ORB UPGRADE PACK — SOLO AÑADIR (NO ROMPE NADA)
+   ========================================================= */
+
+
+/* ================= HALO ENERGÍA ================= */
+
+.orb::after {
+  content: "";
+  position: absolute;
+  inset: -12px;
+  border-radius: 50%;
+
+  background: radial-gradient(circle, rgba(108,139,116,0.4), transparent 70%);
+  filter: blur(25px);
+
+  opacity: 0.5;
+  animation: orb-halo 5s ease-in-out infinite;
+
+  z-index: -1;
+}
+
+@keyframes orb-halo {
+  0% { transform: scale(1); opacity: 0.4; }
+  50% { transform: scale(1.2); opacity: 0.7; }
+  100% { transform: scale(1); opacity: 0.4; }
+}
+
+
+/* ================= HOVER PROFUNDO ================= */
+
+.orb-glow {
+  transition: all 0.3s ease;
+}
+
+.orb:hover .orb-glow {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+
+/* ================= FLOAT EXTRA ================= */
+
+.orb {
+  animation: orb-float 6s ease-in-out infinite,
+             orb-drift 10s ease-in-out infinite;
+}
+
+@keyframes orb-drift {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(3px); }
+  100% { transform: translateX(0); }
+}
+
+
+/* ================= BORDE LUMINOSO ================= */
+
+.orb-core {
+  box-shadow:
+    inset -10px -10px 20px rgba(0,0,0,0.3),
+    inset 10px 10px 20px rgba(255,255,255,0.15),
+    0 15px 35px rgba(0,0,0,0.25),
+    0 0 15px rgba(108,139,116,0.3);
+}
+
+
+/* ================= BRILLO INTERNO ================= */
+
+.orb-core::after {
+  background:
+    radial-gradient(circle at 70% 70%, rgba(0,0,0,0.3), transparent 60%),
+    radial-gradient(circle at 40% 30%, rgba(255,255,255,0.15), transparent 50%);
+}
+
+
+/* ================= MENSAJES PRO ================= */
+
+@keyframes msg-in-pro {
+  0% {
+    opacity: 0;
+    transform: translateY(12px) scale(0.9);
+  }
+  60% {
+    transform: translateY(-2px) scale(1.02);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.orb-msg {
+  animation: msg-in-pro 0.35s ease;
+}
+
+.orb-msg.bot {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.orb-msg.user {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+
+/* ================= SCROLL SUAVE ================= */
+
+.orb-messages {
+  scroll-behavior: smooth;
+}
+
+
+/* ================= BOTONES PRO ================= */
+
+.orb-actions button {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.orb-actions button:active {
+  transform: scale(0.95);
+}
+
+
+/* ================= INPUT PREMIUM ================= */
+
+.orb-input input {
+  transition: all 0.2s ease;
+}
+
+.orb-input input:focus {
+  border-color: #6c8b74;
+  box-shadow: 0 0 0 2px rgba(108,139,116,0.2);
+}
+
+
+/* ================= CLICK FEEDBACK ================= */
+
+.orb-core {
+  transition: transform 0.1s ease;
+}
+
+.orb:active .orb-core {
+  transform: scale(0.92);
+}
+
+
+/* ================= SOMBRA FLOTANTE ================= */
+
+.orb {
+  filter: drop-shadow(0 10px 25px rgba(0,0,0,0.25));
+}
+
+
+/* ================= GLASS PREMIUM ================= */
+
+.orb-chat {
+  backdrop-filter: blur(25px) saturate(140%);
+  -webkit-backdrop-filter: blur(25px) saturate(140%);
+}
+
+
+/* ================= CURSOR ================= */
+
+.orb:hover {
+  cursor: pointer;
+}
+
+.orb:active {
+  cursor: grabbing;
+}
+
+/* =========================================================
+    ORB VISUAL DARK
+   ========================================================= */
+
+.dark-mode .orb-core {
+  background: radial-gradient(circle at 30% 30%, #4e6d5a, #1c2521);
+
+  box-shadow:
+    inset -10px -10px 20px rgba(0,0,0,0.6),
+    inset 10px 10px 20px rgba(255,255,255,0.05),
+    0 10px 30px rgba(0,0,0,0.8);
+}
+
+
+/* glow más fuerte */
+
+.dark-mode .orb-glow {
+  background: radial-gradient(circle, rgba(108,139,116,0.6), transparent 70%);
+}

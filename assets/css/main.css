@@ -588,3 +588,277 @@ footer,
   right:26px;
   bottom:24px;
 }
+
+/* =========================================================
+   OCULTAR FLECHAS EN DESKTOP
+========================================================= */
+
+.product-arrow{
+  display:none;
+}
+
+
+/* =========================================================
+   📱 RESPONSIVE MOBILE — HOME
+========================================================= */
+
+@media (max-width:768px){
+
+/* ================= HERO ================= */
+
+.hero-slider{
+  height:62vh;
+  min-height:460px;
+}
+
+.hero-content{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:90px;
+  padding:0 6%;
+  max-width:none;
+}
+
+.hero-slider h1{
+  font-size:clamp(1.8rem,6vw,2.3rem);
+  line-height:1.15;
+}
+
+.hero-content p{
+  font-size:.95rem;
+  margin-top:8px;
+  max-width:90%;
+}
+
+.hero-ctas{
+  margin-top:18px;
+}
+
+.hero-slider .btn-outline{
+  padding:12px 22px;
+  font-size:.9rem;
+}
+
+.slider-dots{
+  bottom:18px;
+}
+
+
+/* ================= CATEGORIES ================= */
+
+.categories{
+  padding:70px 6%;
+}
+
+.categories h2{
+  font-size:clamp(1.8rem,5vw,2.1rem);
+}
+
+.cat-grid{
+  margin-top:36px;
+  grid-template-columns:repeat(2,1fr);
+  gap:24px;
+}
+
+.cat-item img{
+  width:85px;
+}
+
+.cat-item h3{
+  font-size:.9rem;
+}
+
+
+/* ================= LIFESTYLE ================= */
+
+.lifestyle{
+  padding:80px 6%;
+}
+
+.lifestyle h2{
+  font-size:clamp(1.9rem,5vw,2.3rem);
+}
+
+.lifestyle p{
+  margin-bottom:36px;
+}
+
+.life-grid{
+  grid-template-columns:1fr;
+  gap:22px;
+}
+
+.life-grid div{
+  padding:26px 20px;
+}
+
+
+/* ================= PARTY ================= */
+
+.party-strip{
+  padding:60px 6%;
+}
+
+.party-strip h2{
+  font-size:clamp(1.8rem,5vw,2.1rem);
+}
+
+
+/* ================= CATALOG ================= */
+
+.catalog{
+  padding:80px 6%;
+}
+
+.catalog h2{
+  font-size:clamp(2rem,5vw,2.3rem);
+  margin-bottom:36px;
+}
+
+
+/* =========================================================
+   PRODUCT SLIDER MOBILE
+========================================================= */
+
+.product-slider-wrapper{
+  position:relative;
+  overflow:hidden;
+  width:100%;
+}
+
+/* romper grid de PC */
+
+.product-grid{
+  display:flex !important;
+  grid-template-columns:none !important;
+  gap:0 !important;
+
+  width:100%;
+  transition:transform .45s ease;
+}
+
+/* slide */
+
+.product{
+  flex:0 0 100%;
+  width:100%;
+  box-sizing:border-box;
+
+  padding:20px;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+
+  background:white;
+  border-radius:20px;
+
+  box-shadow:var(--shadow-soft);
+  text-align:center;
+}
+
+/* imagen */
+
+.product-img{
+  width:100%;
+}
+
+.product-img img{
+  width:100%;
+  aspect-ratio:4/5;
+  object-fit:cover;
+  border-radius:14px;
+}
+
+/* titulo */
+
+.product h3{
+  font-size:1.1rem;
+  margin-top:14px;
+}
+
+/* precio */
+
+.product span{
+  font-size:.95rem;
+  margin-top:4px;
+  display:block;
+}
+
+/* boton */
+
+.product .btn-add{
+  margin-top:14px;
+
+  position:relative !important;
+  right:auto !important;
+  bottom:auto !important;
+
+  padding:10px 22px;
+  font-size:.9rem;
+}
+
+
+/* =========================================================
+   FLECHAS (solo móvil)
+========================================================= */
+
+.product-arrow{
+  display:flex;
+
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+
+  width:42px;
+  height:42px;
+
+  background:rgba(0,0,0,.45);
+  color:white;
+
+  border:none;
+  border-radius:50%;
+
+  align-items:center;
+  justify-content:center;
+
+  font-size:1.4rem;
+  cursor:pointer;
+  z-index:10;
+}
+
+.product-arrow.left{
+  left:10px;
+}
+
+.product-arrow.right{
+  right:10px;
+}
+
+.product-arrow:hover{
+  background:var(--green);
+}
+
+
+/* ================= B2B ================= */
+
+.b2b{
+  padding:90px 6%;
+}
+
+.b2b h2{
+  font-size:clamp(1.9rem,5vw,2.2rem);
+}
+
+.b2b p{
+  font-size:.95rem;
+  margin-top:10px;
+}
+
+.b2b .btn-main{
+  margin-top:16px;
+}
+
+}

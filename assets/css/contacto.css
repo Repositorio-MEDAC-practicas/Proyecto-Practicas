@@ -1,0 +1,395 @@
+/* ================= VARIABLES ================= */
+
+:root {
+  --verde: #6c8b74;
+  --verde-hover: #5a7561;
+  --texto: #1a1a1a;
+  --gris: #666;
+  --borde: #e5e5e5;
+  --fondo-suave: #f7f8f6;
+}
+
+/* ================= ESPACIADO GENERAL ================= */
+
+.contacto {
+  padding-top: 200px;
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* ================= HERO ================= */
+
+.contacto-hero {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.contacto-hero h1 {
+  font-size: 42px;
+  margin-bottom: 10px;
+  letter-spacing: -1px;
+  color: var(--texto);
+}
+
+.contacto-hero p {
+  color: var(--gris);
+}
+
+/* ================= INTRO ================= */
+
+.contacto-intro {
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto 70px auto;
+  line-height: 1.6;
+  color: var(--gris);
+}
+
+.contacto-hero::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 2px;
+  background: var(--verde);
+  margin: 20px auto 0;
+}
+
+/* ================= CONTENEDOR ================= */
+
+.contacto-container {
+  display: flex;
+  gap: 80px;
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 20px 120px;
+  align-items: flex-start;
+}
+
+/* ================= INFO ================= */
+
+.contacto-info {
+  flex: 1;
+}
+
+.contacto-info h2 {
+  font-size: 22px;
+  margin-bottom: 15px;
+  color: var(--texto);
+}
+
+.contacto-info p {
+  margin-bottom: 12px;
+  color: var(--gris);
+}
+
+.contacto-horario {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+/* ================= FORM ================= */
+
+.contacto-form {
+  flex: 1;
+}
+
+/* MENSAJES */
+
+.contacto-exito {
+  background: #e6f0ea;
+  color: #3c5a48;
+  padding: 14px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.contacto-error {
+  background: #fdeaea;
+  color: #a94442;
+  padding: 14px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+/* ================= FORM GROUP ================= */
+
+.form-group {
+  position: relative;
+  margin-bottom: 22px;
+}
+
+/* INPUTS */
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 16px 14px;
+  border: 1px solid var(--borde);
+  border-radius: 10px;
+  font-size: 14px;
+  background: var(--fondo-suave);
+  outline: none;
+  transition: all 0.25s ease;
+}
+
+/* HOVER */
+
+.form-group input:hover,
+.form-group textarea:hover,
+.form-group select:hover {
+  border-color: #cfd8d3;
+}
+
+/* FOCUS */
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: var(--verde);
+  background: #fff;
+}
+
+/* TEXTAREA */
+
+.form-group textarea {
+  min-height: 150px;
+  resize: none;
+}
+
+/* ================= LABEL FLOTANTE ================= */
+
+.form-group label {
+  position: absolute;
+  top: 50%;
+  left: 14px;
+  transform: translateY(-50%);
+  font-size: 13px;
+  color: #999;
+  pointer-events: none;
+  transition: 0.25s ease;
+  background: #fff;
+  padding: 0 6px;
+}
+
+/* ACTIVE LABEL */
+
+.form-group input:focus + label,
+.form-group textarea:focus + label,
+.form-group input.active + label,
+.form-group textarea.active + label {
+  top: -8px;
+  font-size: 11px;
+  color: var(--verde);
+}
+
+/* SELECT */
+
+.form-group select {
+  cursor: pointer;
+}
+
+/* ================= BOTÓN ================= */
+
+.contacto-btn {
+  width: 100%;
+  padding: 16px;
+  background: var(--verde);
+  color: #fff;
+  border: none;
+  font-size: 14px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: all 0.25s ease;
+}
+
+.contacto-btn:hover {
+  background: var(--verde-hover);
+  transform: translateY(-1px);
+}
+
+/* ================= TEXTO LEGAL ================= */
+
+.contacto-legal {
+  font-size: 12px;
+  margin-top: 12px;
+  color: #888;
+  text-align: center;
+}
+
+/* ================= ANIMACIÓN ================= */
+
+.contacto-hero,
+.contacto-intro,
+.contacto-info,
+.contacto-form {
+  opacity: 0;
+  transform: translateY(25px);
+  animation: fadeUp 0.8s ease forwards;
+}
+
+.contacto-intro {
+  animation-delay: 0.2s;
+}
+
+.contacto-info {
+  animation-delay: 0.3s;
+}
+
+.contacto-form {
+  animation-delay: 0.4s;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 768px) {
+
+  .contacto {
+    padding-top: 160px;
+  }
+
+  .contacto-container {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .contacto-hero h1 {
+    font-size: 30px;
+  }
+
+}
+
+/* ============================
+   FONDO CONTACTO (FIX FOOTER)
+============================ */
+
+.contacto::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image: url("../imagenes/contacto.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  z-index: -2;
+}
+
+.contacto::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.6);
+
+  z-index: -1;
+}
+
+/* ============================
+   TEXTO MODO OSCURO
+============================ */
+
+.contacto-hero h1,
+.contacto-info h2 {
+  color: #fff;
+}
+
+.contacto-hero p,
+.contacto-info p,
+.contacto-intro {
+  color: rgba(255,255,255,0.85);
+}
+
+/* ============================
+   FORMULARIO GLASS
+============================ */
+
+.contacto-form {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px);
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+/* Inputs oscuros */
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.25);
+}
+
+/* Focus oscuro */
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  background: rgba(255,255,255,0.18);
+  border-color: #fff;
+}
+
+/* Labels oscuros */
+
+.form-group label {
+  background: transparent;
+  color: rgba(255,255,255,0.7);
+}
+
+/* Labels activos */
+
+.form-group input:focus + label,
+.form-group textarea:focus + label,
+.form-group input.active + label,
+.form-group textarea.active + label {
+  color: #fff;
+}
+
+/* Placeholder */
+
+input::placeholder,
+textarea::placeholder {
+  color: rgba(255,255,255,0.6);
+}
+
+/* ============================
+   FIX SELECT (Duda sobre pedido)
+============================ */
+
+/* Estilo del select */
+.form-group select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+
+  cursor: pointer;
+}
+
+/* Opciones del desplegable */
+.form-group select option {
+  background: #ffffff; /* fondo oscuro */
+  color: #000000;         /* texto blanco */
+}
+
+/* Para navegadores que ignoran option */
+.form-group select:focus {
+  color: #fff;
+}

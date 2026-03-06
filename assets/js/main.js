@@ -6,29 +6,30 @@ const revealEls = document.querySelectorAll(
 
 if (revealEls.length) {
 
-  const observer = new IntersectionObserver(entries=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
         e.target.classList.add("show");
       }
     });
-  },{threshold:.25});
+  }, { threshold: 0.25 });
 
-  revealEls.forEach(el=>{
+  revealEls.forEach(el => {
     el.classList.add("reveal");
     observer.observe(el);
   });
 
 }
 
+
 // ================= HERO SLIDER =================
 
 const slides = document.querySelectorAll(".hero-slider .slide");
-const dots   = document.querySelectorAll(".slider-dots .dot");
+const dots = document.querySelectorAll(".slider-dots .dot");
 
 let current = 0;
 
-function showSlide(i){
+function showSlide(i) {
 
   if (!slides.length || !dots.length) return;
 
@@ -42,33 +43,32 @@ function showSlide(i){
   current = i;
 }
 
-// Auto slider SOLO si existe
 if (slides.length > 1) {
 
-  setInterval(()=>{
+  setInterval(() => {
     showSlide((current + 1) % slides.length);
-  },7000);
+  }, 7000);
 
 }
 
-// Click dots SOLO si existen
 if (dots.length) {
 
-  dots.forEach((dot,i)=>{
-    dot.addEventListener("click",()=>showSlide(i));
+  dots.forEach((dot, i) => {
+    dot.addEventListener("click", () => showSlide(i));
   });
 
 }
 
+
 // ================= IDIOMAS =================
 
-window.setLanguage = function(lang){
+window.setLanguage = function (lang) {
 
   localStorage.setItem("lang", lang);
 
-  document.querySelectorAll("[data-es]").forEach(el=>{
+  document.querySelectorAll("[data-es]").forEach(el => {
     const text = el.dataset[lang];
-    if(text) el.innerHTML = text;
+    if (text) el.innerHTML = text;
   });
 
 };
@@ -76,12 +76,12 @@ window.setLanguage = function(lang){
 const savedLang = localStorage.getItem("lang") || "es";
 setLanguage(savedLang);
 
+
 // ================= BOTON LIMPIAR CARRITO =================
+
 document.addEventListener("DOMContentLoaded", () => {
 
-  const container = document.querySelector(
-    ".wp-block-woocommerce-cart-items-block"
-  );
+  const container = document.querySelector(".wp-block-woocommerce-cart-items-block");
 
   if (!container) return;
 
@@ -97,43 +97,81 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-  // Notificación Carrito
-jQuery(document.body).on('added_to_cart', function(event, fragments, cart_hash){
 
-  const countEl = document.getElementById('freesoul-cart-count');
+// ================= NOTIFICACIÓN CARRITO =================
 
-  if(!countEl) return;
+jQuery(document.body).on("added_to_cart", function () {
 
-  if(fragments && fragments['div.widget_shopping_cart_content']){
-    
-    // Woo guarda el nuevo contador aquí
-    const temp = document.createElement('div');
-    temp.innerHTML = fragments['div.widget_shopping_cart_content'];
+  const countEl = document.getElementById("freesoul-cart-count");
 
-    const newCount = temp.querySelector('.woocommerce-mini-cart__total')
-      ? temp.querySelectorAll('.mini_cart_item').length
-      : null;
-  }
+  if (!countEl) return;
 
-
-  fetch('/?wc-ajax=get_refreshed_fragments')
+  fetch("/?wc-ajax=get_refreshed_fragments")
     .then(r => r.json())
     .then(data => {
 
-      if(!data.fragments) return;
+      if (!data.fragments) return;
 
-      const temp = document.createElement('div');
-      temp.innerHTML = data.fragments['div.widget_shopping_cart_content'] || '';
+      const temp = document.createElement("div");
+      temp.innerHTML = data.fragments["div.widget_shopping_cart_content"] || "";
 
-      const items = temp.querySelectorAll('.mini_cart_item').length;
+      const items = temp.querySelectorAll(".mini_cart_item").length;
 
-      if(items > 0){
+      if (items > 0) {
         countEl.textContent = items;
-        countEl.style.display = 'inline-block';
+        countEl.style.display = "inline-block";
       } else {
-        countEl.style.display = 'none';
+        countEl.style.display = "none";
       }
 
     });
+
+});
+
+
+// =========================================================
+// PRODUCT SLIDER — MOBILE ONLY
+// =========================================================
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  if (window.innerWidth > 768) return;
+
+  const grid = document.querySelector(".product-grid");
+  const products = document.querySelectorAll(".product");
+  const prev = document.querySelector(".product-arrow.left");
+  const next = document.querySelector(".product-arrow.right");
+
+  if (!grid || !prev || !next || !products.length) return;
+
+  let index = 0;
+  let slideWidth = products[0].offsetWidth;
+
+  function updateSlider() {
+    grid.style.transform = "translateX(-" + (index * slideWidth) + "px)";
+  }
+
+  next.addEventListener("click", () => {
+
+    if (index < products.length - 1) {
+      index++;
+      updateSlider();
+    }
+
+  });
+
+  prev.addEventListener("click", () => {
+
+    if (index > 0) {
+      index--;
+      updateSlider();
+    }
+
+  });
+
+  window.addEventListener("resize", () => {
+    slideWidth = products[0].offsetWidth;
+    updateSlider();
+  });
 
 });

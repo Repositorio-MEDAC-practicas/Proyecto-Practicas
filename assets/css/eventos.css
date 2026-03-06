@@ -435,3 +435,252 @@ html.dark-mode body .how-step p {
 html.dark-mode body .step-number {
   color:rgb(190,244,206);
 }
+/* =========================================================
+   OCULTAR FLECHAS PACKS EN DESKTOP
+========================================================= */
+
+.packs-arrow{
+  display:none;
+}
+
+
+/* =========================================================
+   📱 RESPONSIVE MOBILE — EVENTOS
+========================================================= */
+
+@media (max-width:768px){
+
+/* ================= HERO ================= */
+
+.eventos-hero{
+  height:62vh;
+  min-height:460px;
+}
+
+.eventos-hero .hero-content{
+  position:absolute;
+  left:0;
+  right:0;
+  bottom:90px;
+
+  padding:0 6%;
+  max-width:none;
+  text-align:center;
+}
+
+.eventos-hero h1{
+  font-size:clamp(1.8rem,6vw,2.3rem);
+  line-height:1.15;
+}
+
+.eventos-hero p{
+  font-size:.95rem;
+  margin-top:8px;
+  max-width:90%;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.eventos-hero .btn-main{
+  margin-top:18px;
+  padding:12px 22px;
+  font-size:.9rem;
+}
+
+
+/* ================= INTRO ================= */
+
+.eventos-intro-full{
+  padding:70px 6%;
+}
+
+.eventos-intro-full h2{
+  font-size:clamp(1.8rem,5vw,2.1rem);
+}
+
+.eventos-intro-full p{
+  font-size:.95rem;
+}
+
+
+/* ================= HOW ================= */
+
+.eventos-how{
+  padding:70px 6%;
+}
+
+.how-grid{
+  grid-template-columns:1fr;
+  gap:22px;
+  margin-top:36px;
+}
+
+.how-step{
+  padding:26px 20px;
+}
+
+.step-number{
+  font-size:2rem;
+}
+
+
+/* ================= METRICAS ================= */
+
+.eventos-metricas{
+  padding:70px 6%;
+}
+
+.metricas-grid{
+  grid-template-columns:repeat(2,1fr);
+  gap:26px;
+}
+
+.metrica strong{
+  font-size:1.8rem;
+}
+
+.metrica span{
+  font-size:.75rem;
+}
+
+
+/* ================= PACKS ================= */
+
+.eventos-packs{
+  padding:80px 6%;
+}
+
+.eventos-packs h2{
+  font-size:clamp(2rem,5vw,2.3rem);
+}
+
+
+/* ===== SLIDER ===== */
+
+.packs-slider-wrapper{
+  position:relative;
+  overflow:hidden;
+  width:100%;
+}
+
+.packs-grid{
+  display:flex !important;
+  grid-template-columns:none !important;
+  gap:0 !important;
+
+  width:100%;
+  transition:transform .45s ease;
+  margin-top:36px;
+}
+
+
+/* ===== PACK ===== */
+
+.pack{
+  flex:0 0 100%;
+  width:100%;
+  box-sizing:border-box;
+
+  padding:26px 22px;
+}
+
+.pack h3{
+  font-size:1.2rem;
+}
+
+.pack p{
+  font-size:.9rem;
+}
+
+.pack ul{
+  font-size:.9rem;
+}
+
+.pack-price{
+  font-size:1.15rem;
+}
+
+
+/* =========================================================
+   FLECHAS (SOLO MOVIL)
+========================================================= */
+
+.packs-arrow{
+  display:flex;
+
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+
+  width:42px;
+  height:42px;
+
+  background:rgba(0,0,0,.45);
+  color:white;
+
+  border:none;
+  border-radius:50%;
+
+  align-items:center;
+  justify-content:center;
+
+  font-size:1.4rem;
+  cursor:pointer;
+  z-index:10;
+}
+
+.packs-arrow.left{
+  left:10px;
+}
+
+.packs-arrow.right{
+  right:10px;
+}
+
+.packs-arrow:hover{
+  background:var(--green);
+}
+
+
+/* ================= FORM ================= */
+
+.eventos-form{
+  padding:80px 6%;
+}
+
+.form-wrap{
+  grid-template-columns:1fr;
+  gap:36px;
+}
+
+.eventos-form h2{
+  font-size:clamp(1.9rem,5vw,2.2rem);
+}
+
+.form-eventos{
+  padding:26px 22px;
+}
+
+.form-grid{
+  grid-template-columns:1fr;
+  gap:16px;
+}
+
+.form-eventos input,
+.form-eventos select,
+.form-eventos textarea{
+  font-size:.95rem;
+  padding:.9rem 1rem;
+}
+
+.form-eventos textarea{
+  min-height:120px;
+}
+
+.form-eventos button{
+  width:100%;
+  padding:14px 20px;
+  font-size:.95rem;
+}
+
+}

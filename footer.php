@@ -21,17 +21,17 @@
         <?php echo pll__('Noticias'); ?>
       </a>
       <a href="<?php echo get_permalink( get_page_by_path('preguntas-frecuentes') ); ?>">
-      <?php echo pll__('Preguntas frecuentes'); ?>
+        <?php echo pll__('Preguntas frecuentes'); ?>
       </a>
       <a href="<?php echo get_permalink( get_page_by_path('sobre-la-marca') ); ?>">
-      <?php echo pll__('Sobre la marca'); ?>
+        <?php echo pll__('Sobre la marca'); ?>
       </a>
     </div>
 
     <!-- PROFESIONAL -->
     <div class="footer-col">
       <h4><?php echo pll__('Profesional'); ?></h4>
-      <a href="<?php echo get_permalink( get_page_by_path('catalogo') ); ?>">
+      <a href="<?php echo get_permalink( get_page_by_path('contacto') ); ?>">
         <?php echo pll__('Contacto'); ?>
       </a>
       <a href="<?php echo get_permalink( get_page_by_path('catalogo-b2b') ); ?>">
@@ -91,3 +91,10 @@
 </footer>
 
 <?php wp_footer(); ?>
+
+<!-- ================= ORB GLOBAL ================= -->
+
+<?php include get_template_directory() . '/partials/orb.php'; ?>
+
+</body>
+</html>
