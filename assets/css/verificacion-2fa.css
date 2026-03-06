@@ -1,6 +1,3 @@
-/* ============================
-   LAYOUT BASE
-============================ */
 
 html, body {
     height: 100%;
@@ -29,7 +26,6 @@ body::before {
 
 /* ============================
    ESPACIO HEADER
-============================ */
 
 main,
 .site-content,
@@ -45,7 +41,6 @@ main,
 
 /* ============================
    FOOTER ABAJO
-============================ */
 
 footer {
     margin-top: auto;
@@ -56,7 +51,6 @@ footer {
 
 /* ============================
    CENTRAR
-============================ */
 
 body[class*="verificacion-2fa"] main,
 body[class*="verificacion-2fa"] .site-content,
@@ -69,7 +63,6 @@ body[class*="verificacion-2fa"] .content-area {
 
 /* ============================
    TARJETA CLARO
-============================ */
 
 .freesoul-2fa {
     width: 100%;
@@ -89,7 +82,6 @@ body[class*="verificacion-2fa"] .content-area {
 
 /* ============================
    TEXTO INFO 2FA (NUEVO)
-============================ */
 
 .freesoul-2fa .fs-2fa-info {
     margin-bottom: 20px;
@@ -100,7 +92,6 @@ body[class*="verificacion-2fa"] .content-area {
 
 /* ============================
    INPUT
-============================ */
 
 .freesoul-2fa input {
     width: 100%;
@@ -123,7 +114,6 @@ body[class*="verificacion-2fa"] .content-area {
 
 /* ============================
    BOTÓN
-============================ */
 
 .freesoul-2fa button {
     width: 100%;
@@ -143,7 +133,6 @@ body[class*="verificacion-2fa"] .content-area {
 
 /* ============================
    TITULO
-============================ */
 
 .freesoul-2fa h2 {
     margin-bottom: 20px;
@@ -153,7 +142,6 @@ body[class*="verificacion-2fa"] .content-area {
 
 /* ============================
    MODO OSCURO (REAL)
-============================ */
 
 html.dark-mode body .freesoul-2fa {
     background: #202623;
@@ -203,7 +191,204 @@ html.dark-mode body .freesoul-2fa h2 {
 
 /* ============================
    FONDO OSCURO (DARK MODE)
-============================ */
+
+html.dark-mode body::before {
+    background: rgba(0,0,0,0.65);
+/* ============================
+   LAYOUT BASE
+
+html, body {
+    height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    background-image: url("../imagenes/2fa.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* overlay */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.25);
+    z-index: 0;
+}
+
+
+/* ============================
+   ESPACIO HEADER
+
+main,
+.site-content,
+.content-area,
+#primary {
+    flex: 1;
+    padding-top: 260px;
+    padding-bottom: 100px;
+    position: relative;
+    z-index: 1;
+}
+
+
+/* ============================
+   FOOTER ABAJO
+
+footer {
+    margin-top: auto;
+    position: relative;
+    z-index: 1;
+}
+
+
+/* ============================
+   CENTRAR
+
+body[class*="verificacion-2fa"] main,
+body[class*="verificacion-2fa"] .site-content,
+body[class*="verificacion-2fa"] .content-area {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+
+/* ============================
+   TARJETA CLARO
+
+.freesoul-2fa {
+    width: 100%;
+    max-width: 420px;
+    margin: 80px auto 0 auto;
+    padding: 45px 35px;
+
+    background: rgba(255,255,255,0.95);
+    color: #111;
+
+    border-radius: 16px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+
+    text-align: center;
+}
+
+
+/* ============================
+   TEXTO INFO 2FA (NUEVO)
+
+.freesoul-2fa .fs-2fa-info {
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #555;
+}
+
+
+/* ============================
+   INPUT
+
+.freesoul-2fa input {
+    width: 100%;
+    padding: 16px;
+    font-size: 22px;
+    text-align: center;
+    letter-spacing: 6px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin-bottom: 25px;
+
+    background: #fff;
+    color: #111;
+}
+
+.freesoul-2fa input::placeholder {
+    color: #888;
+}
+
+
+/* ============================
+   BOTÓN
+
+.freesoul-2fa button {
+    width: 100%;
+    padding: 16px;
+    background: #5f7d69;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.freesoul-2fa button:hover {
+    background: #4a6555;
+}
+
+
+/* ============================
+   TITULO
+
+.freesoul-2fa h2 {
+    margin-bottom: 20px;
+    color: #111;
+}
+
+
+/* ============================
+   MODO OSCURO (REAL)
+
+html.dark-mode body .freesoul-2fa {
+    background: #202623;
+    color: #f1f3f2;
+    box-shadow: 0 25px 70px rgba(0,0,0,.85);
+}
+
+
+/* TEXTO INFO */
+
+html.dark-mode body .freesoul-2fa .fs-2fa-info {
+    color: #aebbb5;
+}
+
+
+/* INPUT */
+
+html.dark-mode body .freesoul-2fa input {
+    background: #141816;
+    border: 1px solid rgba(95,122,103,.35);
+    color: #fff;
+}
+
+html.dark-mode body .freesoul-2fa input::placeholder {
+    color: #aebbb5;
+}
+
+
+/* BOTÓN */
+
+html.dark-mode body .freesoul-2fa button {
+    background: var(--green);
+    color: #fff;
+}
+
+html.dark-mode body .freesoul-2fa button:hover {
+    background: #486e5d;
+}
+
+
+/* TITULO */
+
+html.dark-mode body .freesoul-2fa h2 {
+    color: #fff;
+}
+
+
+/* ============================
+   FONDO OSCURO (DARK MODE)
 
 html.dark-mode body::before {
     background: rgba(0,0,0,0.65);
