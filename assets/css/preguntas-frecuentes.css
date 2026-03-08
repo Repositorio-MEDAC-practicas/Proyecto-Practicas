@@ -27,7 +27,6 @@
 body {
     background-color: var(--bg-color);
     color: var(--text-color);
-    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -42,8 +41,9 @@ body.page-template-template-preguntas-frecuentes-php {
 /* ==============================
    CABECERA (FIX BARRA NEGRA)
    ============================== */
-.top {
-    background-color: transparent; /* evita la franja negra */
+body.page-template-preguntas-frecuentes .top,
+body.page-template-template-preguntas-frecuentes-php .top {
+    background-color: transparent;
     color: var(--top-text);
     padding: 7rem 1rem;
     text-align: center;
@@ -97,6 +97,7 @@ body.admin-bar .top {
     width: 100%;
     box-sizing: border-box;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    font-size: 1.1rem;
 }
 
 .faq-question::after {
@@ -122,8 +123,9 @@ body.admin-bar .top {
     max-height: 0;
     overflow: hidden;
     opacity: 0;
-    background-color: rgba(255,255,255,0.25);
+    background-color: rgba(66, 66, 66, 0.788);
     transition: max-height 0.8s ease, opacity 0.8s ease;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .faq-answer.open {
@@ -133,7 +135,7 @@ body.admin-bar .top {
 .faq-answer p {
     padding: 0 1rem 1rem;
     margin: 0;
-    color: #333;
+    color: #ffffff;
     padding-top: 4px;
 }
 
@@ -141,27 +143,27 @@ body.admin-bar .top {
    MODO OSCURO (CORREGIDO)
    ============================== */
 /* IMPORTANTE: dark-mode VA EN EL BODY */
-body.dark-mode {
+.dark-mode {
     background-color: #202020;
 }
 
-body.dark-mode .inbox {
+.dark-mode .inbox {
     background-color: #2a2a2a;
 }
 
-body.dark-mode .faq-item {
+.dark-mode .faq-item {
     border-color: #555;
 }
 
-body.dark-mode .faq-question {
+.dark-mode .faq-question {
     background-color: #3b6f5ac5;
 }
 
-body.dark-mode .faq-answer {
+.dark-mode .faq-answer {
     background-color: #4e4e4e;
 }
 
-body.dark-mode .faq-answer p {
+.dark-mode .faq-answer p {
     color: #ffffff;
 }
 .page-title {
@@ -169,24 +171,38 @@ body.dark-mode .faq-answer p {
 }
 
 .faq-question {
-  position: relative; 
-  overflow: hidden;   
+position: relative; 
+overflow: hidden;   
 }
 
 .ripple {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  background: rgba(0, 0, 0, 0.2);
-  border-radius: 50%;
-  transform: scale(0);
-  animation: ripple-animation 0.6s ease-out;
-  pointer-events: none;
+position: absolute;
+width: 20px;
+height: 20px;
+background: rgba(0, 0, 0, 0.2);
+border-radius: 50%;
+transform: scale(0);
+animation: ripple-animation 0.6s ease-out;
+pointer-events: none;
 }
 
 @keyframes ripple-animation {
-  to {
+to {
     transform: scale(15);
     opacity: 0;
-  }
+}
+}
+@media (max-width: 1024px) {
+    .inbox {
+        width: 95%;     /* más ancho en tablet */
+        padding: 1rem;  /* padding estándar */
+    }
+}
+
+@media (max-width: 768px) {
+    .inbox {
+        width: 98%;     /* casi full width en móvil */
+        padding: 0.8rem;
+        margin: 1rem auto; /* reduce margen vertical */
+    }
 }
