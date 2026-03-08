@@ -1,3 +1,118 @@
+
+.contacto::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image: url("../imagenes/contacto.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  z-index: -2;
+}
+
+.contacto::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.6);
+
+  z-index: -1;
+}
+
+/* ============================
+   TEXTO MODO OSCURO
+
+.contacto-hero h1,
+.contacto-info h2 {
+  color: #fff;
+}
+
+.contacto-hero p,
+.contacto-info p,
+.contacto-intro {
+  color: rgba(255,255,255,0.85);
+}
+
+/* ============================
+   FORMULARIO GLASS
+
+.contacto-form {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(12px);
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.15);
+}
+
+/* Inputs oscuros */
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.25);
+}
+
+/* Focus oscuro */
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  background: rgba(255,255,255,0.18);
+  border-color: #fff;
+}
+
+/* Labels oscuros */
+
+.form-group label {
+  background: transparent;
+  color: rgba(255,255,255,0.7);
+}
+
+/* Labels activos */
+
+.form-group input:focus + label,
+.form-group textarea:focus + label,
+.form-group input.active + label,
+.form-group textarea.active + label {
+  color: #fff;
+}
+
+/* Placeholder */
+
+input::placeholder,
+textarea::placeholder {
+  color: rgba(255,255,255,0.6);
+}
+
+/* ============================
+   FIX SELECT (Duda sobre pedido)
+
+/* Estilo del select */
+.form-group select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+
+  cursor: pointer;
+}
+
+/* Opciones del desplegable */
+.form-group select option {
+  background: #ffffff; /* fondo oscuro */
+  color: #000000;         /* texto blanco */
+}
+
+/* Para navegadores que ignoran option */
+.form-group select:focus {
+  color: #fff;
 /* ================= VARIABLES ================= */
 
 :root {
@@ -273,7 +388,6 @@
 
 /* ============================
    FONDO CONTACTO (FIX FOOTER)
-============================ */
 
 .contacto::before {
   content: "";
@@ -300,7 +414,6 @@
 
 /* ============================
    TEXTO MODO OSCURO
-============================ */
 
 .contacto-hero h1,
 .contacto-info h2 {
@@ -315,7 +428,6 @@
 
 /* ============================
    FORMULARIO GLASS
-============================ */
 
 .contacto-form {
   background: rgba(255,255,255,0.08);
@@ -369,7 +481,6 @@ textarea::placeholder {
 
 /* ============================
    FIX SELECT (Duda sobre pedido)
-============================ */
 
 /* Estilo del select */
 .form-group select {

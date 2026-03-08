@@ -1,17 +1,17 @@
 <?php
 /*
-Template Name: Sobre la marca
+Template Name: About the Brand
 */
 get_header();
 ?>
 <section class="descubre-page sobre-la-marca-page">
 
-<!-- ESPUMA DE LA CERVEZA -->
+<!-- BEER FOAM -->
 <div class="beer-foam">
-  <!-- CAPA SUPERIOR -->
+  <!-- TOP LAYER -->
 <svg class="waves espuma" xmlns="http://www.w3.org/2000/svg" viewBox="0 -80 1200 180" preserveAspectRatio="none">
 
-  <!-- ESPUMA -->
+  <!-- FOAM -->
   <path fill="#ffffff" class="espuma" d="M0 50 Q150 70 300 50 T600 50 T900 50 T1200 50 L1200 110 L0 110 Z">
     <animate
       attributeName="d"
@@ -27,7 +27,7 @@ get_header();
       calcMode="spline" />
   </path>
 
-  <!-- CERVEZA -->
+  <!-- BEER -->
   <path fill="#f6c31a" class="cerveza" d="M0 50 Q150 70 300 50 T600 50 T900 50 T1200 50 L1200 110 L0 110 Z">
     <animate
       attributeName="d"
@@ -43,82 +43,66 @@ get_header();
       calcMode="spline" />
   </path>
 </svg>
-  <!-- BURBUJAS (DESPUÉS DE LOS SVG) -->
+  <!-- BUBBLES (AFTER SVG) -->
   <div class="beer-bubbles">
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>    
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>    
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
+    <span></span><span></span><span></span><span></span><span></span>
   </div>
 </div>
 
-  <!-- TÍTULO -->
+  <!-- TITLE -->
   <section class="titulo">
     <div class="privacy-wrap"><div class="privacy-bg"></div>
-      <h1><?php echo pll__('Sobre la marca'); ?></h1><br>
+      <h1><?php echo pll__('About the Brand'); ?></h1><br>
       <p class="lead">
-        <?php echo pll__('Descubre nuestra historia, filosofía y compromiso con las bebidas sin alcohol premium.'); ?>
+        <?php echo pll__('Discover our history, philosophy, and commitment to premium non-alcoholic beverages.'); ?>
       </p>
     </div>
   </section>
 
-  <!-- HISTORIA -->
+  <!-- HISTORY -->
   <section class="privacy-section">
     <div class="privacy-wrap"><div class="privacy-bg"></div>
-      <h2><?php echo pll__('Nuestra historia'); ?></h2><br>
+      <h2><?php echo pll__('Our Story'); ?></h2><br>
 
       <p>
-        <?php echo pll__('Free Soul nace con la idea de redefinir la forma en la que celebramos. Creemos que brindar no depende del alcohol, sino del momento, de la compañía y de la experiencia.'); ?>
+        <?php echo pll__('Free Soul was born with the idea of redefining how we celebrate. We believe that toasting doesn’t depend on alcohol, but on the moment, the company, and the experience.'); ?>
       </p>
 
       <p>
-        <?php echo pll__('Seleccionamos bebidas sin alcohol que mantienen la complejidad, el sabor y la estética de las grandes ocasiones. Nuestro objetivo es ofrecer alternativas premium para quienes quieren disfrutar sin alcohol.'); ?>
+        <?php echo pll__('We select non-alcoholic beverages that maintain the complexity, flavor, and aesthetics of great occasions. Our goal is to offer premium alternatives for those who want to enjoy without alcohol.'); ?>
       </p>
     </div>
   </section>
 
-  <!-- FILOSOFÍA -->
+  <!-- PHILOSOPHY -->
   <section class="privacy-section">
     <div class="privacy-wrap"><div class="privacy-bg"></div>
-      <h2><?php echo pll__('Nuestra filosofía'); ?></h2><br>
+      <h2><?php echo pll__('Our Philosophy'); ?></h2><br>
 
       <p>
-        <?php echo pll__('Elegir no beber alcohol no significa renunciar al ritual. Significa elegir cómo quieres disfrutar cada momento.'); ?>
+        <?php echo pll__('Choosing not to drink alcohol does not mean giving up the ritual. It means choosing how you want to enjoy each moment.'); ?>
       </p>
 
       <p>
-        <?php echo pll__('Apostamos por una cultura de celebración inclusiva, sofisticada y consciente, donde cada persona pueda sentirse parte del momento.'); ?>
+        <?php echo pll__('We promote a culture of inclusive, sophisticated, and mindful celebration, where everyone can feel part of the moment.'); ?>
       </p>
     </div>
   </section>
 
-  <!-- FUTURO -->
+  <!-- FUTURE -->
   <section class="privacy-section">
     <div class="privacy-wrap"><div class="privacy-bg"></div>
-      <h2><?php echo pll__('Mirando al futuro'); ?></h2><br>
+      <h2><?php echo pll__('Looking to the Future'); ?></h2><br>
 
       <p>
-        <?php echo pll__('Seguimos ampliando nuestra selección con nuevas propuestas internacionales y trabajando con hostelería y organizadores de eventos.'); ?>
+        <?php echo pll__('We continue expanding our selection with new international offerings and collaborating with hospitality and event organizers.'); ?>
       </p>
 
       <p>
-        <?php echo pll__('Nuestro compromiso es claro: brindar diferente, sin renunciar a la calidad ni al estilo.'); ?>
+        <?php echo pll__('Our commitment is clear: to toast differently, without compromising quality or style.'); ?>
       </p>
     </div>
   </section>

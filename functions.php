@@ -143,7 +143,7 @@ if ( is_page_template('page-catalogo-b2b.php') ) {
 /* ================= PAGE: SOBRE LA MARCA ================= */
 
 // CSS Sobre la marca
-if ( is_page('sobre-la-marca') ) {
+if ( is_page(['sobre-la-marca','about-the-brand','a-propos-de-la-marque']) ) {
     wp_enqueue_style(
         'sobre-la-marca-css',
         get_template_directory_uri() . '/assets/css/sobre-la-marca.css',
@@ -153,7 +153,7 @@ if ( is_page('sobre-la-marca') ) {
 }
 
 // JS Preguntas Frecuentes
-if ( is_page('sobre-la-marca') ) {
+if ( is_page(['sobre-la-marca','about-the-brand','a-propos-de-la-marque']) ) {
     wp_enqueue_script(
         'sobre-la-marca-js',
         get_template_directory_uri() . '/assets/js/sobre-la-marca.js',
@@ -399,31 +399,6 @@ function freesoul_enqueue_legal_styles() {
 
 }
 add_action('wp_enqueue_scripts', 'freesoul_enqueue_legal_styles');
-
-function freesoul_enqueue_descubre_styles() {
-
-  if (
-    is_page([
-
-      
-      'about-the-brand',
-      'a-propos-de-la-marque',
-
-    ])
-  ) {
-
-    wp_enqueue_style(
-      'freesoul-descubre',
-      get_template_directory_uri() . '/assets/css/descubre.css',
-      ['freesoul-main'],
-      filemtime( get_template_directory() . '/assets/css/descubre.css' )
-    );
-
-  }
-
-}
-
-add_action('wp_enqueue_scripts', 'freesoul_enqueue_descubre_styles');
 
 
 /* ================= EVENTOS FORM ================= */
